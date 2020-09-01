@@ -1,0 +1,54 @@
+﻿<Window x:Class="CameraScan.JoinImgDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xi="clr-namespace:CameraScan" 
+        Title="{DynamicResource lanJoinImgDlgTitle}" Width="445" Height="285" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" Closed="Window_Closed">
+
+    <StackPanel Orientation="Vertical">
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="{DynamicResource lanLabelJoinPages}" Foreground="Black" Margin="5,2,0,2" />
+            <ComboBox Name="PagesCbBox" Margin="0,2,2,2" Width="56" Height="20"  IsReadOnly="True" SelectionChanged="PagesCbBox_SelectionChanged">
+                <ComboBoxItem Content="{DynamicResource lanCBoxItemTwoPages}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource lanCBoxItemThreePages}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource lanCBoxItemFourPages}"></ComboBoxItem>
+            </ComboBox>
+
+            <Label Content="{DynamicResource lanLabelDirection}" Foreground="Black" Margin="20,2,0,2" />
+            <ComboBox Name="DirCbBox" Margin="0,2,2,2" Width="56" Height="20"  IsReadOnly="True" SelectionChanged="DirCbBox_SelectionChanged">
+                <ComboBoxItem Content="{DynamicResource lanCBoxItemVertical}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource lanCBoxItemHorizontal}"></ComboBoxItem>
+            </ComboBox>
+
+            <CheckBox Name="JoinSetCheck" Margin="20,2,2,2"  VerticalAlignment="Center" Checked="JoinSetCheck_Checked" Unchecked="JoinSetCheck_Unchecked" Content="{DynamicResource lanChBSaveJoinSource}"></CheckBox>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Border Width="182" Height="137" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,8,0,0">
+                <Image Name="CardImgA" Width="180" Height="135" MouseDown="CardImgA_MouseDown"></Image>
+            </Border>
+
+            <Image Source="/Images/To.png" Width="50" Height="35" VerticalAlignment="Center" Margin="5,08,5,0"></Image>
+
+            <Border Width="182" Height="137" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,8,0,0">
+                <Image Name="CardImgB" Width="180" Height="135" MouseDown="CardImgB_MouseDown"></Image>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="{DynamicResource lanLabelJoinPhotoPages}" Foreground="Black" Margin="0,5,0,2"  />
+            <Label Name="PageCountLabel" Content="0" Foreground="Black" Margin="0,5,10,2"  />
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+            <xi:ImageButton x:Name="ScanBt"  Content="{DynamicResource lanBtJoinPhoto}" FontSize="14" ImageHeight="0" ImageWidth="0"  Width="75" Height="34" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ScanBt_Click" />
+            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}"  FontSize="14" ImageHeight="0" ImageWidth="0"  Width="54" Height="34" Margin="20,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ExitBt_Click" />
+        </StackPanel>
+
+    </StackPanel>
+    
+    
+    
+</Window>

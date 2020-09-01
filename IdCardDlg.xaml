@@ -1,0 +1,89 @@
+﻿<Window x:Class="CameraScan.IdCardDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xi="clr-namespace:CameraScan" 
+        Title="{DynamicResource lanIDCardDlgTitle}" Width="400" Height="270" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" Closed="Window_Closed">
+
+    <StackPanel Orientation="Vertical">
+
+        <GroupBox Header="{DynamicResource lanGBoxIDCardInfo}" BorderThickness="1" BorderBrush="SlateGray" Margin="5,2,5,2" FontSize="12" Width="330">
+            <StackPanel  Orientation="Vertical" >
+                
+                <StackPanel Orientation="Horizontal">
+                    
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="10,3,0,0">
+                            <Label Content="{DynamicResource lanLabelName}"></Label>
+                            <TextBox Name="NameTextBox" Width="62" Height="20"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                            <Label Content="{DynamicResource lanLabelSex}"></Label>
+                            <TextBox Name="SexTextBox" Width="62" Height="20"></TextBox>
+                            <Label Content="{DynamicResource lanLabelNation}" Margin="20,0,0,0"></Label>
+                            <TextBox Name="NationTextBox" Width="62" Height="20"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                            <Label Content="{DynamicResource lanLabelBorn}"></Label>
+                            <TextBox Name="BornTextBox" Width="110" Height="20"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                            <Label Content="{DynamicResource lanLabelAddress}"></Label>
+                            <TextBox Name="AddressTextBox" Width="185" Height="40" TextWrapping="Wrap"  AcceptsReturn="True" ></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Image Name="CardHeadImg" Width="85" Height="100" VerticalAlignment="Top"></Image>
+                    
+                </StackPanel>
+                         
+                
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Content="{DynamicResource lanLabelCardNum}"></Label>
+                    <TextBox Name="NumTextBox" Width="192" Height="20"></TextBox>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <xi:ImageButton x:Name="SaveInfoBt"  Content="{DynamicResource lanBtSaveModify}"  FontSize="11" ImageHeight="0" ImageWidth="0"  Width="60" Height="23" Margin="2,2,0,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,4" Click="SaveInfoBt_Click" />
+                    <xi:ImageButton x:Name="OpenExcelBt"  Content="{DynamicResource lanBtOpenExcel}"  FontSize="11" ImageHeight="0" ImageWidth="0"  Width="60" Height="23" Margin="18,2,0,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,4" Click="OpenExcelBt_Click" />
+                </StackPanel>
+
+            </StackPanel>
+        </GroupBox>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <xi:ImageButton x:Name="ReadCardBt"  Content="{DynamicResource lanBtReadCard}" FontSize="14" ImageHeight="0" ImageWidth="0"  Width="80" Height="32" Margin="5,3,5,4"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ReadCardBt_Click" />
+            <xi:ImageButton x:Name="CardOcrBt"  Content="{DynamicResource lanBtRecogCard}"  FontSize="14" ImageHeight="0" ImageWidth="0"  Width="80" Height="32" Margin="15,3,5,4"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="CardOcrBt_Click" />
+            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}" FontSize="14" ImageHeight="0" ImageWidth="0"  Width="66" Height="32" Margin="16,3,5,4"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="ExitBt_Click" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Visibility="Collapsed">
+            <StackPanel Orientation="Vertical">
+                <Border Width="122" Height="92" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,5,0,0">
+                    <Image Name="CardImgA" Width="120" Height="90" MouseDown="CardImgA_MouseDown" ></Image>
+                </Border>
+                <Border Width="122" Height="92" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,10,0,0">
+                    <Image Name="CardImgB" Width="120" Height="90" MouseDown="CardImgB_MouseDown"></Image>
+                </Border>
+            </StackPanel>
+
+            <Image Source="/Images/To.png" Width="50" Height="35" VerticalAlignment="Center" Margin="5,0,5,0"></Image>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                <Border Width="132" Height="162" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,5,0,2">
+                    <Image Name="CardImg" Width="130" Height="160" MouseDown="CardImg_MouseDown"></Image>
+                </Border>
+                <xi:ImageButton x:Name="ScanBt"  Content="正面拍摄" FontSize="14" ImageHeight="0" ImageWidth="0"  Width="130" Height="32" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.5" Padding="2,2,2,7" Click="ScanBt_Click" />            
+            </StackPanel>
+        </StackPanel>
+
+        <!--<Line X1="0" Y1="5" X2="430" Y2="5" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,4"></Line>-->
+
+       
+
+    </StackPanel>
+
+    
+    
+</Window>

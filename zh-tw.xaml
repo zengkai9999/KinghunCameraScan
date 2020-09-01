@@ -1,0 +1,206 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--<sys:String x:Key="lanMainFormTitle">高拍儀</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>-->
+    <sys:String x:Key="lanMainFormTitle">科密高拍儀</sys:String>
+    <!--<sys:String x:Key="lanMainFormTitle">維融高拍儀</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">訊派高拍儀</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">久派高拍儀</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">柏菱高拍儀</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">MICROTEK CamScan MIZK</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">巨行高拍儀</sys:String>-->
+
+
+    <sys:String x:Key="lanWisePhoto">智能連拍</sys:String>
+    <sys:String x:Key="lanTimerPhoto">定時連拍</sys:String>
+    <sys:String x:Key="lanCapture">拍攝</sys:String>
+    <sys:String x:Key="lanPhoto">拍攝</sys:String>
+    <sys:String x:Key="lanSet">設置</sys:String>
+    <sys:String x:Key="lanWaterMark">浮水印</sys:String>
+    <sys:String x:Key="lanPrint">打印</sys:String>
+    <sys:String x:Key="lanDocument">拍文檔</sys:String>
+    <sys:String x:Key="lanBarCode">拍條碼</sys:String>
+    <sys:String x:Key="lanS_PDF">PDF</sys:String>
+    <sys:String x:Key="lanM_PDF">多頁PDF</sys:String>
+    <sys:String x:Key="lanImgJoin">圖像合並</sys:String>
+    <sys:String x:Key="lanIdCard">身份證</sys:String>
+    <sys:String x:Key="lanRecord">錄像</sys:String>
+    <sys:String x:Key="lanEdit">編輯</sys:String>
+
+    <sys:String x:Key="lanSavePath">存儲路徑:</sys:String>
+    <sys:String x:Key="lanSeletePath">選擇路徑</sys:String>
+    <sys:String x:Key="lanOpenPath">打開路徑</sys:String>
+
+    <sys:String x:Key="lanMenuOpen">打開</sys:String>
+    <sys:String x:Key="lanMenuDelete">刪除</sys:String>
+    <sys:String x:Key="lanMenuSeleteAll">全選</sys:String>
+    <sys:String x:Key="lanMenuPrintPreview">打印預覽</sys:String>
+    <sys:String x:Key="lanMenuPrintSet">打印設置</sys:String>
+    <sys:String x:Key="lanMenuPrint">打印</sys:String>
+    <sys:String x:Key="lanMenuCopy">複制</sys:String>
+    <sys:String x:Key="lanMenuPDF">合並PDF</sys:String>
+    <sys:String x:Key="lanMenuIncrePDF">按命名後綴順序合並PDF</sys:String>
+    <sys:String x:Key="lanMenuRenam">重命名</sys:String>    
+    <sys:String x:Key="lanMenuPropertie">屬性</sys:String>
+
+    <sys:String x:Key="lanGBoxDevice">設備</sys:String>
+    <sys:String x:Key="lanGBoxPreviewRes">預覽分辨率</sys:String>
+    <sys:String x:Key="lanGBoxStillRes">拍照分辨率</sys:String>
+    <sys:String x:Key="lanGBoxFileType">文件格式</sys:String>
+
+    <sys:String x:Key="lanGBoxColorMod">色彩模式</sys:String>
+    <sys:String x:Key="lanRaBtColor">彩色</sys:String>
+    <sys:String x:Key="lanRaBtGray">灰度</sys:String>
+    <sys:String x:Key="lanRaBtBlackWhite">黑白</sys:String>
+
+    <sys:String x:Key="lanGBoxCutType">裁切方式</sys:String>
+    <sys:String x:Key="lanRaBtNoCut">不裁切</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">自動裁切</sys:String>
+    <sys:String x:Key="lanRaBtManulCut">自定義</sys:String>
+
+    <sys:String x:Key="lanGBoxImgEffect">視頻參數</sys:String>
+    <sys:String x:Key="lanLabelLight">亮度</sys:String>
+    <sys:String x:Key="lanLabelContrast">對比度</sys:String>
+    <sys:String x:Key="lanLabelExp">曝光</sys:String>
+    <sys:String x:Key="lanChBAutoExp">自動曝光</sys:String>
+    <sys:String x:Key="lanBtDefault">默認</sys:String>
+    <sys:String x:Key="lanBtMore">更多</sys:String>
+
+    <sys:String x:Key="lanGBoxImgHadle">影像處理</sys:String>
+    <sys:String x:Key="lanChBDelBlackEdge">去黑邊</sys:String>
+    <sys:String x:Key="lanChBDelBgColor">去底色</sys:String>
+    <sys:String x:Key="lanChBDelShade">銳化</sys:String>
+    <sys:String x:Key="lanChBDelGray">去噪點</sys:String>
+
+    <sys:String x:Key="lanTipOpenAssistCam">開啓副頭</sys:String>
+    <sys:String x:Key="lanTipSetAssistCam">副頭設置</sys:String>
+    <sys:String x:Key="lanAssistDlgTitle">副攝像頭設置</sys:String>
+    <sys:String x:Key="lanChBAssistPhoto">副頭拍照</sys:String>
+    <sys:String x:Key="lanLabelShowSize">畫面大小</sys:String>
+    <sys:String x:Key="lanChBJoinInMain">與主畫面合並</sys:String>
+    <sys:String x:Key="lanLabelJoinPos">合並位置</sys:String>
+    <sys:String x:Key="lanCBoxItemCustom">自由</sys:String>
+    <sys:String x:Key="lanCBoxItemLeftTop">左上</sys:String>
+    <sys:String x:Key="lanCBoxItemRightTop">右上</sys:String>
+    <sys:String x:Key="lanCBoxItemCenter">中間</sys:String>
+    <sys:String x:Key="lanCBoxItemLeftBottom">左下</sys:String>
+    <sys:String x:Key="lanCBoxItemRightBottom">右下</sys:String>
+    <sys:String x:Key="lanLabelAssistRes">分辨率</sys:String>
+    <sys:String x:Key="lanBtAssisProgram">畫質調節</sys:String>
+
+    <sys:String x:Key="lanIDCardDlgTitle">身份證</sys:String>
+    <sys:String x:Key="lanGBoxIDCardInfo">身份證信息</sys:String>
+    <sys:String x:Key="lanLabelName">姓名</sys:String>
+    <sys:String x:Key="lanLabelSex">性別</sys:String>
+    <sys:String x:Key="lanLabelNation">民族</sys:String>
+    <sys:String x:Key="lanLabelBorn">出生</sys:String>
+    <sys:String x:Key="lanLabelAddress">住址</sys:String>
+    <sys:String x:Key="lanLabelCardNum">公民身份號碼</sys:String>
+    <sys:String x:Key="lanBtSaveModify">保存修改</sys:String>
+    <sys:String x:Key="lanBtOpenExcel">打開表格</sys:String>
+    <sys:String x:Key="lanBtReadCard">身份證讀取</sys:String>
+    <sys:String x:Key="lanBtRecogCard">身份證識別</sys:String>
+    <sys:String x:Key="lanBtExit">退 出</sys:String>
+
+    <sys:String x:Key="lanJoinImgDlgTitle">圖像合並</sys:String>
+    <sys:String x:Key="lanLabelJoinPages">合並頁數：</sys:String>
+    <sys:String x:Key="lanCBoxItemTwoPages">兩頁</sys:String>
+    <sys:String x:Key="lanCBoxItemThreePages">三頁</sys:String>
+    <sys:String x:Key="lanCBoxItemFourPages">四頁</sys:String>
+    <sys:String x:Key="lanLabelDirection">方向：</sys:String>
+    <sys:String x:Key="lanCBoxItemVertical">垂直</sys:String>
+    <sys:String x:Key="lanCBoxItemHorizontal">水平</sys:String>
+    <sys:String x:Key="lanChBSaveJoinSource">保存合並源圖像</sys:String>
+    <sys:String x:Key="lanLabelJoinPhotoPages">合並拍攝頁數：</sys:String>
+    <sys:String x:Key="lanBtJoinPhoto">合並拍攝</sys:String>
+
+    <sys:String x:Key="lanMarkDlgTitle">浮水印</sys:String>
+    <sys:String x:Key="lanChBAddTheMark">添加水印</sys:String>
+    <sys:String x:Key="lanLabelMarkType">水印類型</sys:String>
+    <sys:String x:Key="lanCBoxItemText">文字</sys:String>
+    <sys:String x:Key="lanCBoxItemImage">圖片</sys:String>
+    <sys:String x:Key="lanChBAddTimeMark">添加時間水印</sys:String>
+    <sys:String x:Key="lanLabelTextContent">文字內容</sys:String>
+    <sys:String x:Key="lanLabelMarkSize">水印大小</sys:String>
+    <sys:String x:Key="lanLabelMarkFont">水印字體</sys:String>
+    <sys:String x:Key="lanLabelMarkTran">透 明 度</sys:String>
+    <sys:String x:Key="lanLabelFontType">字體樣式</sys:String>
+    <sys:String x:Key="lanCBoxItemGeneral">普通</sys:String>
+    <sys:String x:Key="lanCBoxItemBold">加粗</sys:String>
+    <sys:String x:Key="lanCBoxItemTilt">傾斜</sys:String>
+    <sys:String x:Key="lanCBoxItemBoldtilt">加粗傾斜</sys:String>
+    <sys:String x:Key="lanCBoxItemUnderline">下劃線</sys:String>
+    <sys:String x:Key="lanLabelXOffest">水平偏移</sys:String>
+    <sys:String x:Key="lanLabelYOffest">垂直偏移</sys:String>
+    <sys:String x:Key="lanLabelMarkColor">水印顔色</sys:String>
+    <sys:String x:Key="lanCBoxItemRed">紅色</sys:String>
+    <sys:String x:Key="lanCBoxItemGreen">綠色</sys:String>
+    <sys:String x:Key="lanCBoxItemBlue">藍色</sys:String>
+    <sys:String x:Key="lanCBoxItemCyan">青色</sys:String>
+    <sys:String x:Key="lanCBoxItemOrange">橙色</sys:String>
+    <sys:String x:Key="lanCBoxItemYellow">黃色</sys:String>
+    <sys:String x:Key="lanCBoxItemBlack">黑色</sys:String>
+    <sys:String x:Key="lanCBoxItemWhite">白色</sys:String>
+    <sys:String x:Key="lanLabelMarkImgPath">圖片路徑</sys:String>
+    <sys:String x:Key="lanLabelMarkImgSize">大小</sys:String>
+    <sys:String x:Key="lanBtMarkOK">應 用</sys:String>
+
+    <sys:String x:Key="lanMorePdfDlgTitle">多頁PDF拍攝</sys:String>
+    <sys:String x:Key="lanChBSavePdfSource">保存PDF源圖像</sys:String>
+    <sys:String x:Key="lanLabelPdfPages">PDF添加頁數：</sys:String>
+    <sys:String x:Key="lanBtPdfPhoto">添加PDF頁面</sys:String>
+    <sys:String x:Key="lanBtPdfFinish">完成PDF拍攝</sys:String>
+
+    <sys:String x:Key="lanRecordDlgTitle">RecordDlg</sys:String>
+    <sys:String x:Key="lanLabelRECSource">來源</sys:String>
+    <sys:String x:Key="lanLabelCBoxItemCamera">攝像頭</sys:String>
+    <sys:String x:Key="lanLabelCBoxItemScreen">屏幕</sys:String>
+    <sys:String x:Key="lanLabelRECFormat">格式</sys:String>
+    <sys:String x:Key="lanLabelRECFps">幀率</sys:String>
+
+    <sys:String x:Key="lanRenameDlgTitle">重命名</sys:String>
+    <sys:String x:Key="lanLabelInputName">輸入新名字</sys:String>
+    <sys:String x:Key="lanLabelInFileName">文件名:</sys:String>
+    <sys:String x:Key="lanBtOK">確 定</sys:String>
+
+    <sys:String x:Key="lanSetDlgTitle">設置</sys:String>
+    <sys:String x:Key="lanGBoxNameType">命名方式</sys:String>
+    <sys:String x:Key="lanRaBNameTime">以時間命名</sys:String>
+    <sys:String x:Key="lanRaBNameCode">以條碼命名</sys:String>
+    <sys:String x:Key="lanRaBNameQr">以二維碼命名</sys:String>
+    <sys:String x:Key="lanRaBNameFolder">以日期文件夾命名</sys:String>
+    <sys:String x:Key="lanRaBNameDIY">自定義</sys:String>
+    <sys:String x:Key="lanRaBNameFixed">固定命名</sys:String>
+    <sys:String x:Key="lanLabelPrefix">前綴：</sys:String>
+    <sys:String x:Key="lanChBStepText">步進以2遞增</sys:String>
+    <sys:String x:Key="lanGBoxJPGquality">JPG質量</sys:String>
+    <sys:String x:Key="lanGBoxOtherConfig">其他配置</sys:String>
+    <sys:String x:Key="lanLabelPrintMod">打印模式:</sys:String>
+    <sys:String x:Key="lanRaBAdjust">自適應</sys:String>
+    <sys:String x:Key="lanRaBBestPrint">1 : 1打印</sys:String>
+    <sys:String x:Key="lanChBSound">拍照聲音</sys:String>
+    <sys:String x:Key="lanLabelLanguage">語言</sys:String>
+    <sys:String x:Key="lanCBoxItemCn">中文</sys:String>
+    <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
+    <sys:String x:Key="lanCBoxItemEn">English</sys:String>
+    <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
+    <sys:String x:Key="lanRaBDPIdefault">默認</sys:String>
+    <sys:String x:Key="lanRaBDPIdiy">自定義</sys:String>
+
+    <sys:String x:Key="lanTimerDlgTitle">定時拍照</sys:String>
+    <sys:String x:Key="lanLabelInterval">定時間隔：</sys:String>
+    <sys:String x:Key="lanLabelTimerPages">已拍張數：</sys:String>
+    <sys:String x:Key="lanBtStart">開始</sys:String>
+
+    <sys:String x:Key="lanWiseDlgTitle">智能連拍</sys:String>
+    <sys:String x:Key="lanLabelWiseStatus">檢測狀態：</sys:String>
+    <sys:String x:Key="lanLabelWiseStatusT">未開始</sys:String>
+    <sys:String x:Key="lanLabelWisePages">已拍張數：</sys:String>
+    <sys:String x:Key="lanChBMordPdf">多頁PDF</sys:String>
+    <sys:String x:Key="lanLabelWiseTips">* 在開始智能連拍前，請不要把拍攝物放於拍攝範圍內</sys:String>
+
+    <sys:String x:Key="lanTBCaptureStatus">正在拍攝...</sys:String>
+
+</ResourceDictionary>

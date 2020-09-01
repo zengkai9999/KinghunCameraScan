@@ -1,0 +1,28 @@
+﻿<Window x:Class="CameraScan.MorePdfDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xi="clr-namespace:CameraScan"
+        Title="{DynamicResource lanMorePdfDlgTitle}" Height="280" Width="300" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" Closed="Window_Closed">
+
+    <StackPanel Orientation="Vertical">
+
+        <CheckBox Name="PdfSetCheck" Margin="0,3,0,3"  HorizontalAlignment="Center" Checked="PdfSetCheck_Checked" Unchecked="PdfSetCheck_Unchecked" Content="{DynamicResource lanChBSavePdfSource}"></CheckBox>
+
+        <Border Width="202" Height="152" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,3,0,0">
+            <Image Name="PdfImg" Width="200" Height="150" ></Image>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Content="{DynamicResource lanLabelPdfPages}" Foreground="Black" Margin="0,5,0,2"  />
+            <Label Name="PageCountLabel" Content="0" Foreground="Black" Margin="0,5,10,2"  />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <xi:ImageButton x:Name="StartPdfBt"  Content="{DynamicResource lanBtPdfPhoto}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="80" Height="34" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="StartPdfBt_Click" />
+            <xi:ImageButton x:Name="EndPdfBt"  Content="{DynamicResource lanBtPdfFinish}"  FontSize="12" ImageHeight="0" ImageWidth="0"  Width="80" Height="34" Margin="15,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="EndPdfBt_Click" />
+            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}"  FontSize="12" ImageHeight="0" ImageWidth="0"  Width="50" Height="34" Margin="15,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ExitBt_Click" />
+        </StackPanel>
+
+    </StackPanel>
+
+</Window>

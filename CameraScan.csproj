@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{413978C3-EAC9-4A2A-8749-148807DA7FC4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CameraScan</RootNamespace>
+    <AssemblyName>CameraScan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>kemi.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RisCaptureLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\RisCaptureLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.5.20, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=3.4.18.3020, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssistSetDlg.xaml.cs">
+      <DependentUpon>AssistSetDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="CSVHelper.cs" />
+    <Compile Include="FilePropertie.cs" />
+    <Compile Include="FixedNameDlg.xaml.cs">
+      <DependentUpon>FixedNameDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IdCardDlg.xaml.cs">
+      <DependentUpon>IdCardDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JoinImgDlg.xaml.cs">
+      <DependentUpon>JoinImgDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MarkDlg.xaml.cs">
+      <DependentUpon>MarkDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MorePdfDlg.xaml.cs">
+      <DependentUpon>MorePdfDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QRDlg.xaml.cs">
+      <DependentUpon>QRDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecordDlg.xaml.cs">
+      <DependentUpon>RecordDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReNameDlg.xaml.cs">
+      <DependentUpon>ReNameDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimerDlg.xaml.cs">
+      <DependentUpon>TimerDlg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitDialog.xaml.cs">
+      <DependentUpon>WaitDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WiseDlg.xaml.cs">
+      <DependentUpon>WiseDlg.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AssistSetDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="en-us.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FixedNameDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IdCardDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JoinImgDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MarkDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MorePdfDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QRDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RecordDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReNameDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimerDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WiseDlg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zh-cn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zh-tw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="global.cs" />
+    <Compile Include="ImageButton .cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OnlyImageBt.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scan.png" />
+    <Resource Include="Images\右旋转.png" />
+    <Resource Include="Images\左旋转.png" />
+    <Resource Include="Images\缩小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\全屏.png" />
+    <Resource Include="Images\实际像素.png" />
+    <Resource Include="Images\放大.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\适合大小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BarCode.png" />
+    <Resource Include="Images\BestSize.png" />
+    <Resource Include="Images\Focus.png" />
+    <Resource Include="Images\IdCard.png" />
+    <Resource Include="Images\ImgJoin.png" />
+    <Resource Include="Images\Mark.png" />
+    <Resource Include="Images\Pdf.png" />
+    <Resource Include="Images\PdfMore.png" />
+    <Resource Include="Images\Photo.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\RotateL.png" />
+    <Resource Include="Images\RotateR.png" />
+    <Resource Include="Images\Set.png" />
+    <Resource Include="Images\Shoot.png" />
+    <Resource Include="Images\TimePhoto.png" />
+    <Resource Include="Images\TrueSize.png" />
+    <Resource Include="Images\WisePhoto.png" />
+    <Resource Include="Images\ZoomIn.png" />
+    <Resource Include="Images\ZoomOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ExitA.png" />
+    <Resource Include="Images\Start.png" />
+    <Resource Include="Images\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\To.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\kemi.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="kemi.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gpy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gpy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gpytitle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pdfa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pdfb.png" />
+    <Resource Include="Images\pdfc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Assist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AssistSet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\维融.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="维融.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Record.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Move.png" />
+    <Resource Include="Images\Recording.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XunPai.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\XunPai.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FullScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ExitFScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PdfLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\KUPAR.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="KUPAR.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bolon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bolon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OCR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\中晶.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="中晶.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\kinghun.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="kinghun.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\巨形.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="巨形.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,108 @@
+﻿<Window x:Class="CameraScan.MarkDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:xi="clr-namespace:CameraScan" 
+        Title="{DynamicResource lanMarkDlgTitle}" Width="432" Height="278" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" Closed="Window_Closed">
+    <StackPanel Orientation="Vertical">
+
+        <CheckBox Name="AddMarkCheck" VerticalAlignment="Center" Margin="15,8,0,0"  FontSize="13" Checked="AddMarkCheck_Checked" Unchecked="AddMarkCheck_Unchecked" Content="{DynamicResource lanChBAddTheMark}"></CheckBox>
+        <Line X1="0" Y1="5" X2="430" Y2="5" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,4"></Line>
+        <StackPanel Orientation="Horizontal" Margin="2,2,2,2">
+            <Label Content="{DynamicResource lanLabelMarkType}" Margin="80,0,0,0"></Label>
+            <ComboBox Name="MarkTypeCbBox" Margin="0,2,2,2" Width="65" Height="20"  IsReadOnly="True" SelectionChanged="MarkTypeCbBox_SelectionChanged">
+                <ComboBoxItem Content="{DynamicResource lanCBoxItemText}"></ComboBoxItem>
+                <ComboBoxItem Content="{DynamicResource lanCBoxItemImage}"></ComboBoxItem>
+            </ComboBox>
+            <CheckBox Name="AddTimeMarkCheck" VerticalAlignment="Center" Margin="30,0,0,0" Checked="AddTimeMarkCheck_Checked" Unchecked="AddTimeMarkCheck_Unchecked" Content="{DynamicResource lanChBAddTimeMark}"></CheckBox>           
+        </StackPanel>
+
+        <Line X1="0" Y1="5" X2="430" Y2="5" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,8"></Line>
+
+        
+        
+        <StackPanel Orientation="Vertical" Name="textMarkLayout">
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanLabelTextContent}" Margin="2,2,2,2"></Label>
+                <TextBox Name="txtMarkContent" Width="200" Margin="0,2,2,2"></TextBox>
+                <Label Content="{DynamicResource lanLabelMarkSize}" Margin="20,2,2,2"></Label>
+                <ComboBox Name="textMarkSize" Margin="0,2,2,2" Width="65" Height="20"  IsReadOnly="True" SelectionChanged="textMarkSize_SelectionChanged">
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanLabelMarkFont}" Margin="2,2,2,2"></Label>
+                <ComboBox Name="textMarkFont" Margin="0,2,2,2" Width="75" Height="20"  IsReadOnly="True" SelectionChanged="textMarkFont_SelectionChanged">
+                </ComboBox>
+                <Label Content="{DynamicResource lanLabelMarkTran}" Margin="16,2,2,2"></Label>
+                <Slider Name="textMarkTrans" Width="165" Margin="2,2,2,2" VerticalAlignment="Center" Minimum="1" Maximum="255" Value="255" ValueChanged="textMarkTrans_ValueChanged" />
+                <Label Name="textTransLabel" Content="100%" Margin="2,2,2,2"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanLabelFontType}" Margin="2,2,2,2"></Label>
+                <ComboBox Name="textMarkFtype" Margin="0,2,2,2" Width="75" Height="20"  IsReadOnly="True" SelectionChanged="textMarkFtype_SelectionChanged">
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemGeneral}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemBold}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemTilt}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemBoldtilt}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemUnderline}"></ComboBoxItem>
+                </ComboBox>
+                <Label Content="{DynamicResource lanLabelXOffest}" Margin="12,2,2,2"></Label>
+                <Slider Name="textMarkXpos" Width="165" Margin="2,2,2,2" VerticalAlignment="Center" Minimum="0" Maximum="100" Value="100" ValueChanged="textMarkXpos_ValueChanged" />
+                <Label Name="textXposLabel" Content="100%" Margin="2,2,2,2"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanLabelMarkColor}" Margin="2,2,2,2"></Label>
+                <ComboBox Name="textMarkColor" Margin="0,2,2,2" Width="75" Height="20"  IsReadOnly="True" SelectionChanged="textMarkColor_SelectionChanged">
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemRed}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemGreen}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemBlue}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemCyan}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemOrange}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemYellow}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemBlack}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanCBoxItemWhite}"></ComboBoxItem>
+                </ComboBox>
+                <Label Content="{DynamicResource lanLabelYOffest}" Margin="12,2,2,2"></Label>
+                <Slider Name="textMarkYpos" Width="165" Margin="2,2,2,2" VerticalAlignment="Center" Minimum="0" Maximum="100" Value="100" ValueChanged="textMarkYpos_ValueChanged" />
+                <Label Name="textYposLabel" Content="100%" Margin="2,2,2,2"></Label>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Name="imgMarkLayout">
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanLabelMarkImgPath}" Margin="8,2,2,2"></Label>
+                <TextBox Name="imgMarkPath" Width="200" Margin="4,2,2,2" IsReadOnly="True"></TextBox>
+                <Button Content=" ... " Margin="0,3,0,3" Click="Button_Click"></Button>
+                <Label Content="{DynamicResource lanLabelMarkImgSize}" Margin="10,2,2,2"></Label>
+                <ComboBox Name="imgMarkSize" Margin="0,2,2,2" Width="55" Height="20"  IsReadOnly="True" SelectionChanged="imgMarkSize_SelectionChanged">
+                    <ComboBoxItem>0.3</ComboBoxItem>
+                    <ComboBoxItem>0.5</ComboBoxItem>
+                    <ComboBoxItem>1.0</ComboBoxItem>
+                    <ComboBoxItem>1.5</ComboBoxItem>
+                    <ComboBoxItem>2.0</ComboBoxItem>
+                    <ComboBoxItem>3.0</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0"  Visibility="Collapsed">
+                <Label Content="{DynamicResource lanLabelMarkTran}" Margin="10,2,2,2"></Label>
+                <Slider Name="imgMarkTrans" Width="230" Margin="2,2,2,2" VerticalAlignment="Center" Minimum="1" Maximum="255" Value="255" ValueChanged="imgMarkTrans_ValueChanged" />
+                <Label Name="imgTransLabel" Content="100%" Margin="2,2,2,2"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanLabelXOffest}" Margin="8,2,2,2"></Label>
+                <Slider Name="imgMarkXpos" Width="230" Margin="2,2,2,2" VerticalAlignment="Center" Minimum="0" Maximum="100" Value="100" ValueChanged="imgMarkXpos_ValueChanged" />
+                <Label Name="imgXposLabel" Content="100%" Margin="2,2,2,2"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanLabelYOffest}" Margin="8,2,2,2"></Label>
+                <Slider Name="imgMarkYpos" Width="230" Margin="2,2,2,2" VerticalAlignment="Center" Minimum="0" Maximum="100" Value="100" ValueChanged="imgMarkYpos_ValueChanged" />
+                <Label Name="imgYposLabel" Content="100%" Margin="2,2,2,2"></Label>
+            </StackPanel>       
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+            <xi:ImageButton x:Name="OkBt"  Content="{DynamicResource lanBtMarkOK}" FontSize="13" ImageHeight="0" ImageWidth="0"  Width="52" Height="32" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="OkBt_Click" MouseDown="OkBt_MouseDown" />
+            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}"  FontSize="13" ImageHeight="0" ImageWidth="0"  Width="52" Height="32" Margin="20,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="ExitBt_Click" />
+        </StackPanel>
+
+    </StackPanel>
+</Window>

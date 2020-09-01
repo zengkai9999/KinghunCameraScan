@@ -1,0 +1,8 @@
+﻿<Window x:Class="CameraScan.QRDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="QRDlg" Height="570" Width="459" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
+    <Grid>
+        <ListBox Height="519" HorizontalAlignment="Left" Margin="12,0,0,0" Name="listBox1" VerticalAlignment="Top" Width="413" />
+    </Grid>
+</Window>

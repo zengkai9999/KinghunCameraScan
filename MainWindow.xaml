@@ -1,0 +1,308 @@
+﻿<Window x:Class="CameraScan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource lanMainFormTitle}" Height="800" Width="1200" MinWidth="960" MinHeight="640"
+        xmlns:xi="clr-namespace:CameraScan" 
+        xmlns:markctl="clr-namespace:RisCaptureLib;assembly=RisCaptureLib"  
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/Images/kemi.ico" PreviewKeyDown="Window_PreviewKeyDown" >
+
+    <!-- *******************************************************************模板资源文件******************************************************************* -->
+    <Window.Resources>
+
+        <!--<ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="en-us.xaml"/>
+                <ResourceDictionary Source="zh-cn.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+
+    </Window.Resources>
+
+    <!--Style="{StaticResource ComboBoxStyle}"-->
+
+
+    <!-- *******************************************************************整体布局******************************************************************* -->
+
+    <DockPanel LastChildFill="True" Background="#FF708090">
+
+
+        <Grid DockPanel.Dock="Bottom" Background="White" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <WrapPanel Name="FunctionBtsA" Grid.Row="0" Grid.Column="1" Background="White">
+                <xi:ImageButton x:Name="WiseCaptureBt" Image="/Images/WisePhoto.png" Content="{DynamicResource lanWisePhoto}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,6,8,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="WiseCaptureBt_Click" />
+                <xi:ImageButton x:Name="TimeCaptureBt" Image="/Images/TimePhoto.png" Content="{DynamicResource lanTimerPhoto}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,6,8,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="TimeCaptureBt_Click" />
+                <xi:ImageButton x:Name="CaptureBt"  Image="/Images/Shoot.png" Content="{DynamicResource lanCapture}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,6,8,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureBt_Click" />
+                <xi:ImageButton x:Name="CaptureStillBt"  Image="/Images/Photo.png" Content="{DynamicResource lanPhoto}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,0,25,0" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureStillBt_Click" Visibility="Collapsed"/>
+            </WrapPanel>
+
+
+            <WrapPanel Name="FunctionBtsB"  Grid.Row="0" Grid.Column="0"  Background="White" Margin="70,0,0,0">
+                <xi:ImageButton x:Name="SetBt" Image="/Images/Set.png" Content="{DynamicResource lanSet}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SetBt_Click" />
+                <xi:ImageButton x:Name="MarkBt" Image="/Images/Mark.png" Content="{DynamicResource lanWaterMark}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MarkBt_Click" />
+                <xi:ImageButton x:Name="PrintBt" Image="/Images/Print.png" Content="{DynamicResource lanPrint}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="PrintBt_Click" />
+                <xi:ImageButton x:Name="DocumentBt" Image="/Images/Document.png" Content="{DynamicResource lanDocument}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="DocumentBt_Click" />
+                <xi:ImageButton x:Name="BarCodeBt" Image="/Images/BarCode.png" Content="{DynamicResource lanBarCode}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="BarCodeBt_Click" />
+                <xi:ImageButton x:Name="SinglePdfBt" Image="/Images/Pdf.png" Content="{DynamicResource lanS_PDF}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,5,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SinglePdfBt_Click" />
+                <xi:ImageButton x:Name="MorePdfBt" Image="/Images/PdfMore.png" Content="{DynamicResource lanM_PDF}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MorePdfBt_Click" />
+                <xi:ImageButton x:Name="JoinImgBt" Image="/Images/ImgJoin.png" Content="{DynamicResource lanImgJoin}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="JoinImgBt_Click" />
+                <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" />
+                <xi:ImageButton x:Name="RecordBt" Image="/Images/Record.png" Content="{DynamicResource lanRecord}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="RecordBt_Click" />
+                <!--<xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" />-->
+                <xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />
+            </WrapPanel>
+
+            <WrapPanel Name="PanelToolBtB" Grid.Row="1" Grid.ColumnSpan="2"  Background="White" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                <Border  BorderThickness="0.2" BorderBrush="#FF3B3A38" Width="56" Height="42" Margin="2,1,30,1">
+                    <Image Name="PhotoPreivew" Stretch="Uniform" MouseDown="PhotoPreivew_MouseDown" />
+                </Border>
+                <xi:OnlyImageBt x:Name="F_ExitFScreenBt" ImageHeight="30" ImageWidth="30" Image="/Images/ExitFScreen.png"  Margin="2,2,2,2" Click="F_ExitFScreenBt_Click" />
+                <xi:OnlyImageBt x:Name="F_RotateLBt" ImageHeight="30" ImageWidth="30" Image="/Images/RotateL.png"  Margin="2,2,2,2"  Click="RotateLBt_Click" />
+                <xi:OnlyImageBt x:Name="F_RotateRBt" ImageHeight="30" ImageWidth="30" Image="/Images/RotateR.png"  Margin="2,2,2,2" Click="RotateRBt_Click" />
+                <xi:OnlyImageBt x:Name="F_ZoomInBt" ImageHeight="30" ImageWidth="30" Image="/Images/ZoomIn.png"  Margin="2,2,2,2" Click="ZoomInBt_Click" />
+                <xi:OnlyImageBt x:Name="F_ZoomOutBt" ImageHeight="30" ImageWidth="30" Image="/Images/ZoomOut.png"  Margin="2,2,2,2" Click="ZoomOutBt_Click" />
+                <xi:OnlyImageBt x:Name="F_TrueSizeBt" ImageHeight="30" ImageWidth="30" Image="/Images/TrueSize.png"  Margin="2,2,2,2" Click="TrueSizeBt_Click" />
+                <xi:OnlyImageBt x:Name="F_BestSizeBt" ImageHeight="30" ImageWidth="30" Image="/Images/BestSize.png"  Margin="2,2,2,2" Click="BestSizeBt_Click" />
+                <xi:OnlyImageBt x:Name="F_FocusBt" ImageHeight="30" ImageWidth="30" Image="/Images/Focus.png"  Margin="2,2,2,2" Click="FocusBt_Click" />
+                <xi:OnlyImageBt x:Name="F_PhotoBt" ImageHeight="35" ImageWidth="35" Image="/Images/Photo.png"  Margin="12,2,2,2" Click="F_PhotoBt_Click" />
+            </WrapPanel>
+
+        </Grid>
+
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>文件保存路径设置<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+        <Grid Name="PanelTop" DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <StackPanel  Background="{x:Null}" Orientation="Horizontal" >
+                <Label Content="{DynamicResource lanSavePath}" Foreground="White" Margin="5,4,0,4"/>
+                <TextBox Name="ImgFolderTexBox" Width="792" IsReadOnly="True" Background="#FFB0C0D0" Margin="0,4,0,4"/>
+                <Button Name="SelectFolderBt" Content="{DynamicResource lanSeletePath}" Margin="2,4,0,4" Click="SelectFolderBt_Click" />
+                <Button Name="OpenFolderBt" Content="{DynamicResource lanOpenPath}" Margin="2,4,0,4" Click="OpenFolderBt_Click" />
+            </StackPanel>
+        </Grid>
+        
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>拍照缩略图预览<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+        <ListBox Name="PreviewImgList" DockPanel.Dock="Left" Width="155" Background="#FFFFFFFF" Margin="1,1,2,1"  HorizontalAlignment="Center" SelectionMode="Extended" MouseDoubleClick="PreviewImgList_MouseDoubleClick" >
+
+            <ListBox.ContextMenu>
+                <ContextMenu >
+                    <MenuItem Name="MI_Open"    Header="{DynamicResource lanMenuOpen}"  Click="MenuItemOpen_Click" />
+                    <MenuItem Name="MI_Delete"    Header="{DynamicResource lanMenuDelete}" Click="MenuItemDelete_Click"  />
+                    <MenuItem Name="MI_SeleteAll" Header="{DynamicResource lanMenuSeleteAll}" Click="MenuItemSeleteAll_Click" InputGestureText="Ctrl+A"  />
+                    <MenuItem Name="MI_PrintPreview" Header="{DynamicResource lanMenuPrintPreview}" Click="MenuItemPrintPreview_Click"  />
+                    <MenuItem Name="MI_PrintSet" Header="{DynamicResource lanMenuPrintSet}" Click="MenuItemPrintSet_Click"  />
+                    <MenuItem Name="MI_Print" Header="{DynamicResource lanMenuPrint}" Click="MenuItemPrint_Click"  />
+                    <MenuItem Name="MI_Copy"  Header="{DynamicResource lanMenuCopy}" Click="MenuItemCopy_Click" />
+                    <MenuItem Name="MI_PDF"  Header="{DynamicResource lanMenuPDF}" Click="MenuItemPDF_Click" />
+                    <MenuItem Name="MI_IncrePDF"  Header="{DynamicResource lanMenuIncrePDF}" Click="MenuItemIncrePDF_Click" />
+                    <MenuItem Name="MI_Rename"  Header="{DynamicResource lanMenuRenam}" Click="MenuItemRename_Click" />
+                    <MenuItem Name="MI_Propertie" Header="{DynamicResource lanMenuPropertie}" Click="MenuItemPropertie_Click"  />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+
+
+            <!--<ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                    <EventSetter Event="MouseRightButtonUp" Handler="ListBoxItem_MouseRightButtonUp"/>
+                </Style>
+            </ListBox.ItemContainerStyle>-->
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>             
+                    <Grid HorizontalAlignment="Center" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="auto" />
+                            <RowDefinition  Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Border  Grid.Row="0" BorderBrush="#D0D0D0" BorderThickness="1" Margin="5,2,5,0">
+                            <Grid  Grid.Row="0">                                
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  Height="auto" />
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Width="120" Height="90" Source="{Binding SourceImage}" Margin="2,2,2,2">
+                                </Image>
+                                <Image Grid.Row="0" Width="32" Height="32" Source="{Binding LogoImage}" Margin="2,2,2,2" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                </Image>                                
+                            </Grid>                       
+                        </Border>
+                        <TextBlock Grid.Row="1" Text="{Binding ImageName}"  HorizontalAlignment="Center" Margin="2,0,2,5" Width="150"  TextAlignment="Center"  TextWrapping="Wrap" />
+                        
+                    </Grid>                                      
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>右侧参数面板<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+        <ScrollViewer  Name="PanelRight" DockPanel.Dock="Right"  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="1,2,2,2">
+            <StackPanel  Width="200" Background="White">
+
+                <GroupBox Header="{DynamicResource lanGBoxDevice}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,3,3,2" FontSize="13">
+                    <ComboBox Name="DevNameCbBox"   Margin="2,2,2,2" Height="24"  IsReadOnly="True" SelectionChanged="DevNameCbBox_SelectionChanged" >               
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Name="PreResGroupBox" Header="{DynamicResource lanGBoxPreviewRes}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <ComboBox Name="PreResCbBox"  Margin="2,2,2,2" Height="24"  IsReadOnly="True" SelectionChanged="PreResCbBox_SelectionChanged">
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Name="StillResGroupBox" Header="{DynamicResource lanGBoxStillRes}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <ComboBox Name="StillResCbBox" Margin="2,2,2,2" Height="24"  IsReadOnly="True" SelectionChanged="StillResCbBox_SelectionChanged">
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Header="{DynamicResource lanGBoxFileType}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <ComboBox Name="FileFormatCbBox" Margin="2,2,2,2" Height="24"  IsReadOnly="True" SelectionChanged="FileFormatCbBox_SelectionChanged">
+                        <ComboBoxItem>JPG</ComboBoxItem>
+                        <ComboBoxItem>BMP</ComboBoxItem>
+                        <ComboBoxItem>PNG</ComboBoxItem>
+                        <ComboBoxItem>TIF</ComboBoxItem>
+                        <ComboBoxItem>PDF</ComboBoxItem>
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Header="{DynamicResource lanGBoxColorMod}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <StackPanel  Orientation="Horizontal" >
+                        <RadioButton Name="RdBtColor" Margin="8,5,0,5" Checked="RdBtColor_Checked" Content="{DynamicResource lanRaBtColor}"></RadioButton>
+                        <RadioButton Name="RdBtGray" Margin="12,5,0,5" Checked="RdBtGray_Checked" Content="{DynamicResource lanRaBtGray}"></RadioButton>
+                        <RadioButton Name="RdBtBlackWhite" Margin="12,5,5,5" Checked="RdBtBlackWhite_Checked"  Content="{DynamicResource lanRaBtBlackWhite}"></RadioButton>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="{DynamicResource lanGBoxCutType}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <WrapPanel  Orientation="Horizontal" >
+                        <RadioButton Name="RdBtNoCut" Margin="8,5,0,0" Checked="RdBtNoCut_Checked" Content="{DynamicResource lanRaBtNoCut}"></RadioButton>
+                        <RadioButton Name="RdBtAutoCut" Margin="8,5,0,0" Checked="RdBtAutoCut_Checked" Content="{DynamicResource lanRaBtAutoCut}"></RadioButton>
+                        <RadioButton Name="RdBtManulCut" Margin="8,5,0,5" Checked="RdBtManulCut_Checked" Content="{DynamicResource lanRaBtManulCut}"></RadioButton>
+                    </WrapPanel>
+                </GroupBox>
+
+
+                <GroupBox Header="{DynamicResource lanGBoxImgEffect}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <StackPanel  Orientation="Vertical" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{DynamicResource lanLabelLight}"/>
+                            <Label Grid.Column="1" Content="0" Name="LableBright"/>
+                        </Grid>
+                        <Slider  Name="SliderBright" ValueChanged="SliderBright_ValueChanged" />
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{DynamicResource lanLabelContrast}"/>
+                            <Label Grid.Column="1" Content="0" Name="LableContrast"/>
+                        </Grid>
+                        <Slider Name="SliderContrast" ValueChanged="SliderContrast_ValueChanged" />
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{DynamicResource lanLabelExp}"/>
+                            <Label Grid.Column="1" Content="0" Name="LableExp"/>
+                        </Grid>
+                        <Slider  Name="SliderExp" ValueChanged="SliderExp_ValueChanged" />
+                        <CheckBox Name="CheckBoxExp" Margin="0,2,0,0" Checked="CheckBoxExp_Checked" Unchecked="CheckBoxExp_Unchecked" Content="{DynamicResource lanChBAutoExp}"></CheckBox>
+                        <WrapPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="{DynamicResource lanBtDefault}" Margin="2,4,0,2"  Width="60" Click="Button_Click" />
+                            <Button Content="{DynamicResource lanBtMore}" Margin="5,4,0,2"  Width="60" Click="Button_Click_1" />
+                        </WrapPanel>
+                       
+                    </StackPanel>
+                </GroupBox>
+
+
+                <GroupBox Header="{DynamicResource lanGBoxImgHadle}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="91*" />
+                            <ColumnDefinition Width="22*" />
+                            <ColumnDefinition Width="69*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <CheckBox Name="CkBox_DelBlackEdge" Grid.Row="0" Grid.Column="0" Margin="4,2,2,0" Checked="CkBox_DelBlackEdge_Checked" Unchecked="CkBox_DelBlackEdge_Unchecked" Content="{DynamicResource lanChBDelBlackEdge}"></CheckBox>
+                        <CheckBox Name="CkBox_DelBgColor" Grid.Column="1" Margin="4,2,0,0" Checked="CkBox_DelBgColor_Checked" Unchecked="CkBox_DelBgColor_Unchecked" Grid.ColumnSpan="2" Content="{DynamicResource lanChBDelBgColor}"></CheckBox>
+                        <CheckBox Name="CkBox_DelGray" Grid.Row="1" Grid.Column="0" Margin="4,2,0,0" Checked="CkBox_DelGray_Checked" Unchecked="CkBox_DelGray_Unchecked"  Content="{DynamicResource lanChBDelGray}"></CheckBox>
+                        <CheckBox Name="CkBox_DelShade" Grid.Row="1" Grid.Column="1" Margin="4,2,2,0" Checked="CkBox_DelShade_Checked" Unchecked="CkBox_DelShade_Unchecked" Grid.ColumnSpan="2" Content="{DynamicResource lanChBDelShade}"></CheckBox>
+                       
+                    </Grid>
+                </GroupBox>
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>预览区域<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+        <Grid Background="White" Margin="1,2,2,2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border Name="CamPreivewBorder" Grid.Row="0" BorderThickness="1" BorderBrush="White" ClipToBounds="True">                  
+                <Canvas Name="CamVideoCanvas">
+                    <Image Name="CamVideoPreivew" MouseLeftButtonDown="CamVideoPreivew_MouseLeftButtonDown" MouseLeftButtonUp="CamVideoPreivew_MouseLeftButtonUp" MouseMove="CamVideoPreivew_MouseMove" MouseWheel="CamVideoPreivew_MouseWheel" Stretch="Fill">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform/>
+                                <ScaleTransform/>
+                                <RotateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image Name="CamVideoPreivew2" Stretch="Fill" Width="240" Height="180" MouseLeftButtonDown="CamVideoPreivew2_MouseLeftButtonDown" MouseMove="CamVideoPreivew2_MouseMove" MouseLeftButtonUp="CamVideoPreivew2_MouseLeftButtonUp">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform/>
+                                <ScaleTransform/>
+                                <RotateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <markctl:MaskCanvas Name="MyMark"/>
+                </Canvas>
+            </Border>
+           
+            <Border Grid.Row="1" Height="1" Background="#FF708090"/> <!--分割线-->
+                
+            <Grid Name="PanelToolBt" Grid.Row="2" HorizontalAlignment="Center">
+                <StackPanel  Orientation="Horizontal">
+                    <xi:OnlyImageBt x:Name="FScreenBt" ImageHeight="30" ImageWidth="30" Image="/Images/FullScreen.png"  Margin="2,2,2,2" Click="FScreenBt_Click" />
+                    <xi:OnlyImageBt x:Name="RotateLBt" ImageHeight="30" ImageWidth="30" Image="/Images/RotateL.png"  Margin="2,2,2,2" Click="RotateLBt_Click"  />
+                    <xi:OnlyImageBt x:Name="RotateRBt" ImageHeight="30" ImageWidth="30" Image="/Images/RotateR.png"  Margin="2,2,2,2" Click="RotateRBt_Click" />
+                    <xi:OnlyImageBt x:Name="ZoomInBt" ImageHeight="30" ImageWidth="30" Image="/Images/ZoomIn.png"  Margin="2,2,2,2" Click="ZoomInBt_Click" />
+                    <xi:OnlyImageBt x:Name="ZoomOutBt" ImageHeight="30" ImageWidth="30" Image="/Images/ZoomOut.png"  Margin="2,2,2,2" Click="ZoomOutBt_Click" />
+                    <xi:OnlyImageBt x:Name="TrueSizeBt" ImageHeight="30" ImageWidth="30" Image="/Images/TrueSize.png"  Margin="2,2,2,2" Click="TrueSizeBt_Click" />
+                    <xi:OnlyImageBt x:Name="BestSizeBt" ImageHeight="30" ImageWidth="30" Image="/Images/BestSize.png"  Margin="2,2,2,2" Click="BestSizeBt_Click" />
+                    <xi:OnlyImageBt x:Name="FocusBt" ImageHeight="30" ImageWidth="30" Image="/Images/Focus.png"  Margin="2,2,2,2" Click="FocusBt_Click" />
+                    <Line X1="0" Y1="10" X2="0" Y2="28" Stroke="SlateGray" StrokeThickness="1" Margin="15,0,0,0"></Line>
+                    <xi:OnlyImageBt x:Name="AssistBt" ImageHeight="30" ImageWidth="30" Image="/Images/Assist.png"  Margin="12,2,2,2" Click="AssistBt_Click" ToolTip="{DynamicResource lanTipOpenAssistCam}" />
+                    <xi:OnlyImageBt x:Name="AssistSetBt" ImageHeight="30" ImageWidth="30" Image="/Images/AssistSet.png"  Margin="1,2,2,2" Click="AssistSetBt_Click" ToolTip="{DynamicResource lanTipSetAssistCam}"/>
+                    
+                </StackPanel>
+            </Grid>
+        </Grid>
+           
+    </DockPanel>
+
+</Window>

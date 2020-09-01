@@ -1,0 +1,28 @@
+﻿<Window x:Class="CameraScan.TimerDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xi="clr-namespace:CameraScan" 
+        Title="{DynamicResource lanTimerDlgTitle}" Height="210" Width="240" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" Closed="Window_Closed">
+    
+    <StackPanel Orientation="Vertical">
+
+        <CheckBox Name="PdfSetCheck" Margin="25,10,0,0"   Content="{DynamicResource lanChBMordPdf}" ></CheckBox>
+
+        <StackPanel  Background="{x:Null}" Orientation="Horizontal"  Margin="0,10,0,0">
+            <Label Content="{DynamicResource lanLabelInterval}" Foreground="Black" Margin="25,5,0,5" />
+            <TextBox Name="IntervalTextBox" Width="51" Height="25" IsReadOnly="False" Background="#FFB0C0D0" Margin="0,4,0,4" Padding="8,2,0,0" TextInput="IntervalTextBox_TextInput" PreviewKeyDown="IntervalTextBox_PreviewKeyDown" />
+            <Label Content="S" Foreground="Black" Margin="2,5,0,5"/>
+        </StackPanel>
+        
+        <StackPanel  Background="{x:Null}" Orientation="Horizontal" >
+            <Label Content="{DynamicResource lanLabelTimerPages}" Foreground="Black" Margin="25,5,0,5"/>
+            <TextBox Name="NumTextBox" Width="80" Height="25" IsReadOnly="True" Background="#FFB0C0D0" Margin="0,4,0,4" Padding="8,2,0,0" TextInput="NumTextBox_TextInput" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <xi:ImageButton x:Name="StartBt" Image="/Images/Start.png" Content="{DynamicResource lanBtStart}" ImageHeight="32" ImageWidth="32"  Width="54" Height="52" Margin="10,15,10,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="1,1,1,2" Click="StartBt_Click" />
+            <xi:ImageButton x:Name="ExitBt" Image="/Images/ExitA.png" Content="{DynamicResource lanBtExit}" ImageHeight="32" ImageWidth="32"  Width="54" Height="52" Margin="10,15,10,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="1,1,1,2" Click="ExitBt_Click" />
+        </StackPanel>
+        
+    </StackPanel>
+</Window>

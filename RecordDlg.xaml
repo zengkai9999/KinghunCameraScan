@@ -1,0 +1,43 @@
+﻿<Window x:Class="CameraScan.RecordDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xi="clr-namespace:CameraScan" 
+        Title="{DynamicResource lanRecordDlgTitle}" Height="76" Width="280" WindowStyle="None"   ShowInTaskbar="False" Background="Transparent" AllowsTransparency="True" Loaded="Window_Loaded" Closed="Window_Closed" SizeChanged="Window_SizeChanged">
+
+    <Border BorderThickness="1" BorderBrush="#FF708090" CornerRadius="0,0,0,0">
+
+        <StackPanel Name="RecStackPanel"  Orientation="Vertical" Background="White" MouseMove="StackPanel_MouseMove" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" MouseLeftButtonUp="StackPanel_MouseLeftButtonUp">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"  HorizontalAlignment="Right" >
+                <Image Source="/Images/Move.png" Width="50" Height="36" Stretch="Uniform" Margin="0,0,6,0"></Image>
+                <Label Name="TimeLabel" Content="00:00:00" FontSize="30" Foreground="Gray"></Label>
+                <xi:OnlyImageBt x:Name="RecordBt" ImageHeight="34" ImageWidth="34" Height="38"  Image="/Images/Start.png"  Margin="1,1,1,1" Click="RecordBt_Click" />
+                <xi:OnlyImageBt x:Name="ExitBt" ImageHeight="34" ImageWidth="34" Height="38" Image="/Images/ExitA.png"  Margin="6,1,1,1" Click="ExitBt_Click" />
+            </StackPanel>
+
+            <!--<Line X1="2" Y1="1" X2="278" Y2="1" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,4"></Line>-->
+
+            <StackPanel Orientation="Horizontal"  Background="#FF708090">
+                <Label Content="{DynamicResource lanLabelRECSource}" ></Label>
+                <ComboBox Name="RecordTypeBox" Margin="1,0,1,1" Width="60"  Height="20"  IsReadOnly="True" SelectionChanged="RecordTypeBox_SelectionChanged">
+                    <ComboBoxItem Content="{DynamicResource lanLabelCBoxItemCamera}"></ComboBoxItem>
+                    <ComboBoxItem Content="{DynamicResource lanLabelCBoxItemScreen}"></ComboBoxItem>
+                </ComboBox>
+                <Label Content="{DynamicResource lanLabelRECFormat}" ></Label>
+                <ComboBox Name="RecordFormatBox" Margin="1,0,1,1" Width="55" Height="20"  IsReadOnly="True" SelectionChanged="RecordFormatBox_SelectionChanged">
+                    <ComboBoxItem>AVI</ComboBoxItem>
+                    <ComboBoxItem>WMV</ComboBoxItem>
+                    <ComboBoxItem>MP4</ComboBoxItem>
+                </ComboBox>
+                <Label Content="{DynamicResource lanLabelRECFps}" ></Label>
+                <ComboBox Name="RecordFpsBox" Margin="1,0,1,1" Width="50" Height="20"  IsReadOnly="True" SelectionChanged="RecordFpsBox_SelectionChanged">
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>15</ComboBoxItem>
+                    <ComboBoxItem>25</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</Window>

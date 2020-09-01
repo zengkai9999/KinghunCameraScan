@@ -1,0 +1,88 @@
+﻿<Window x:Class="CameraScan.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xi="clr-namespace:CameraScan" 
+        Title="{DynamicResource lanSetDlgTitle}"  Width="400" Height="432" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" Closed="Window_Closed" SizeChanged="Window_SizeChanged">
+    
+    <StackPanel Orientation="Vertical">
+
+        <GroupBox Header="{DynamicResource lanGBoxNameType}" BorderThickness="1" BorderBrush="SlateGray" Margin="8,5,8,7" FontSize="13">
+
+            <WrapPanel  Orientation="Vertical" HorizontalAlignment="Left" >
+                <StackPanel  Orientation="Horizontal" >
+                    <RadioButton Name="NameByTime" Margin="10,5,10,5" VerticalAlignment="Center" Checked="NameByTime_Checked" Content="{DynamicResource lanRaBNameTime}"></RadioButton>           
+                    <RadioButton Name="NameByFolder" Margin="45,5,10,5" VerticalAlignment="Center" Checked="NameByFolder_Checked" Content="{DynamicResource lanRaBNameFolder}"></RadioButton>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" >
+                    <RadioButton Name="NameByBarcode" Margin="10,5,10,5" VerticalAlignment="Center" Checked="NameByBarcode_Checked" Content="{DynamicResource lanRaBNameCode}"></RadioButton>
+                    <RadioButton Name="NameByQr" Margin="45,5,10,5" VerticalAlignment="Center"  Content="{DynamicResource lanRaBNameQr}" Checked="NameByQr_Checked"></RadioButton>
+                </StackPanel>                   
+                <StackPanel  Orientation="Horizontal" >
+                    <RadioButton Name="NameByDIY" Margin="10,2,0,5" VerticalAlignment="Center" Checked="NameByDIY_Checked" Content="{DynamicResource lanRaBNameDIY}"></RadioButton>
+                    <Label Content="{DynamicResource lanLabelPrefix}" Foreground="Black" Margin="10,2,0,5" VerticalAlignment="Center"/>
+                    <TextBox Name="PrefixTextBox" Width="80" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center"  TextChanged="PrefixTextBox_TextChanged" />
+                    <Label Content="+" Foreground="Black" Margin="0,2,0,0" VerticalAlignment="Center"/>
+                    <TextBox Name="SuffixTextBox" Width="80" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center" PreviewKeyDown="SuffixTextBox_PreviewKeyDown" />        
+                </StackPanel>
+                <CheckBox Name="StepCheck" Margin="205,0,0,0" VerticalAlignment="Center"   Content="{DynamicResource lanChBStepText}" FontSize="12" Checked="StepCheck_Checked" Unchecked="StepCheck_Unchecked"></CheckBox>
+                <RadioButton Name="NameByFixed" Margin="10,2,10,2" VerticalAlignment="Center"  Content="{DynamicResource lanRaBNameFixed}" Checked="NameByFixed_Checked"></RadioButton>
+            </WrapPanel>  
+            
+        </GroupBox>
+
+        <GroupBox Header="{DynamicResource lanGBoxJPGquality}" BorderThickness="1" BorderBrush="SlateGray" Margin="8,2,8,7" FontSize="13">
+            <StackPanel  Orientation="Horizontal" >
+                <Slider Name="SliderJpgQuality" Width="282" Margin="15,5,5,5" VerticalAlignment="Center" Minimum="1" Maximum="100" Value="75" ValueChanged="SliderJpgQuality_ValueChanged" />
+                <Label  Name="LabelJpgQuality" Content="75%" Foreground="Black" Margin="5,5,10,5" VerticalAlignment="Center"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="{DynamicResource lanGBoxOtherConfig}" BorderThickness="1" BorderBrush="SlateGray" Margin="8,2,8,4" FontSize="13">
+            <StackPanel  Orientation="Vertical" Margin="0,5,0,0">
+
+                <StackPanel Orientation="Horizontal" >
+                    <Label Content="{DynamicResource lanLabelDPI}" Margin="15,2,2,2"></Label>
+                    <RadioButton Name="DpiDefault" Margin="45,2,2,2" VerticalAlignment="Center" Content="{DynamicResource lanRaBDPIdefault}" Checked="DpiDefault_Checked"></RadioButton>
+                    <RadioButton Name="DpiDiy" Margin="15,2,2,2" VerticalAlignment="Center"  Content="{DynamicResource lanRaBDPIdiy}" Checked="DpiDiy_Checked"></RadioButton>
+                    <TextBox Name="DpiTextBox" Width="60" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center" PreviewKeyDown="DpiTextBox_PreviewKeyDown"/>
+                    <!--<ComboBox Name="DpiCbBox" Margin="1,2,2,2" Width="70"  IsReadOnly="True"  VerticalAlignment="Center" >
+                        <ComboBoxItem Content="72"></ComboBoxItem>
+                        <ComboBoxItem Content="96"></ComboBoxItem>
+                        <ComboBoxItem Content="100"></ComboBoxItem>
+                        <ComboBoxItem Content="120"></ComboBoxItem>
+                        <ComboBoxItem Content="150"></ComboBoxItem>
+                        <ComboBoxItem Content="200"></ComboBoxItem>
+                        <ComboBoxItem Content="250"></ComboBoxItem>
+                        <ComboBoxItem Content="300"></ComboBoxItem>
+                        <ComboBoxItem Content="300"></ComboBoxItem>
+                        <ComboBoxItem Content="300"></ComboBoxItem>
+                        <ComboBoxItem Content="300"></ComboBoxItem>                    
+                    </ComboBox>-->              
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" >
+                    <Label Content="{DynamicResource lanLabelPrintMod}" Margin="15,2,2,2"></Label>
+                    <RadioButton Name="ZoomPrint" Margin="15,2,2,2" VerticalAlignment="Center" Checked="ZoomPrint_Checked" Content="{DynamicResource lanRaBAdjust}"></RadioButton>
+                    <RadioButton Name="TrueSizePrint" Margin="15,2,2,2" VerticalAlignment="Center" Checked="TrueSizePrint_Checked" Content="{DynamicResource lanRaBBestPrint}"></RadioButton>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label Content="{DynamicResource lanLabelLanguage}" Foreground="Black" Margin="15,2,0,2" VerticalAlignment="Center" />
+                    <ComboBox Name="LanguageCbBox" Margin="1,2,2,2" Width="70"  IsReadOnly="True"  VerticalAlignment="Center" SelectionChanged="LanguageCbBox_SelectionChanged">
+                        <ComboBoxItem Content="{DynamicResource lanCBoxItemCn}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource lanCBoxItemTw}"></ComboBoxItem>
+                        <ComboBoxItem Content="{DynamicResource lanCBoxItemEn}"></ComboBoxItem>
+                    </ComboBox>
+
+                    <CheckBox Name="VoiceCheck" Margin="40,2,2,2" VerticalAlignment="Center"  Checked="VoiceCheck_Checked" Unchecked="VoiceCheck_Unchecked" Content="{DynamicResource lanChBSound}"></CheckBox>
+                </StackPanel>          
+            </StackPanel>
+        </GroupBox>
+
+
+        <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtOK}" FontSize="13" ImageHeight="0" ImageWidth="0"  Width="52" Height="32" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="ExitBt_Click"  />
+        
+    </StackPanel>
+    
+</Window>
