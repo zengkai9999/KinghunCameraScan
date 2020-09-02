@@ -1647,7 +1647,7 @@ namespace CameraScan
                 global.pHostCamera.PreHeight = 2448;
             }
 
-            if (openWidth == 4000 && openHeight == 3000)
+            if (openWidth == 4208 && openHeight == 3120)
             {
                 global.pHostCamera.PreWidth = 3264;
                 global.pHostCamera.PreHeight = 2448;

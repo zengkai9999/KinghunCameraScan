@@ -4,8 +4,8 @@
 
     
     <!--<sys:String x:Key="lanMainFormTitle">高拍仪</sys:String>-->
-    <!--<sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>
+    <sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>
+    <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">维融高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">讯派高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">久派高拍仪</sys:String>-->
