@@ -85,6 +85,9 @@ namespace CameraScan
         public extern static int CloseDevice();
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static int Is500InSert800ValDevice();
+
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetCallBackFunction(PFCALLBACK mCB);
 
         [DllImport("DevCapture.dll",  CallingConvention = CallingConvention.Cdecl)]
@@ -1653,11 +1656,16 @@ namespace CameraScan
                 global.pHostCamera.PreHeight = 2448;
             }
 
-            if (openWidth == 4208 && openHeight == 3120)
+            if (openWidth == 3264 && openHeight == 2448 && 0 == Is500InSert800ValDevice())
             {
-                global.pHostCamera.PreWidth = 3264;
-                global.pHostCamera.PreHeight = 2448;
+                global.pHostCamera.PreWidth = 2592;
+                global.pHostCamera.PreHeight = 1944;
             }
+            //if (openWidth == 4208 && openHeight == 3120)
+            //{
+            //    global.pHostCamera.PreWidth = 3264;
+            //    global.pHostCamera.PreHeight = 2448;
+            //}
 
             if (openWidth == 4608 && openHeight == 3456)
             {
@@ -2024,7 +2032,6 @@ namespace CameraScan
                         mSettingDlg.SuffixTextBox.Text = CountStr;
                     }
                 }
-
 
                 byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
                 IntPtr namePtr = CaptureFromPreview(pBuf, isBarcode);
