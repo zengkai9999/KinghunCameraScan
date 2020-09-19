@@ -4517,9 +4517,19 @@ namespace CameraScan
                     the_args[i + 3] = argStr;
                 }
 
-                string exe_path = System.Windows.Forms.Application.StartupPath + "\\rg\\recog.exe";
+                string exeName = "recog.exe";
+                if (global.pLangusge == 2)
+                    exeName = "recog_en.exe";
+                string exe_path = System.Windows.Forms.Application.StartupPath + "\\rg\\" + exeName;
                 if (File.Exists(exe_path))
                     StartProcess(exe_path, the_args);
+                else
+                {
+                    string TipStr = "打开OCR失败！";
+                    if (global.pLangusge == 1) TipStr = "打開OCR失敗！";
+                    if (global.pLangusge == 2) TipStr = "Open OCR failed!";
+                    System.Windows.MessageBox.Show(TipStr);
+                }
 
             }
             else
@@ -4528,9 +4538,19 @@ namespace CameraScan
                 the_args[0] = "LjbMakew1V4b7CqHhChu2WtpbmdodW4=";
                 the_args[1] = "ChinesePRC,English";
                 the_args[2] = "doc";
-                string exe_path = System.Windows.Forms.Application.StartupPath + "\\rg\\recog.exe";
+                string exeName = "recog.exe";
+                if (global.pLangusge == 2)
+                    exeName = "recog_en.exe";
+                string exe_path = System.Windows.Forms.Application.StartupPath + "\\rg\\" + exeName;
                 if (File.Exists(exe_path))
                     StartProcess(exe_path, the_args);
+                else
+                {
+                    string TipStr = "打开OCR失败！";
+                    if (global.pLangusge == 1) TipStr = "打開OCR失敗！";
+                    if (global.pLangusge == 2) TipStr = "Open OCR failed!";
+                    System.Windows.MessageBox.Show(TipStr);
+                }
             }
            
         }
