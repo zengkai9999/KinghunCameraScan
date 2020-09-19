@@ -88,6 +88,12 @@ namespace CameraScan
         public extern static int Is500InSert800ValDevice();
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static int Is1300InSert1500ValDevice();
+
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static int Is1300InSert1600ValDevice();
+
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetCallBackFunction(PFCALLBACK mCB);
 
         [DllImport("DevCapture.dll",  CallingConvention = CallingConvention.Cdecl)]
@@ -1661,11 +1667,11 @@ namespace CameraScan
                 global.pHostCamera.PreWidth = 2592;
                 global.pHostCamera.PreHeight = 1944;
             }
-            //if (openWidth == 4208 && openHeight == 3120)
-            //{
-            //    global.pHostCamera.PreWidth = 3264;
-            //    global.pHostCamera.PreHeight = 2448;
-            //}
+            if (openWidth == 4208 && openHeight == 3120 && 0 != Is1300InSert1500ValDevice() && 0 != Is1300InSert1600ValDevice())
+            {
+                global.pHostCamera.PreWidth = 3264;
+                global.pHostCamera.PreHeight = 2448;
+            }
 
             if (openWidth == 4608 && openHeight == 3456)
             {
