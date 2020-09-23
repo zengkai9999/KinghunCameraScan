@@ -3,8 +3,8 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--<sys:String x:Key="lanMainFormTitle">Scan</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">Kinghun Scan</sys:String>
-    <!--<sys:String x:Key="lanMainFormTitle">Comet Scan</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">Kinghun Scan</sys:String>-->
+    <sys:String x:Key="lanMainFormTitle">Comet Scan</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">Weirong Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">XunPai Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">KUPAR</sys:String>-->
