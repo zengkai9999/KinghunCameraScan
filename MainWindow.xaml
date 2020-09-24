@@ -58,7 +58,7 @@
                 <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" />
                 <xi:ImageButton x:Name="RecordBt" Image="/Images/Record.png" Content="{DynamicResource lanRecord}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="RecordBt_Click" />
                 <!--<xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" />-->
-                <!--<xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />-->
+                <xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />
             </WrapPanel>
 
             <WrapPanel Name="PanelToolBtB" Grid.Row="1" Grid.ColumnSpan="2"  Background="White" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
