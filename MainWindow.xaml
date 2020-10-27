@@ -4,7 +4,7 @@
         Title="{DynamicResource lanMainFormTitle}" Height="800" Width="1200" MinWidth="960" MinHeight="640"
         xmlns:xi="clr-namespace:CameraScan" 
         xmlns:markctl="clr-namespace:RisCaptureLib;assembly=RisCaptureLib"  
-        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/Images/kemi.ico" PreviewKeyDown="Window_PreviewKeyDown" >
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/Images/gpy.ico" PreviewKeyDown="Window_PreviewKeyDown" >
 
     <!-- *******************************************************************模板资源文件******************************************************************* -->
     <Window.Resources>
@@ -39,26 +39,26 @@
             </Grid.ColumnDefinitions>
 
             <WrapPanel Name="FunctionBtsA" Grid.Row="0" Grid.Column="1" Background="White">
-                <xi:ImageButton x:Name="WiseCaptureBt" Image="/Images/WisePhoto.png" Content="{DynamicResource lanWisePhoto}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,6,8,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="WiseCaptureBt_Click" />
-                <xi:ImageButton x:Name="TimeCaptureBt" Image="/Images/TimePhoto.png" Content="{DynamicResource lanTimerPhoto}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,6,8,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="TimeCaptureBt_Click" />
-                <xi:ImageButton x:Name="CaptureBt"  Image="/Images/Shoot.png" Content="{DynamicResource lanCapture}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,6,8,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureBt_Click" />
-                <xi:ImageButton x:Name="CaptureStillBt"  Image="/Images/Photo.png" Content="{DynamicResource lanPhoto}" ImageHeight="36" ImageWidth="36"  Width="56" Height="54" Margin="8,0,25,0" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureStillBt_Click" Visibility="Collapsed"/>
+                <xi:ImageButton x:Name="WiseCaptureBt" Image="/Images/WisePhoto.png" Content="{DynamicResource lanWisePhoto}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="WiseCaptureBt_Click" />
+                <xi:ImageButton x:Name="TimeCaptureBt" Image="/Images/TimePhoto.png" Content="{DynamicResource lanTimerPhoto}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="TimeCaptureBt_Click" />
+                <xi:ImageButton x:Name="CaptureBt"  Image="/Images/Shoot.png" Content="{DynamicResource lanCapture}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureBt_Click" />
+                <xi:ImageButton x:Name="CaptureStillBt"  Image="/Images/Photo.png" Content="{DynamicResource lanPhoto}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureStillBt_Click" Visibility="Collapsed"/>
             </WrapPanel>
 
 
-            <WrapPanel Name="FunctionBtsB"  Grid.Row="0" Grid.Column="0"  Background="White" Margin="70,0,0,0">
-                <xi:ImageButton x:Name="SetBt" Image="/Images/Set.png" Content="{DynamicResource lanSet}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SetBt_Click" />
-                <xi:ImageButton x:Name="MarkBt" Image="/Images/Mark.png" Content="{DynamicResource lanWaterMark}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MarkBt_Click" />
-                <xi:ImageButton x:Name="PrintBt" Image="/Images/Print.png" Content="{DynamicResource lanPrint}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="PrintBt_Click" />
-                <xi:ImageButton x:Name="DocumentBt" Image="/Images/Document.png" Content="{DynamicResource lanDocument}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="DocumentBt_Click" />
-                <xi:ImageButton x:Name="BarCodeBt" Image="/Images/BarCode.png" Content="{DynamicResource lanBarCode}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="BarCodeBt_Click" />
-                <xi:ImageButton x:Name="SinglePdfBt" Image="/Images/Pdf.png" Content="{DynamicResource lanS_PDF}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,5,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SinglePdfBt_Click" />
-                <xi:ImageButton x:Name="MorePdfBt" Image="/Images/PdfMore.png" Content="{DynamicResource lanM_PDF}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MorePdfBt_Click" />
-                <xi:ImageButton x:Name="JoinImgBt" Image="/Images/ImgJoin.png" Content="{DynamicResource lanImgJoin}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="JoinImgBt_Click" />
-                <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" />
-                <xi:ImageButton x:Name="RecordBt" Image="/Images/Record.png" Content="{DynamicResource lanRecord}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="RecordBt_Click" />
-                <!--<xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" />-->
-                <xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="56" Height="54" Margin="8,6,6,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />
+            <WrapPanel Name="FunctionBtsB"  Grid.Row="0" Grid.Column="0"  Background="White" HorizontalAlignment="Center">
+                <xi:ImageButton x:Name="SetBt" Image="/Images/Set.png" Content="{DynamicResource lanSet}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SetBt_Click" />
+                <xi:ImageButton x:Name="MarkBt" Image="/Images/Mark.png" Content="{DynamicResource lanWaterMark}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MarkBt_Click" />
+                <xi:ImageButton x:Name="PrintBt" Image="/Images/Print.png" Content="{DynamicResource lanPrint}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="PrintBt_Click" />
+                <xi:ImageButton x:Name="DocumentBt" Image="/Images/Document.png" Content="{DynamicResource lanDocument}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="DocumentBt_Click" />
+                <xi:ImageButton x:Name="BarCodeBt" Image="/Images/BarCode.png" Content="{DynamicResource lanBarCode}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="BarCodeBt_Click" />
+                <xi:ImageButton x:Name="SinglePdfBt" Image="/Images/Pdf.png" Content="{DynamicResource lanS_PDF}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SinglePdfBt_Click" />
+                <xi:ImageButton x:Name="MorePdfBt" Image="/Images/PdfMore.png" Content="{DynamicResource lanM_PDF}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MorePdfBt_Click" />
+                <xi:ImageButton x:Name="JoinImgBt" Image="/Images/ImgJoin.png" Content="{DynamicResource lanImgJoin}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="JoinImgBt_Click" />
+                <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" />
+                <xi:ImageButton x:Name="RecordBt" Image="/Images/Record.png" Content="{DynamicResource lanRecord}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="RecordBt_Click" />
+                <!--<xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" />-->
+                <xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />
             </WrapPanel>
 
             <WrapPanel Name="PanelToolBtB" Grid.Row="1" Grid.ColumnSpan="2"  Background="White" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
@@ -142,7 +142,7 @@
 
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>右侧参数面板<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
         <ScrollViewer  Name="PanelRight" DockPanel.Dock="Right"  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="1,2,2,2">
-            <StackPanel  Width="200" Background="White">
+            <StackPanel  Width="210" Background="White">
 
                 <GroupBox Header="{DynamicResource lanGBoxDevice}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,3,3,2" FontSize="13">
                     <ComboBox Name="DevNameCbBox"   Margin="2,2,2,2" Height="24"  IsReadOnly="True" SelectionChanged="DevNameCbBox_SelectionChanged" >               
@@ -154,7 +154,7 @@
                     </ComboBox>
                 </GroupBox>
 
-                <GroupBox Name="StillResGroupBox" Header="{DynamicResource lanGBoxStillRes}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                <GroupBox Name="StillResGroupBox" Header="{DynamicResource lanGBoxStillRes}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13" Visibility="Collapsed">
                     <ComboBox Name="StillResCbBox" Margin="2,2,2,2" Height="24"  IsReadOnly="True" SelectionChanged="StillResCbBox_SelectionChanged">
                     </ComboBox>
                 </GroupBox>
@@ -170,11 +170,11 @@
                 </GroupBox>
 
                 <GroupBox Header="{DynamicResource lanGBoxColorMod}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
-                    <StackPanel  Orientation="Horizontal" >
-                        <RadioButton Name="RdBtColor" Margin="8,5,0,5" Checked="RdBtColor_Checked" Content="{DynamicResource lanRaBtColor}"></RadioButton>
-                        <RadioButton Name="RdBtGray" Margin="12,5,0,5" Checked="RdBtGray_Checked" Content="{DynamicResource lanRaBtGray}"></RadioButton>
-                        <RadioButton Name="RdBtBlackWhite" Margin="12,5,5,5" Checked="RdBtBlackWhite_Checked"  Content="{DynamicResource lanRaBtBlackWhite}"></RadioButton>
-                    </StackPanel>
+                    <WrapPanel  Orientation="Horizontal" >
+                        <RadioButton Name="RdBtColor" Margin="8,5,0,0" Checked="RdBtColor_Checked" Content="{DynamicResource lanRaBtColor}"></RadioButton>
+                        <RadioButton Name="RdBtGray" Margin="8,5,0,0" Checked="RdBtGray_Checked" Content="{DynamicResource lanRaBtGray}"></RadioButton>
+                        <RadioButton Name="RdBtBlackWhite" Margin="8,5,0,5" Checked="RdBtBlackWhite_Checked"  Content="{DynamicResource lanRaBtBlackWhite}"></RadioButton>
+                    </WrapPanel>
                 </GroupBox>
 
                 <GroupBox Header="{DynamicResource lanGBoxCutType}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
@@ -219,8 +219,8 @@
                         <Slider  Name="SliderExp" ValueChanged="SliderExp_ValueChanged" />
                         <CheckBox Name="CheckBoxExp" Margin="0,2,0,0" Checked="CheckBoxExp_Checked" Unchecked="CheckBoxExp_Unchecked" Content="{DynamicResource lanChBAutoExp}"></CheckBox>
                         <WrapPanel  Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="{DynamicResource lanBtDefault}" Margin="2,4,0,2"  Width="60" Click="Button_Click" />
-                            <Button Content="{DynamicResource lanBtMore}" Margin="5,4,0,2"  Width="60" Click="Button_Click_1" />
+                            <Button Content="{DynamicResource lanBtDefault}" Margin="2,4,0,2"  Width="90" Click="Button_Click" />
+                            <Button Content="{DynamicResource lanBtMore}" Margin="5,4,0,2"  Width="90" Click="Button_Click_1" />
                         </WrapPanel>
                        
                     </StackPanel>

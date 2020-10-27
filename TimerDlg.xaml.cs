@@ -65,6 +65,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-tw.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 2)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"en-us.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 3)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -132,6 +134,7 @@ namespace CameraScan
                 string TipStr = "时间间隔必须大于0";
                 if (global.pLangusge == 1) TipStr = "時間間隔必須大於0";
                 if (global.pLangusge == 2) TipStr = "The time interval must be greater than 0.";
+                if (global.pLangusge == 3) TipStr = "El intervalo debe ser superior a 0.";
                 System.Windows.Forms.MessageBox.Show(TipStr);
                 return;
             }
@@ -141,6 +144,7 @@ namespace CameraScan
                 string TipStr = "停止";
                 if (global.pLangusge == 1) TipStr = "停止";
                 if (global.pLangusge == 2) TipStr = "Stop";
+                if (global.pLangusge == 3) TipStr = "Stop";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Stop.png", UriKind.Relative));
                 if (global.isOpenCameraA)
@@ -155,6 +159,7 @@ namespace CameraScan
                 string TipStr = "开始";
                 if (global.pLangusge == 1) TipStr = "開始";
                 if (global.pLangusge == 2) TipStr = "Start";
+                if (global.pLangusge == 3) TipStr = "Empezar";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Start.png", UriKind.Relative));
                 if (global.isOpenCameraA)

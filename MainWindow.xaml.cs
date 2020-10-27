@@ -375,6 +375,30 @@ namespace CameraScan
             }
         }
 
+        private void InitBtnSize()
+        {
+            if (global.pLangusge == 3)
+            {
+                WiseCaptureBt.Width = 100;
+                TimeCaptureBt.Width = 100;
+
+                BarCodeBt.Width = 96;
+                MorePdfBt.Width = 76;
+                JoinImgBt.Width = 96;
+                IdCardBt.Width = 86;
+            }
+            else
+            {
+                WiseCaptureBt.Width = 76;
+                TimeCaptureBt.Width = 76;
+
+                BarCodeBt.Width = 66;
+                MorePdfBt.Width = 66;
+                JoinImgBt.Width = 66;
+                IdCardBt.Width = 66;
+            }
+        }
+
         //############界面初始化#################
         private void InitUIControl()
         {
@@ -428,7 +452,8 @@ namespace CameraScan
             else CkBox_DelGray.IsChecked = true;
 
             global.SetWaterMarkParameters();
-                
+
+            InitBtnSize();
         }
 
         //############获取视频参数#################
@@ -1187,9 +1212,10 @@ namespace CameraScan
                     string btStr = "拍摄";
                     if (global.pLangusge == 1) btStr = "拍攝";
                     if (global.pLangusge == 2) btStr = "Capture";
+                    if (global.pLangusge == 3) btStr = "Capturar";
                     CaptureBt.Content = btStr;
 
-                    #if VERIFY  //验证是否本公司高拍仪设备
+#if VERIFY  //验证是否本公司高拍仪设备
 
                         if (global.CameraIndex == 0)
                         {
@@ -1235,12 +1261,13 @@ namespace CameraScan
                                 string TipStr = "非授权设备！";
                                 if (global.pLangusge == 1) TipStr = "非授權設備！";
                                 if (global.pLangusge == 2) TipStr = "Unauthorized device!";
+                                if (global.pLangusge == 3) TipStr = "Equipo no autorizado!";
                                 System.Windows.MessageBox.Show(TipStr);
                                 return;
                             }
                         }
                            
-                    #endif
+#endif
                 }
                 else
                 {
@@ -1297,6 +1324,7 @@ namespace CameraScan
                         string btStr = "捕获";
                         if (global.pLangusge == 1) btStr = "捕獲";
                         if (global.pLangusge == 2) btStr = "Snap";
+                        if (global.pLangusge == 3) btStr = "Capturar";
                         CaptureBt.Content = btStr;
                     }
                     else
@@ -1309,9 +1337,10 @@ namespace CameraScan
                         string btStr = "拍摄";
                         if (global.pLangusge == 1) btStr = "拍攝";
                         if (global.pLangusge == 2) btStr = "Capture";
+                        if (global.pLangusge == 3) btStr = "Capturar";
                         CaptureBt.Content = btStr;
 
-                        #if VERIFY  //验证是否本公司高拍仪设备
+#if VERIFY  //验证是否本公司高拍仪设备
 
                             if (global.CameraIndex == 0)
                             {
@@ -1357,12 +1386,13 @@ namespace CameraScan
                                     string TipStr = "非授权设备！";
                                     if (global.pLangusge == 1) TipStr = "非授權設備！";
                                     if (global.pLangusge == 2) TipStr = "Unauthorized device!";
+                                    if (global.pLangusge == 3) TipStr = "Equipo no autorizado!";
                                     System.Windows.MessageBox.Show(TipStr);
                                     return;
                                 }
                             }
 
-                        #endif
+#endif
                     }
                 }
                 //*******************************获取静态PIN分辨率********************************
@@ -1474,6 +1504,7 @@ namespace CameraScan
                             //string TipStr = "获取设备信息异常！请检测设备是否正常！";
                             //if (global.pLangusge == 1) TipStr = "獲取設備信息異常！請檢測設備是否正常！";
                             //if (global.pLangusge == 2) TipStr = "Get device info error! Please check whether the device is normal!";
+                            //if (global.pLangusge == 3) TipStr = "Para obtener información sobre el dispositivo, compruebe si el dispositivo funciona!";
                             //System.Windows.MessageBox.Show(TipStr);
                             //return;
                             break;
@@ -1767,6 +1798,7 @@ namespace CameraScan
                     string TipStr = "未发现合适的设备！";
                     if (global.pLangusge == 1) TipStr = "未發現合適的設備！";
                     if (global.pLangusge == 2) TipStr = "No suitable device!";
+                    if (global.pLangusge == 3) TipStr = "Ningún dispositivo encontrado!";
                     System.Windows.MessageBox.Show(TipStr);
                     global.isOpenCameraA = false;
                     return;
@@ -1779,6 +1811,7 @@ namespace CameraScan
                     string TipStr = "打开设备失败！";
                     if (global.pLangusge == 1) TipStr = "打開設備失敗！";
                     if (global.pLangusge == 2) TipStr = "Open device error!";
+                    if (global.pLangusge == 3) TipStr = "No se pudo abrir el dispositivo!";
                     System.Windows.MessageBox.Show(TipStr);
                     global.isOpenCameraA = false;
                 }
@@ -1982,6 +2015,7 @@ namespace CameraScan
                         string TipStr = "请设置裁切区域！";
                         if (global.pLangusge == 1) TipStr = "請設置裁切區域！";
                         if (global.pLangusge == 2) TipStr = "Please set the cropping area!";
+                        if (global.pLangusge == 3) TipStr = "Por favor, definir zona de corte!";
                         System.Windows.MessageBox.Show(TipStr);
                         return "";
                     }
@@ -2155,6 +2189,7 @@ namespace CameraScan
                 string TipStr = "拍摄图片失败！";
                 if (global.pLangusge == 1) TipStr = "拍攝圖片失敗！";
                 if (global.pLangusge == 2) TipStr = "Shooting pictures failed!";
+                if (global.pLangusge == 3) TipStr = "No se pudo capturar la imagen!";
                 System.Windows.MessageBox.Show(TipStr);
             }
         }
@@ -2183,6 +2218,7 @@ namespace CameraScan
                         string TipStr = "请设置裁切区域！";
                         if (global.pLangusge == 1) TipStr = "請設置裁切區域！";
                         if (global.pLangusge == 2) TipStr = "Please set the cropping area!";
+                        if (global.pLangusge == 3) TipStr = "Por favor, definir zona de corte!";
                         System.Windows.MessageBox.Show(TipStr);
                         return "";
                     }
@@ -2558,6 +2594,7 @@ namespace CameraScan
                     string TipStr = "请选择图片完成PDF的合并";
                     if (global.pLangusge == 1) TipStr = "請選擇圖片完成PDF的合並";
                     if (global.pLangusge == 2) TipStr = "Please select the picture to complete the merge of PDF.";
+                    if (global.pLangusge == 3) TipStr = "Seleccione la imagen para completar la fusión PDF.";
                     System.Windows.Forms.MessageBox.Show(TipStr);
                 }
             }
@@ -2652,6 +2689,7 @@ namespace CameraScan
                     string TipStr = "请选择图片完成PDF的合并";
                     if (global.pLangusge == 1) TipStr = "請選擇圖片完成PDF的合並";
                     if (global.pLangusge == 2) TipStr = "Please select the picture to complete the merge of PDF.";
+                    if (global.pLangusge == 3) TipStr = "Seleccione la imagen para completar la fusión PDF.";
                     System.Windows.Forms.MessageBox.Show(TipStr);
                 }
             }
@@ -3266,7 +3304,7 @@ namespace CameraScan
             if (global.pIdCardDlgHaveRun)
                 return;
             mIdCardDlg = new IdCardDlg();
-            mIdCardDlg.Left = this.Left + (this.Width - 400) - 10;
+            mIdCardDlg.Left = this.Left + (this.Width - 460) - 10;
             mIdCardDlg.Top = this.Top + (this.Height - 270) - 10;   //加身份证双面拍摄 对话框高度为470
             mIdCardDlg.Owner = this;
             mIdCardDlg.Show();
@@ -3321,7 +3359,7 @@ namespace CameraScan
                 return;
             isGetSlaveCamImage = false;
             mMorePdfDlg = new MorePdfDlg();
-            mMorePdfDlg.Left = this.Left + (this.Width - 300) - 10;
+            mMorePdfDlg.Left = this.Left + (this.Width - 450) - 10;
             //mMorePdfDlg.Left = this.Left ;
             mMorePdfDlg.Top = this.Top + (this.Height - 280) - 10;
             mMorePdfDlg.Owner = this;
@@ -3370,7 +3408,7 @@ namespace CameraScan
             isGetSlaveCamImage = false;
             mJoinImgDlg = new JoinImgDlg();
             mJoinImgDlg.Left = this.Left + (this.Width - 445) - 10;
-            mJoinImgDlg.Top = this.Top + (this.Height - 285) - 10;
+            mJoinImgDlg.Top = this.Top + (this.Height - 310) - 10;
             mJoinImgDlg.Owner = this;
             mJoinImgDlg.Show();
             global.pJoinImgDlgHaveRun = true;
@@ -3570,6 +3608,7 @@ namespace CameraScan
                 string TipStr = "该版本无编辑功能模块！";
                 if (global.pLangusge == 1) TipStr = "該版本無編輯功能模塊！";
                 if (global.pLangusge == 2) TipStr = "This version has no edit function module!";
+                if (global.pLangusge == 3) TipStr = "Esta versión no tiene ninguna función de edición!";
                 System.Windows.MessageBox.Show(TipStr);
             }
         }
@@ -3719,6 +3758,7 @@ namespace CameraScan
                 string TipStr = "未检测到副摄像头！";
                 if (global.pLangusge == 1) TipStr = "未檢測到副攝像頭！";
                 if (global.pLangusge == 2) TipStr = "Not found the assist camera!";
+                if (global.pLangusge == 3) TipStr = "No se detectó cámara secundaria!";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -3728,6 +3768,7 @@ namespace CameraScan
                 string TipStr = "副摄像头已被开启！";
                 if (global.pLangusge == 1) TipStr = "副攝像頭已被開啟！";
                 if (global.pLangusge == 2) TipStr = "The assist camera has been opened";
+                if (global.pLangusge == 3) TipStr = "La cámara secundaria está conectada!";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -3809,6 +3850,7 @@ namespace CameraScan
                 string TipStr = "开启副摄像头失败！";
                 if (global.pLangusge == 1) TipStr = "開啟副攝像頭失敗！";
                 if (global.pLangusge == 2) TipStr = "Open the assist camera error!";
+                if (global.pLangusge == 3) TipStr = "Fallo al abrir cámara secundaria!";
                 System.Windows.MessageBox.Show(TipStr);
                 global.isOpenCameraB = false;
             }
@@ -3877,6 +3919,7 @@ namespace CameraScan
                 string TipStr = "开启副头";
                 if (global.pLangusge == 1) TipStr = "開啟副頭！";
                 if (global.pLangusge == 2) TipStr = "Open the assist camera ";
+                if (global.pLangusge == 3) TipStr = "Enciende la Cámara ";
                 AssistBt.ToolTip = TipStr;
                 GC.Collect();
             }
@@ -3886,6 +3929,7 @@ namespace CameraScan
                 string TipStr = "关闭副头";
                 if (global.pLangusge == 1) TipStr = "關閉副頭";
                 if (global.pLangusge == 2) TipStr = "Close the assist camera ";
+                if (global.pLangusge == 3) TipStr = "Apaga la Cámara ";
                 AssistBt.ToolTip = TipStr;
             }
         }
@@ -4226,6 +4270,10 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-tw.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (languageType == 2)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"en-us.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (languageType == 3)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
+
+                InitBtnSize();
             }
             catch (Exception e2)
             {
@@ -4331,6 +4379,7 @@ namespace CameraScan
                     string btStr = "捕获";
                     if (global.pLangusge == 1) btStr = "捕獲";
                     if (global.pLangusge == 2) btStr = "Snap";
+                    if (global.pLangusge == 3) btStr = "Capturar";
                     CaptureBt.Content = btStr;
                 }
                 else 
@@ -4338,6 +4387,7 @@ namespace CameraScan
                     string btStr = "拍摄";
                     if (global.pLangusge == 1) btStr = "拍攝";
                     if (global.pLangusge == 2) btStr = "Capture";
+                    if (global.pLangusge == 3) btStr = "Capturar";
                     CaptureBt.Content = btStr;
                 }
 
@@ -4524,7 +4574,7 @@ namespace CameraScan
                 }
 
                 string exeName = "recog.exe";
-                if (global.pLangusge == 2)
+                if (global.pLangusge >= 2)
                     exeName = "recog_en.exe";
                 string exe_path = System.Windows.Forms.Application.StartupPath + "\\rg\\" + exeName;
                 if (File.Exists(exe_path))
@@ -4534,6 +4584,7 @@ namespace CameraScan
                     string TipStr = "打开OCR失败！";
                     if (global.pLangusge == 1) TipStr = "打開OCR失敗！";
                     if (global.pLangusge == 2) TipStr = "Open OCR failed!";
+                    if (global.pLangusge == 3) TipStr = "Fallo al abrir OCR!";
                     System.Windows.MessageBox.Show(TipStr);
                 }
 
@@ -4545,7 +4596,7 @@ namespace CameraScan
                 the_args[1] = "ChinesePRC,English";
                 the_args[2] = "doc";
                 string exeName = "recog.exe";
-                if (global.pLangusge == 2)
+                if (global.pLangusge >= 2)
                     exeName = "recog_en.exe";
                 string exe_path = System.Windows.Forms.Application.StartupPath + "\\rg\\" + exeName;
                 if (File.Exists(exe_path))
@@ -4555,6 +4606,7 @@ namespace CameraScan
                     string TipStr = "打开OCR失败！";
                     if (global.pLangusge == 1) TipStr = "打開OCR失敗！";
                     if (global.pLangusge == 2) TipStr = "Open OCR failed!";
+                    if (global.pLangusge == 3) TipStr = "Fallo al abrir OCR!";
                     System.Windows.MessageBox.Show(TipStr);
                 }
             }

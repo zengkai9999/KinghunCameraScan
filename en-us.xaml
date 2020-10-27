@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <!--<sys:String x:Key="lanMainFormTitle">Scan</sys:String>-->
+    <sys:String x:Key="lanMainFormTitle">Scan</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">Kinghun Scan</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">Comet Scan</sys:String>
+    <!--<sys:String x:Key="lanMainFormTitle">Comet Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">Weirong Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">XunPai Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">KUPAR</sys:String>-->
@@ -184,6 +184,7 @@
     <sys:String x:Key="lanCBoxItemCn">中文</sys:String>
     <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
     <sys:String x:Key="lanCBoxItemEn">English</sys:String>
+    <sys:String x:Key="lanCBoxItemSpain">Español</sys:String>
     <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
     <sys:String x:Key="lanRaBDPIdefault">Default</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">Custom</sys:String>

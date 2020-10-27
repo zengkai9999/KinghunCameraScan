@@ -49,6 +49,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-tw.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 2)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"en-us.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 3)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -241,6 +243,7 @@ namespace CameraScan
                 //string TipStr = "多页PDF生成失败，合并源图像不存在或已删除！";
                 //if (global.pLangusge == 1) TipStr = "多頁PDF生成失敗，合並源圖像不存在或已刪除！";
                 //if (global.pLangusge == 2) TipStr = "Multi-page PDF generation failed.\r\n merged source image does not exist or has been deleted!";
+                //if (global.pLangusge == 3) TipStr = "La generación de múltiples páginas de PDF fracasó y la fusión de la imagen fuente no existe o fue borrada!";
                 //System.Windows.MessageBox.Show(TipStr);
             }
 

@@ -44,6 +44,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-tw.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 2)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"en-us.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 3)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -99,8 +101,9 @@ namespace CameraScan
                 else
                 {
                     string TipStr = "重命名时名字不能为空！";
-                    if (global.pLangusge == 1) TipStr = "原文件不存在，重命名失敗！";
+                    if (global.pLangusge == 1) TipStr = "重命名時名字不能為空！";
                     if (global.pLangusge == 2) TipStr = "The name can not be empty ";
+                    if (global.pLangusge == 3) TipStr = "El nombre no puede estar vacío al renombrar ";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -108,8 +111,9 @@ namespace CameraScan
             else 
             {
                 string TipStr = "原文件不存在，重命名失败！";
-                if (global.pLangusge == 1) TipStr = "重命名時名字不能為空！";
+                if (global.pLangusge == 1) TipStr = "原文件不存在，重命名失敗！";
                 if (global.pLangusge == 2) TipStr = "The original file does not exist and rename failed.";
+                if (global.pLangusge == 3) TipStr = "El archivo original no existe. Fallo al renombrar ";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }

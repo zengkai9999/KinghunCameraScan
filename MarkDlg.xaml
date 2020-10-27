@@ -2,21 +2,21 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:xi="clr-namespace:CameraScan" 
-        Title="{DynamicResource lanMarkDlgTitle}" Width="432" Height="278" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" Closed="Window_Closed">
+        Title="{DynamicResource lanMarkDlgTitle}"  SizeToContent="WidthAndHeight" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" Closed="Window_Closed">
     <StackPanel Orientation="Vertical">
 
         <CheckBox Name="AddMarkCheck" VerticalAlignment="Center" Margin="15,8,0,0"  FontSize="13" Checked="AddMarkCheck_Checked" Unchecked="AddMarkCheck_Unchecked" Content="{DynamicResource lanChBAddTheMark}"></CheckBox>
-        <Line X1="0" Y1="5" X2="430" Y2="5" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,4"></Line>
+        <Line X1="0" Y1="5" X2="420" Y2="5" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,4" HorizontalAlignment="Center"></Line>
         <StackPanel Orientation="Horizontal" Margin="2,2,2,2">
             <Label Content="{DynamicResource lanLabelMarkType}" Margin="80,0,0,0"></Label>
-            <ComboBox Name="MarkTypeCbBox" Margin="0,2,2,2" Width="65" Height="20"  IsReadOnly="True" SelectionChanged="MarkTypeCbBox_SelectionChanged">
+            <ComboBox Name="MarkTypeCbBox" Margin="0,2,2,2" Width="100" Height="20"  IsReadOnly="True" SelectionChanged="MarkTypeCbBox_SelectionChanged">
                 <ComboBoxItem Content="{DynamicResource lanCBoxItemText}"></ComboBoxItem>
                 <ComboBoxItem Content="{DynamicResource lanCBoxItemImage}"></ComboBoxItem>
             </ComboBox>
             <CheckBox Name="AddTimeMarkCheck" VerticalAlignment="Center" Margin="30,0,0,0" Checked="AddTimeMarkCheck_Checked" Unchecked="AddTimeMarkCheck_Unchecked" Content="{DynamicResource lanChBAddTimeMark}"></CheckBox>           
         </StackPanel>
 
-        <Line X1="0" Y1="5" X2="430" Y2="5" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,8"></Line>
+        <Line X1="0" Y1="5" X2="420" Y2="5" Stroke="SlateGray" StrokeThickness="1" Margin="0,0,0,8" HorizontalAlignment="Center"></Line>
 
         
         
@@ -100,8 +100,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-            <xi:ImageButton x:Name="OkBt"  Content="{DynamicResource lanBtMarkOK}" FontSize="13" ImageHeight="0" ImageWidth="0"  Width="52" Height="32" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="OkBt_Click" MouseDown="OkBt_MouseDown" />
-            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}"  FontSize="13" ImageHeight="0" ImageWidth="0"  Width="52" Height="32" Margin="20,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="ExitBt_Click" />
+            <xi:ImageButton x:Name="OkBt"  Content="{DynamicResource lanBtMarkOK}" FontSize="13" ImageHeight="0" ImageWidth="0"  Width="100" Height="32" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="OkBt_Click" MouseDown="OkBt_MouseDown" />
+            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}"  FontSize="13" ImageHeight="0" ImageWidth="0"  Width="100" Height="32" Margin="20,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="ExitBt_Click" />
         </StackPanel>
 
     </StackPanel>

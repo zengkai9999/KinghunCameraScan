@@ -2,13 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:xi="clr-namespace:CameraScan" 
-        Title="{DynamicResource lanRecordDlgTitle}" Height="76" Width="280" WindowStyle="None"   ShowInTaskbar="False" Background="Transparent" AllowsTransparency="True" Loaded="Window_Loaded" Closed="Window_Closed" SizeChanged="Window_SizeChanged">
+        Title="{DynamicResource lanRecordDlgTitle}" SizeToContent="WidthAndHeight" WindowStyle="None"   ShowInTaskbar="False" Background="Transparent" AllowsTransparency="True" Loaded="Window_Loaded" Closed="Window_Closed" SizeChanged="Window_SizeChanged">
 
     <Border BorderThickness="1" BorderBrush="#FF708090" CornerRadius="0,0,0,0">
 
         <StackPanel Name="RecStackPanel"  Orientation="Vertical" Background="White" MouseMove="StackPanel_MouseMove" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" MouseLeftButtonUp="StackPanel_MouseLeftButtonUp">
 
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"  HorizontalAlignment="Right" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"  HorizontalAlignment="Center" >
                 <Image Source="/Images/Move.png" Width="50" Height="36" Stretch="Uniform" Margin="0,0,6,0"></Image>
                 <Label Name="TimeLabel" Content="00:00:00" FontSize="30" Foreground="Gray"></Label>
                 <xi:OnlyImageBt x:Name="RecordBt" ImageHeight="34" ImageWidth="34" Height="38"  Image="/Images/Start.png"  Margin="1,1,1,1" Click="RecordBt_Click" />

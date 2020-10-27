@@ -59,6 +59,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-tw.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 2)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"en-us.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 3)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -129,7 +131,8 @@ namespace CameraScan
          
                 string TipStr = "拍照已完成，请重新放纸";
                 if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
-                if (global.pLangusge == 2) TipStr = "Capture finished";
+                if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
+                if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
                 this.Dispatcher.BeginInvoke(new UpdateStatusTextDelegate(UpdateStatusText), TipStr);    
             }
         }
@@ -174,7 +177,14 @@ namespace CameraScan
                         TipStr = "Checking.....";
                     else
                         TipStr = "Checking...";
-                } 
+                }
+                if (global.pLangusge == 3)
+                {
+                    if (statusCount == 1)
+                        TipStr = "Probando.....";
+                    else
+                        TipStr = "Probando...";
+                }
 
                 StatusLabel.Content = TipStr;
 
@@ -200,6 +210,7 @@ namespace CameraScan
                         string TipStr = "正在拍照...";
                         if (global.pLangusge == 1) TipStr = "正在拍照...";
                         if (global.pLangusge == 2) TipStr = "Taking photos...";
+                        if (global.pLangusge == 3) TipStr = "Tomando fotos...";
                         StatusLabel.Content = TipStr;
 
                         if (global.isJoinMainCam == 1 && global.isOpenCameraB)  //如果与主画面合并拍照
@@ -235,7 +246,8 @@ namespace CameraScan
 
                     string TipStr = "拍照已完成，请重新放纸";
                     if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
-                    if (global.pLangusge == 2) TipStr = "Capture finished";
+                    if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
+                    if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
                     StatusLabel.Content = TipStr;
                 }
 
@@ -245,7 +257,8 @@ namespace CameraScan
             {
                 //string TipStr = "拍照已完成，请重新放纸";
                 //if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
-                //if (global.pLangusge == 2) TipStr = "Capture finished";
+                //if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
+                //if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
                 //StatusLabel.Content = TipStr;
             }
                 
@@ -260,6 +273,7 @@ namespace CameraScan
                 string TipStr = "停止";
                 if (global.pLangusge == 1) TipStr = "停止";
                 if (global.pLangusge == 2) TipStr = "Stop";
+                if (global.pLangusge == 3) TipStr = "Stop";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Stop.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)
@@ -275,6 +289,7 @@ namespace CameraScan
                 string TipStr = "开始";
                 if (global.pLangusge == 1) TipStr = "開始";
                 if (global.pLangusge == 2) TipStr = "Start";
+                if (global.pLangusge == 3) TipStr = "Empezar";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Start.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)

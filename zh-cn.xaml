@@ -3,9 +3,9 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     
-    <!--<sys:String x:Key="lanMainFormTitle">高拍仪</sys:String>-->
+    <sys:String x:Key="lanMainFormTitle">高拍仪</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>
+    <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">维融高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">讯派高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">久派高拍仪</sys:String>-->
@@ -185,7 +185,8 @@
     <sys:String x:Key="lanLabelLanguage">语言</sys:String>
     <sys:String x:Key="lanCBoxItemCn">中文</sys:String>
     <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
-    <sys:String x:Key="lanCBoxItemEn">英文</sys:String>
+    <sys:String x:Key="lanCBoxItemEn">English</sys:String>
+    <sys:String x:Key="lanCBoxItemSpain">Español</sys:String>
     <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
     <sys:String x:Key="lanRaBDPIdefault">默认</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">自定义</sys:String>
