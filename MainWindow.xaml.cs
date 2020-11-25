@@ -49,7 +49,7 @@ namespace CameraScan
         public delegate int PFCALLBACK(IntPtr buf, int ww, int hh);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate int STILLPHOTOCALLBACK(IntPtr Imagepath,int FileType);
+        public delegate int STILLPHOTOCALLBACK(IntPtr Imagepath,int FileType, int isAddList);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int VIDEOPARAMCALLBACK();
@@ -92,6 +92,9 @@ namespace CameraScan
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static int Is1300InSert1600ValDevice();
+
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void StillCaptureSuccess(byte[] path, int formattype);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetCallBackFunction(PFCALLBACK mCB);
@@ -230,10 +233,13 @@ namespace CameraScan
 
         [DllImport("DevCaptureB.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetManualCutRectB(double left, double top, double right, double bottom);
-    
+
+        [DllImport("DevCapture.dll", EntryPoint = "SetJpgQuality", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SetJpgQuality(int quality);
+
         #endregion
 
-        
+
         PrintDocument printDocument; //打印
         System.Windows.Forms.PrintDialog printDialog = new System.Windows.Forms.PrintDialog();
         PageSetupDialog pageSetupDialog = new PageSetupDialog();
@@ -452,6 +458,8 @@ namespace CameraScan
             else CkBox_DelGray.IsChecked = true;
 
             global.SetWaterMarkParameters();
+
+            SetJpgQuality(global.JpgQuality);  //设置JPEG图片质量
 
             InitBtnSize();
         }
@@ -876,10 +884,18 @@ namespace CameraScan
 
 
         //>>>>>>>>>>>>>>>>>>>>>>静态拍照回调函数<<<<<<<<<<<<<<<<<<<<<<<<
-        public int GetStillImageCallBackFunc(IntPtr path, int fType)
+        public int GetStillImageCallBackFunc(IntPtr path, int fType, int isAddList)
         {
             string imgpath = Marshal.PtrToStringAnsi(path);
-            this.Dispatcher.BeginInvoke(new AddImgToListDelegate(AddStillImageToListBox), imgpath, fType);
+
+            if (isAddList == 200)
+            {
+                byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
+                StillCaptureSuccess(pBuf, fType);
+            }
+            else
+                this.Dispatcher.BeginInvoke(new AddImgToListDelegate(AddStillImageToListBox), imgpath, fType);
+
             return 0;
         }
 
@@ -953,13 +969,13 @@ namespace CameraScan
                     
 
             }
-           
-           
+
+
 
             //副头拍照
-            if (global.isTakeSlaveCamImg == 1 && global.isJoinMainCam == 0 && isGetSlaveCamImage==true)
+            if (global.isTakeSlaveCamImg == 1 && global.isJoinMainCam == 0 && isGetSlaveCamImage == true)
                 FuncSlaveCaptureFromPreview(global.FileFormat, global.NameMode, true);
-           
+
             global.IsTimerScanCanDo = true;  //静态拍照完成后，定时拍照才能触发
             global.IsWiseScanCanDo = true;   //静态拍照完成后，智能连拍才能触发
             if (global.pWiseShootDlgHaveRun)
@@ -970,7 +986,7 @@ namespace CameraScan
             {
                 TimeDlgTransfEvent(imgpath);
             }
-            
+
             if (global.pMorePdfFormScanDo)
             {
                 global.pMorePdfFormScanDo = false;

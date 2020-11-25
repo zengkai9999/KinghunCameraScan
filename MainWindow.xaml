@@ -4,7 +4,7 @@
         Title="{DynamicResource lanMainFormTitle}" Height="800" Width="1280" MinWidth="960" MinHeight="640"
         xmlns:xi="clr-namespace:CameraScan" 
         xmlns:markctl="clr-namespace:RisCaptureLib;assembly=RisCaptureLib"  
-        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/Images/gpy.ico" PreviewKeyDown="Window_PreviewKeyDown" >
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/Images/kinghun.ico" PreviewKeyDown="Window_PreviewKeyDown" >
 
     <!-- *******************************************************************模板资源文件******************************************************************* -->
     <Window.Resources>
@@ -57,7 +57,7 @@
                 <xi:ImageButton x:Name="JoinImgBt" Image="/Images/ImgJoin.png" Content="{DynamicResource lanImgJoin}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="JoinImgBt_Click" />
                 <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" />
                 <xi:ImageButton x:Name="RecordBt" Image="/Images/Record.png" Content="{DynamicResource lanRecord}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="RecordBt_Click" />
-                <xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" />
+                <xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" Visibility="Collapsed"/>
                 <xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />
             </WrapPanel>
 
