@@ -248,7 +248,7 @@ namespace CameraScan
         
         private delegate void UpdateUiDelegate(byte[] buf);
         private delegate void UpdateUiDelegate2(IntPtr buf, int w, int h);
-        private delegate void AddImgToListDelegate(string path, int fType);
+        private delegate void AddImgToListDelegate(string path, int fType, int isAddList);
         private delegate void VideoParamsChangeDelegate();
         private delegate void WaitDlgDelegate(int show);
         private delegate void HidSignalDelegate(int signal);
@@ -894,12 +894,12 @@ namespace CameraScan
                 StillCaptureSuccess(pBuf, fType);
             }
             else
-                this.Dispatcher.BeginInvoke(new AddImgToListDelegate(AddStillImageToListBox), imgpath, fType);
+                this.Dispatcher.BeginInvoke(new AddImgToListDelegate(AddStillImageToListBox), imgpath, fType, isAddList);
 
             return 0;
         }
 
-        private void AddStillImageToListBox(string imgpath,int fType)
+        private void AddStillImageToListBox(string imgpath,int fType, int isAddList)
         {
             isRunWaitDialogThread = false; //隐藏等待对话框
 
@@ -921,12 +921,17 @@ namespace CameraScan
                         //prePath = "C:\\" + tmpname + ".jpg";
                     }
                 }
+                // 1600万插值到1800或2000，显示buffer.jpg的预览图
+                if(isAddList == 300 && fType != 4)
+                    prePath = System.Windows.Forms.Application.StartupPath + "\\buffer.jpg";
+
                 mPhoto.SourceImage = CreateImageSourceThumbnia(prePath, 120, 90);
                 if (File.Exists(prePath) && fType == 4)
                     File.Delete(prePath);
 
                 if (fType == 4)
                     mPhoto.LogoImage = new BitmapImage(new Uri(@"Images\pdfb.png", UriKind.Relative));
+
                 mPhoto.ImageName = name;
                 mPhoto.ImagePath = imgpath;
                 PreviewImgList.Items.Add(mPhoto);
@@ -2176,7 +2181,7 @@ namespace CameraScan
                     this.Dispatcher.BeginInvoke(new WaitDlgDelegate(OnOffWaitDialog), 2);
                     break;
                 }
-                if (wdlgCount > 100)
+                if (wdlgCount > 120)
                 {
                     wdlgCount = 0;
                     isRunWaitDialogThread = false;
