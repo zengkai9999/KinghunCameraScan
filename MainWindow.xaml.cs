@@ -105,6 +105,9 @@ namespace CameraScan
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static IntPtr CaptureFromPreview(byte[] Imagepath, int type);
 
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static IntPtr CaptureFromPreview_2(byte[] Imagepath, int type);
+
         [DllImport("DevCapture.dll",  CallingConvention = CallingConvention.Cdecl)]
         public extern static int CaptureFromStill(byte[] Imagepath,int type);
 
@@ -237,6 +240,18 @@ namespace CameraScan
         [DllImport("DevCapture.dll", EntryPoint = "SetJpgQuality", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetJpgQuality(int quality);
 
+        [DllImport("DevCapture.dll", EntryPoint = "SetRecogTextRed", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SetRecogTextRed(int flag);
+
+        [DllImport("DevCapture.dll", EntryPoint = "SetRecogTextBlue", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SetRecogTextBlue(int flag);
+
+        [DllImport("DevCapture.dll", EntryPoint = "SetRecogTextOrientation", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SetRecogTextOrientation(int flag);
+
+        [DllImport("DevCapture.dll", EntryPoint = "SetAutoCutMore", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SetAutoCutMore(int flag);
+        
         #endregion
 
 
@@ -432,14 +447,17 @@ namespace CameraScan
             }
             else if (global.CutType == 1) 
             {
-                RdBtAutoCut.IsChecked = true;
+                if(global.isAutoCutMore == 1)
+                    RdBtAutoCutMore.IsChecked = true;
+                else
+                    RdBtAutoCut.IsChecked = true;
                 MyMark.Visibility = Visibility.Hidden;
             }
             else if (global.CutType == 2)
             {
                 RdBtManulCut.IsChecked = true;
                 MyMark.Visibility = Visibility.Visible;
-            } 
+            }
 
             if (global.ColorType == 0) RdBtColor.IsChecked = true;
             else if (global.ColorType == 1) RdBtGray.IsChecked = true;
@@ -456,6 +474,15 @@ namespace CameraScan
 
             if (global.isDelGrayBg == 0) CkBox_DelGray.IsChecked = false;
             else CkBox_DelGray.IsChecked = true;
+
+            if (global.isTextRed == 0) CkBox_TextRed.IsChecked = false;
+            else CkBox_TextRed.IsChecked = true;
+
+            if (global.isTextBlue == 0) CkBox_TextBlue.IsChecked = false;
+            else CkBox_TextBlue.IsChecked = true;
+
+            if (global.isTextAutoRotate == 0) CkBox_TextAutoRotate.IsChecked = false;
+            else CkBox_TextAutoRotate.IsChecked = true;
 
             global.SetWaterMarkParameters();
 
@@ -859,14 +886,14 @@ namespace CameraScan
         //##################刷新显示2#######################
         private void CameraPaint2(IntPtr buf, int width, int height)
         {
-            global.WriteMessage("CameraPaint->001");
+            //global.WriteMessage("CameraPaint->001");
             if (RotateFlag != 0)
             {
                 GC.Collect();
                 RotateFlag--;
                 return;
             }
-            global.WriteMessage("CameraPaint->002");
+            //global.WriteMessage("CameraPaint->002");
             int w = 0;
             int h = 0;
             if (global.RotateCount == 0 || global.RotateCount == 2)
@@ -879,7 +906,7 @@ namespace CameraScan
             }
             if (global.isOpenCameraA &&  (global.pHostCamera.PreWidth == w) && (global.pHostCamera.PreHeight == h))
                 mWBitmap.WritePixels(CamRect, buf, width * height * 3, mWBitmap.BackBufferStride);
-            global.WriteMessage("CameraPaint->003");
+            //global.WriteMessage("CameraPaint->003");
         }
 
 
@@ -1964,6 +1991,9 @@ namespace CameraScan
                 global.CutType = 0;
                 SetCutType(global.CutType);
                 MyMark.Visibility = Visibility.Hidden;
+
+                global.isAutoCutMore = 0;
+                SetAutoCutMore(global.isAutoCutMore);
             }
         }
         private void RdBtAutoCut_Checked(object sender, RoutedEventArgs e)
@@ -1973,6 +2003,9 @@ namespace CameraScan
                 global.CutType = 1;
                 SetCutType(global.CutType);
                 MyMark.Visibility = Visibility.Hidden;
+
+                global.isAutoCutMore = 0;
+                SetAutoCutMore(global.isAutoCutMore);
             }
         }
         private void RdBtManulCut_Checked(object sender, RoutedEventArgs e)
@@ -1982,9 +2015,23 @@ namespace CameraScan
                 global.CutType = 2;
                 SetCutType(global.CutType);
                 MyMark.Visibility = Visibility.Visible;
+
+                global.isAutoCutMore = 0;
+                SetAutoCutMore(global.isAutoCutMore);
             }
         }
+        private void RdBtAutoCutMore_Checked(object sender, RoutedEventArgs e)
+        {
+            if (RdBtAutoCutMore.IsChecked == true)
+            {
+                global.CutType = 1;
+                SetCutType(global.CutType);
+                MyMark.Visibility = Visibility.Hidden;
 
+                global.isAutoCutMore = 1;
+                SetAutoCutMore(global.isAutoCutMore);
+            }
+        }
 
         /*****************
         * 手动裁切模式双击拍照事件
@@ -2147,6 +2194,138 @@ namespace CameraScan
             }
         }
 
+        /*****************
+        * 从预览中拍照
+        ****************/
+        //int regCount = 0;
+        public string FuncCaptureFromPreview_2(int FileType, int pNameMode, bool isShowToList)
+        {
+            SetDpi(global.DpiType, global.DpiVal);
+            if (global.isOpenCameraA && FrameCount > 2)
+            {
+
+                string fFormatStr = ".jpg";
+                if (FileType == 0) fFormatStr = ".jpg";
+                if (FileType == 1) fFormatStr = ".bmp";
+                if (FileType == 2) fFormatStr = ".png";
+                if (FileType == 3) fFormatStr = ".tif";
+                if (FileType == 4) fFormatStr = ".pdf";
+                string ImgName = DateTime.Now.ToString("yyyyMMddhhmmssfff");
+                string imgpath = global.ImagesFolder + "\\" + ImgName + fFormatStr;
+
+                int isBarcode = 0;
+                if (pNameMode == 3)
+                    isBarcode = 1;
+                if (pNameMode == 4)
+                    isBarcode = 2;
+
+                //add at 2019.04.02
+                if (pNameMode == 5)
+                {
+
+                    mFixedNameDlg = new FixedNameDlg();
+                    //mFixedNameDlg.Owner = this;
+                    mFixedNameDlg.ShowDialog();
+                    if (global.pFixedNameStr == "")
+                    {
+                        mFixedNameDlg.Close();
+                        return "";
+                    }
+                    imgpath = global.ImagesFolder + "\\" + global.pFixedNameStr + fFormatStr;
+                }
+
+                if (pNameMode == 1)
+                {
+                    string dateStr = DateTime.Now.ToString("yyyy-MM-dd");
+                    imgpath = global.ImagesFolder + "\\" + dateStr;
+                    if (!Directory.Exists(imgpath))
+                        Directory.CreateDirectory(imgpath);
+                    string timeStr = DateTime.Now.ToString("yyyyMMddhhmmssfff");
+                    imgpath = imgpath + "\\" + timeStr + fFormatStr;
+                }
+                if (pNameMode == 2)
+                {
+                    global.CalculateSuffix();
+                    string CountStr = global.SuffixSupplyZero(global.SuffixCount, global.SuffixLength);
+                    imgpath = global.ImagesFolder + "\\" + global.PrefixNmae + "_" + CountStr + fFormatStr;
+                    global.PreviousSuffixCount = global.SuffixCount;
+                    global.SuffixCount = global.SuffixCount + global.IncreaseStep;
+                    if (global.pSetDlgHaveRun)
+                    {
+                        CountStr = global.SuffixSupplyZero(global.SuffixCount, global.SuffixLength);
+                        mSettingDlg.SuffixTextBox.Text = CountStr;
+                    }
+                }
+
+                byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
+                IntPtr namePtr = CaptureFromPreview_2(pBuf, isBarcode);
+                imgpath = Marshal.PtrToStringAnsi(namePtr);
+
+                //regCount++;
+                // int pos = imgpath.LastIndexOf("\\");
+                // int pos1 = imgpath.LastIndexOf(".");
+                // string name = imgpath.Substring(pos + 1, pos1 - pos - 1);
+                // mQRDlg.listBox1.Items.Add("识别结果:" + Convert.ToString(regCount) + "\n");
+                // mQRDlg.listBox1.Items.Add(name + "\r");
+                // mQRDlg.listBox1.ScrollIntoView(mQRDlg.listBox1.Items[mQRDlg.listBox1.Items.Count-1]);
+
+                if (isShowToList)
+                {
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        int pp = imgpath.LastIndexOf('.');
+                        string addStr = "_" + i.ToString();
+                        string pathStr = imgpath;
+                        pathStr = pathStr.Insert(pp, addStr);
+
+                        if (File.Exists(pathStr))
+                        {
+                            global.WriteMessage(pathStr);
+                            int pos = pathStr.LastIndexOf("\\");
+                            string name = pathStr.Substring(pos + 1, pathStr.Length - pos - 1);
+                            PreviewPhoto mPhoto = new PreviewPhoto();
+                            string prePath = pathStr;
+                            if (FileType == 4)
+                            {
+                                prePath = System.Windows.Forms.Application.StartupPath + "\\tpdf.jpg";
+                                int pp1 = pathStr.LastIndexOf("\\");
+                                int pp2 = pathStr.LastIndexOf(".");
+                                if (pp2 > pp1)
+                                {
+                                    string tmpname = pathStr.Substring(pp1 + 1, pp2 - pp1 - 1);
+                                    prePath = System.Windows.Forms.Application.StartupPath + "\\" + tmpname + ".jpg";
+                                    //prePath = "C:\\" + tmpname + ".jpg";
+                                }
+                            }
+                            mPhoto.SourceImage = CreateImageSourceThumbnia(prePath, 120, 90);
+                            if (File.Exists(prePath) && FileType == 4)
+                                File.Delete(prePath);
+
+                            if (FileType == 4)
+                                mPhoto.LogoImage = new BitmapImage(new Uri(@"Images\pdfb.png", UriKind.Relative));
+                            mPhoto.ImageName = name;
+                            mPhoto.ImagePath = pathStr;
+                            PreviewImgList.Items.Add(mPhoto);
+                            PreviewImgList.ScrollIntoView(PreviewImgList.Items[PreviewImgList.Items.Count - 1]); //设置总显示最后一项
+                            //global.pImagePathList.Add(pathStr);
+                        }
+                        else
+                            continue;
+                    }
+
+                    
+                }
+
+                global.PlaySound(); //播放声音
+                //GC.Collect();
+                return imgpath;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         private void CaptureBt_Click(object sender, RoutedEventArgs e)
         {
             isGetSlaveCamImage = true;
@@ -2156,7 +2335,10 @@ namespace CameraScan
                 FuncMainAssistImageJoin(global.FileFormat, global.NameMode, true);
                 return;
             }
-            FuncCaptureFromPreview(global.FileFormat,global.NameMode,true);
+            if(global.isAutoCutMore == 1)
+                FuncCaptureFromPreview_2(global.FileFormat, global.NameMode, true);
+            else
+                FuncCaptureFromPreview(global.FileFormat,global.NameMode,true);
             if(global.isTakeSlaveCamImg==1)
                 FuncSlaveCaptureFromPreview(global.FileFormat, global.NameMode, true);
         }
@@ -4634,10 +4816,41 @@ namespace CameraScan
            
         }
 
-       
+        private void CkBox_TextAutoRotate_Checked(object sender, RoutedEventArgs e)
+        {
+            global.isTextAutoRotate = 1;
+            SetRecogTextOrientation(global.isTextAutoRotate);
+        }
 
+        private void CkBox_TextAutoRotate_Unchecked(object sender, RoutedEventArgs e)
+        {
+            global.isTextAutoRotate = 0;
+            SetRecogTextOrientation(global.isTextAutoRotate);
+        }
 
+        private void CkBox_TextRed_Checked(object sender, RoutedEventArgs e)
+        {
+            global.isTextRed = 1;
+            SetRecogTextRed(global.isTextRed);
+        }
 
+        private void CkBox_TextRed_Unchecked(object sender, RoutedEventArgs e)
+        {
+            global.isTextRed = 0;
+            SetRecogTextRed(global.isTextRed);
+        }
+
+        private void CkBox_TextBlue_Checked(object sender, RoutedEventArgs e)
+        {
+            global.isTextBlue = 1;
+            SetRecogTextBlue(global.isTextBlue);
+        }
+
+        private void CkBox_TextBlue_Unchecked(object sender, RoutedEventArgs e)
+        {
+            global.isTextBlue = 0;
+            SetRecogTextBlue(global.isTextBlue);
+        }
     }
 }
 

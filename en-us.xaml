@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--<sys:String x:Key="lanMainFormTitle">Scan</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">Kinghun Scan</sys:String>
+    <sys:String x:Key="lanMainFormTitle">Wutong Scan</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">Comet Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">Weirong Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">XunPai Scan</sys:String>-->
@@ -55,8 +55,9 @@
 
     <sys:String x:Key="lanGBoxCutType">CutMode</sys:String>
     <sys:String x:Key="lanRaBtNoCut">NoCut</sys:String>
-    <sys:String x:Key="lanRaBtAutoCut">AutoCut</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">AutoCut(Single)</sys:String>
     <sys:String x:Key="lanRaBtManulCut">Custom</sys:String>
+    <sys:String x:Key="lanRaBtAutoCutMore">AutoCut(More)</sys:String>
 
     <sys:String x:Key="lanGBoxImgEffect">Video Proc Amp</sys:String>
     <sys:String x:Key="lanLabelLight">Brightness</sys:String>
@@ -71,6 +72,9 @@
     <sys:String x:Key="lanChBDelBgColor">delBackCol</sys:String>
     <sys:String x:Key="lanChBDelShade">sharpen</sys:String>
     <sys:String x:Key="lanChBDelGray">delNoise</sys:String>
+    <sys:String x:Key="lanChBTextRed">enhance red</sys:String>
+    <sys:String x:Key="lanChBTextBlue">enhance blue</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">characters auto rotate</sys:String>
 
     <sys:String x:Key="lanTipOpenAssistCam">Open AssistCam</sys:String>
     <sys:String x:Key="lanTipSetAssistCam">Set AssistCam</sys:String>

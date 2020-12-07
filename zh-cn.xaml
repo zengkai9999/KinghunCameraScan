@@ -4,7 +4,7 @@
 
     
     <!--<sys:String x:Key="lanMainFormTitle">高拍仪</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>
+    <sys:String x:Key="lanMainFormTitle">五通高拍仪</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">维融高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">讯派高拍仪</sys:String>-->
@@ -58,8 +58,9 @@
 
     <sys:String x:Key="lanGBoxCutType">裁切方式</sys:String>
     <sys:String x:Key="lanRaBtNoCut">不裁切</sys:String>
-    <sys:String x:Key="lanRaBtAutoCut">自动裁切</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">自动裁切(单图)</sys:String>
     <sys:String x:Key="lanRaBtManulCut">自定义</sys:String>
+    <sys:String x:Key="lanRaBtAutoCutMore">自动裁切(多图)</sys:String>
 
     <sys:String x:Key="lanGBoxImgEffect">画质调节</sys:String>
     <sys:String x:Key="lanLabelLight">亮度</sys:String>
@@ -74,6 +75,9 @@
     <sys:String x:Key="lanChBDelBgColor">去底色</sys:String>
     <sys:String x:Key="lanChBDelShade">锐化</sys:String>
     <sys:String x:Key="lanChBDelGray">去噪点</sys:String>
+    <sys:String x:Key="lanChBTextRed">红印文档</sys:String>
+    <sys:String x:Key="lanChBTextBlue">蓝印文档</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">文字方向识别</sys:String>
 
     <sys:String x:Key="lanTipOpenAssistCam">开启副头</sys:String>
     <sys:String x:Key="lanTipSetAssistCam">副头设置</sys:String>  

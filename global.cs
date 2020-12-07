@@ -65,6 +65,10 @@ namespace CameraScan
         public static int isDelBgColor = 0;    //是否去底色
         public static int isDelShade = 0;     //是否去阴影
         public static int isDelGrayBg = 0;      //是否去灰底
+        public static int isTextRed = 0;  //是否红印文档
+        public static int isTextBlue = 0;  //是否蓝印文档
+        public static int isTextAutoRotate = 0;  //是否文字方向识别
+        public static int isAutoCutMore = 0;  //是否自动裁切多图模式
 
         public static int IncreaseStep = 1;
         public static int NameMode = 0;   //命名方式：  0,时间方式  1,条码命名  2，日期文件夹  3，自定义
@@ -231,6 +235,22 @@ namespace CameraScan
                 iRest = GetPrivateProfileString("SET", "isDelGrayBg", "", Str, 256, ConfigIniPath);
                 if (iRest == 0) WritePrivateProfileString("SET", "isDelGrayBg", Convert.ToString(isDelGrayBg), ConfigIniPath);
                 else isDelGrayBg = Convert.ToInt32(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "isTextRed", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "isTextRed", Convert.ToString(isTextRed), ConfigIniPath);
+                else isTextRed = Convert.ToInt32(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "isTextBlue", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "isTextBlue", Convert.ToString(isTextBlue), ConfigIniPath);
+                else isTextBlue = Convert.ToInt32(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "isTextAutoRotate", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "isTextAutoRotate", Convert.ToString(isTextAutoRotate), ConfigIniPath);
+                else isTextAutoRotate = Convert.ToInt32(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "isAutoCutMore", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "isAutoCutMore", Convert.ToString(isAutoCutMore), ConfigIniPath);
+                else isAutoCutMore = Convert.ToInt32(Str.ToString());
 
                 iRest = GetPrivateProfileString("SET", "NameMode", "", Str, 256, ConfigIniPath);
                 if (iRest == 0) WritePrivateProfileString("SET", "NameMode", Convert.ToString(NameMode), ConfigIniPath);
@@ -563,6 +583,10 @@ namespace CameraScan
                 WritePrivateProfileString("SET", "isDelBgColor", Convert.ToString(isDelBgColor), ConfigIniPath);       //是否去底色
                 WritePrivateProfileString("SET", "isDelShade", Convert.ToString(isDelShade), ConfigIniPath);       //是否去阴影
                 WritePrivateProfileString("SET", "isDelGrayBg", Convert.ToString(isDelGrayBg), ConfigIniPath);       //是否去灰底
+                WritePrivateProfileString("SET", "isTextRed", Convert.ToString(isTextRed), ConfigIniPath);
+                WritePrivateProfileString("SET", "isTextBlue", Convert.ToString(isTextBlue), ConfigIniPath);
+                WritePrivateProfileString("SET", "isTextAutoRotate", Convert.ToString(isTextAutoRotate), ConfigIniPath);       //是否文字自动识别
+                WritePrivateProfileString("SET", "isAutoCutMore", Convert.ToString(isAutoCutMore), ConfigIniPath);       //是否自动裁切多图模式
                 WritePrivateProfileString("SET", "NameMode", Convert.ToString(NameMode), ConfigIniPath);       //命名方式
                 WritePrivateProfileString("SET", "PrefixNmae", PrefixNmae, ConfigIniPath);       //命名前缀
                 WritePrivateProfileString("SET", "SuffixCount", Convert.ToString(SuffixCount), ConfigIniPath);       //命名计数
@@ -641,6 +665,10 @@ namespace CameraScan
             WritePrivateProfileString("SET", "isDelBgColor", Convert.ToString(isDelBgColor), ConfigIniPath);       //是否去底色
             WritePrivateProfileString("SET", "isDelShade", Convert.ToString(isDelShade), ConfigIniPath);       //是否去阴影
             WritePrivateProfileString("SET", "isDelGrayBg", Convert.ToString(isDelGrayBg), ConfigIniPath);       //是否去灰底
+            WritePrivateProfileString("SET", "isTextRed", Convert.ToString(isTextRed), ConfigIniPath);
+            WritePrivateProfileString("SET", "isTextBlue", Convert.ToString(isTextBlue), ConfigIniPath);
+            WritePrivateProfileString("SET", "isTextAutoRotate", Convert.ToString(isTextAutoRotate), ConfigIniPath);       //是否文字自动识别
+            WritePrivateProfileString("SET", "isAutoCutMore", Convert.ToString(isAutoCutMore), ConfigIniPath);       //是否自动裁切多图模式
             WritePrivateProfileString("SET", "NameMode", Convert.ToString(NameMode), ConfigIniPath);       //命名方式
             WritePrivateProfileString("SET", "PrefixNmae", PrefixNmae, ConfigIniPath);       //命名前缀
             WritePrivateProfileString("SET", "SuffixCount", Convert.ToString(SuffixCount), ConfigIniPath);       //命名计数
@@ -811,7 +839,7 @@ namespace CameraScan
             }
         }
 
-        public static Boolean isWriteLog = false;
+        public static Boolean isWriteLog = true;
         public static void WriteMessage(string msg)
         {
             if (isWriteLog == true)

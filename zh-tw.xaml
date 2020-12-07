@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--<sys:String x:Key="lanMainFormTitle">高拍儀</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>
+    <sys:String x:Key="lanMainFormTitle">五通高拍仪</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">科密高拍儀</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">維融高拍儀</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">訊派高拍儀</sys:String>-->
@@ -57,8 +57,9 @@
 
     <sys:String x:Key="lanGBoxCutType">裁切方式</sys:String>
     <sys:String x:Key="lanRaBtNoCut">不裁切</sys:String>
-    <sys:String x:Key="lanRaBtAutoCut">自動裁切</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">自動裁切(單圖)</sys:String>
     <sys:String x:Key="lanRaBtManulCut">自定義</sys:String>
+    <sys:String x:Key="lanRaBtAutoCutMore">自動裁切(多圖)</sys:String>
 
     <sys:String x:Key="lanGBoxImgEffect">視頻參數</sys:String>
     <sys:String x:Key="lanLabelLight">亮度</sys:String>
@@ -73,6 +74,9 @@
     <sys:String x:Key="lanChBDelBgColor">去底色</sys:String>
     <sys:String x:Key="lanChBDelShade">銳化</sys:String>
     <sys:String x:Key="lanChBDelGray">去噪點</sys:String>
+    <sys:String x:Key="lanChBTextRed">紅印檔案</sys:String>
+    <sys:String x:Key="lanChBTextBlue">藍印檔案</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">文字方向識別</sys:String>
 
     <sys:String x:Key="lanTipOpenAssistCam">開啓副頭</sys:String>
     <sys:String x:Key="lanTipSetAssistCam">副頭設置</sys:String>

@@ -58,8 +58,9 @@
 
     <sys:String x:Key="lanGBoxCutType">Modo de recorte</sys:String>
     <sys:String x:Key="lanRaBtNoCut">Sin recorte</sys:String>
-    <sys:String x:Key="lanRaBtAutoCut">Recorte automático</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">Recorte automático(Uno)</sys:String>
     <sys:String x:Key="lanRaBtManulCut">Personalizar</sys:String>
+    <sys:String x:Key="lanRaBtAutoCutMore">Recorte automático(Muchos)</sys:String>
 
     <sys:String x:Key="lanGBoxImgEffect">Ajustes gráficos</sys:String>
     <sys:String x:Key="lanLabelLight">Brillo</sys:String>
@@ -74,6 +75,9 @@
     <sys:String x:Key="lanChBDelBgColor">Borrar fondo</sys:String>
     <sys:String x:Key="lanChBDelShade">Nitidez</sys:String>
     <sys:String x:Key="lanChBDelGray">Eliminación de ruido</sys:String>
+    <sys:String x:Key="lanChBTextRed">Documento rojo</sys:String>
+    <sys:String x:Key="lanChBTextBlue">Documento azul</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">Identificador de texto</sys:String>
 
     <sys:String x:Key="lanTipOpenAssistCam">Abrir cámara secundaria</sys:String>
     <sys:String x:Key="lanTipSetAssistCam">Configurar cámara secundaria</sys:String>

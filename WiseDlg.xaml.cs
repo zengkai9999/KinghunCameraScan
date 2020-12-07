@@ -195,6 +195,11 @@ namespace CameraScan
             }
             else if (SteadyFlag == 1)
             {
+                string TipStr_2 = "拍摄中...";
+                if (global.pLangusge == 1) TipStr_2 = "拍摄中...";
+                if (global.pLangusge == 2) TipStr_2 = "Taking photos...";
+                if (global.pLangusge == 3) TipStr_2 = "Tomando fotos...";
+                StatusLabel.Content = TipStr_2;
                 //StatusLabel.Content = "已稳定,开始拍照...";
 
                 MainWindow mMainWindow = (MainWindow)this.Owner;
@@ -207,8 +212,8 @@ namespace CameraScan
                     {
                         global.IsWiseScanCanDo = false;
 
-                        string TipStr = "正在拍照...";
-                        if (global.pLangusge == 1) TipStr = "正在拍照...";
+                        string TipStr = "拍摄中...";
+                        if (global.pLangusge == 1) TipStr = "拍摄中...";
                         if (global.pLangusge == 2) TipStr = "Taking photos...";
                         if (global.pLangusge == 3) TipStr = "Tomando fotos...";
                         StatusLabel.Content = TipStr;
@@ -244,22 +249,22 @@ namespace CameraScan
                     pScanCount++;
                     NumTextBox.Text = Convert.ToString(pScanCount);
 
-                    string TipStr = "拍照已完成，请重新放纸";
-                    if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
-                    if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
-                    if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
-                    StatusLabel.Content = TipStr;
+                    //string TipStr = "拍照已完成，请重新放纸";
+                    //if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
+                    //if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
+                    //if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
+                    //StatusLabel.Content = TipStr;
                 }
 
                
             }
             else if (SteadyFlag == 2)
             {
-                //string TipStr = "拍照已完成，请重新放纸";
-                //if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
-                //if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
-                //if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
-                //StatusLabel.Content = TipStr;
+                string TipStr = "拍照已完成，请重新放纸";
+                if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
+                if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
+                if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
+                StatusLabel.Content = TipStr;
             }
                 
         }
