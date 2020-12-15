@@ -34,10 +34,14 @@ namespace CameraScan
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static int pdf_end();
 
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void ClearCutPoint();
+
         WiseCaptureCALLBACK WiseCallBackFunc = null;  //静态拍照回调函数
         bool isTimerStart = false;
-        int pScanCount = 0;
-        private List<string> pdfImgPathList = new List<string>(); 
+        //int pScanCount = 0;
+        private List<string> pdfImgPathList = new List<string>();
+        private int listIndex = 0;
 
         private delegate void WiseCaptureDelegate(int flag);
         private delegate void UpdateStatusTextDelegate(string str);
@@ -75,7 +79,7 @@ namespace CameraScan
                 this.Resources.MergedDictionaries.Add(langRd);
             }
 
-            NumTextBox.Text = Convert.ToString(pScanCount);
+            NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
             MainWindow mMainWindow = (MainWindow)this.Owner;
             mMainWindow.WiseDlgTransfEvent += StillIdImageCapture;
             pdfImgPathList.Clear();
@@ -124,8 +128,7 @@ namespace CameraScan
                 }
                 if (!bFind)
                 {
-                    pScanCount++;
-                    NumTextBox.Text = Convert.ToString(pScanCount);
+                    NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
                     pdfImgPathList.Add(imgPath);
                 }
          
@@ -221,8 +224,7 @@ namespace CameraScan
                         if (global.isJoinMainCam == 1 && global.isOpenCameraB)  //如果与主画面合并拍照
                         {
                             mMainWindow.FuncStillMainAssistImageJoin(global.FileFormat, tmpNameMode, true);
-                            pScanCount++;
-                            NumTextBox.Text = Convert.ToString(pScanCount);
+                            NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
                             return;
                         }
                         mMainWindow.FuncCaptureFromStill(global.FileFormat, tmpNameMode, true);                     
@@ -236,18 +238,42 @@ namespace CameraScan
                         SrcPath = mMainWindow.FuncMainAssistImageJoin(global.FileFormat, tmpNameMode, true);
                         if (File.Exists(SrcPath))
                             pdfImgPathList.Add(SrcPath);       
-                        pScanCount++;
-                        NumTextBox.Text = Convert.ToString(pScanCount);
+                        NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
                         return;
                     }
 
-                    SrcPath = mMainWindow.FuncCaptureFromPreview(global.FileFormat, tmpNameMode, true);
-                    if (global.isTakeSlaveCamImg == 1)
-                        mMainWindow.FuncSlaveCaptureFromPreview(global.FileFormat, tmpNameMode, true);
-                    if (File.Exists(SrcPath))
-                        pdfImgPathList.Add(SrcPath);        
-                    pScanCount++;
-                    NumTextBox.Text = Convert.ToString(pScanCount);
+                    if (global.isAutoCutMore == 1)
+                    {
+                        ClearCutPoint();
+                        for (int i = 1; i <= 10; i++)
+                        {
+                            SrcPath = mMainWindow.FuncCaptureFromPreview(global.FileFormat, tmpNameMode, true, i);
+                            if(File.Exists(SrcPath))
+                            {
+                                if (global.isTakeSlaveCamImg == 1)
+                                    mMainWindow.FuncSlaveCaptureFromPreview(global.FileFormat, tmpNameMode, true);
+                                pdfImgPathList.Insert(listIndex, SrcPath);
+                                listIndex++;
+                                PageCurrentLabel.Content = Convert.ToString(listIndex);
+                                PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(SrcPath, 200, 150);
+                                NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        SrcPath = mMainWindow.FuncCaptureFromPreview(global.FileFormat, tmpNameMode, true, 0);
+                        if (global.isTakeSlaveCamImg == 1)
+                            mMainWindow.FuncSlaveCaptureFromPreview(global.FileFormat, tmpNameMode, true);
+                        //if (File.Exists(SrcPath))
+                        //    pdfImgPathList.Add(SrcPath);
+                        pdfImgPathList.Insert(listIndex, SrcPath);
+                        listIndex++;
+                        PageCurrentLabel.Content = Convert.ToString(listIndex);
+                        PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(SrcPath, 200, 150);
+                        NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
+                    }
+
 
                     //string TipStr = "拍照已完成，请重新放纸";
                     //if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
@@ -274,6 +300,11 @@ namespace CameraScan
         {
             if (isTimerStart == false)
             {
+                pdfImgPathList.Clear();
+                NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
+                listIndex = 0;
+                PageCurrentLabel.Content = Convert.ToString(listIndex);
+
                 isTimerStart = true;
                 string TipStr = "停止";
                 if (global.pLangusge == 1) TipStr = "停止";
@@ -372,6 +403,7 @@ namespace CameraScan
                 mMainWindow.PreviewImgList.ScrollIntoView(mMainWindow.PreviewImgList.Items[mMainWindow.PreviewImgList.Items.Count - 1]); //设置总显示最后一项
 
                 pdfImgPathList.Clear();
+                listIndex = 0;
             }
         }
 
@@ -386,10 +418,70 @@ namespace CameraScan
 
         }
 
-       
+        private void PageUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (listIndex <= 1)
+                return;
 
-        
+            listIndex--;
+            PageCurrentLabel.Content = Convert.ToString(listIndex);
+            MainWindow mMainWindow = (MainWindow)this.Owner;
+            PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(pdfImgPathList[listIndex - 1], 200, 150);
+        }
 
-        
+        private void PageDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (listIndex >= pdfImgPathList.Count)
+                return;
+
+            listIndex++;
+            PageCurrentLabel.Content = Convert.ToString(listIndex);
+            MainWindow mMainWindow = (MainWindow)this.Owner;
+            PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(pdfImgPathList[listIndex - 1], 200, 150);
+        }
+
+        private void PageDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (listIndex <= 0)
+                return;
+            // 索引减1
+            listIndex--;
+            PageCurrentLabel.Content = Convert.ToString(listIndex);
+            // 显示前一张
+            MainWindow mMainWindow = (MainWindow)this.Owner;
+            if (listIndex > 0)
+                PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(pdfImgPathList[listIndex - 1], 200, 150);
+            else
+                PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(null, 200, 150);
+            // 删除文件
+            if (File.Exists(pdfImgPathList[listIndex]))
+                File.Delete(pdfImgPathList[listIndex]);
+            //if (global.isSavePdfSoure == 1)
+            //{
+                //foreach (PreviewPhoto item in mMainWindow.PreviewImgList.Items)
+                //{
+                //    if(item.ImagePath == pdfImgPathList[listIndex])
+                //    {
+                //        mMainWindow.PreviewImgList.Items.Remove(item);
+                //    }
+                //}
+                int index = 0;
+                for (int i = 0; i < mMainWindow.PreviewImgList.Items.Count; i++)
+                {
+                    var obj = mMainWindow.PreviewImgList.Items[i] as PreviewPhoto;
+                    if (obj.ImagePath == pdfImgPathList[listIndex])
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                mMainWindow.PreviewImgList.Items.RemoveAt(index);
+                //mMainWindow.PreviewImgList.ScrollIntoView(mMainWindow.PreviewImgList.Items[mMainWindow.PreviewImgList.Items.Count - 1]); //设置总显示最后一项
+            //}
+            // 从列表中移除
+            pdfImgPathList.RemoveAt(listIndex);
+            // 更新总页数
+            NumTextBox.Text = Convert.ToString(pdfImgPathList.Count);
+        }
     }
 }

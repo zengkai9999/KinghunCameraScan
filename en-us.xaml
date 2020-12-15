@@ -156,6 +156,11 @@
     <sys:String x:Key="lanBtPdfPhoto">Add Page</sys:String>
     <sys:String x:Key="lanBtPdfFinish">Finish</sys:String>
 
+    <sys:String x:Key="lanMorePdfPageUp">Previous</sys:String>
+    <sys:String x:Key="lanMorePdfPageDown">Next</sys:String>
+    <sys:String x:Key="lanMorePdfPageCurrent">Current：</sys:String>
+    <sys:String x:Key="lanMorePdfPageDelete">Delete</sys:String>
+
     <sys:String x:Key="lanRecordDlgTitle">RecordDlg</sys:String>
     <sys:String x:Key="lanLabelRECSource">Src</sys:String>
     <sys:String x:Key="lanLabelCBoxItemCamera">Camera</sys:String>

@@ -223,7 +223,7 @@ namespace CameraScan
                         SetCutType(1);
                         SetFormatType(0); //JPG
                         Thread.Sleep(20);
-                        PathA = mMainWindow.FuncCaptureFromPreview(0, global.NameMode, true);
+                        PathA = mMainWindow.FuncCaptureFromPreview(0, global.NameMode, true, 0);
                         SetFormatType(global.FileFormat);
                         SetCutType(global.CutType);
                         if (File.Exists(PathA))
@@ -250,7 +250,7 @@ namespace CameraScan
                         SetCutType(1);
                         SetFormatType(0); //JPG
                         Thread.Sleep(20);
-                        PathB = mMainWindow.FuncCaptureFromPreview(0, global.NameMode, true);
+                        PathB = mMainWindow.FuncCaptureFromPreview(0, global.NameMode, true, 0);
                         SetFormatType(global.FileFormat);
                         SetCutType(global.CutType);
                         if (File.Exists(PathB))
@@ -415,7 +415,7 @@ namespace CameraScan
                 {
                     SetFormatType(0); //JPG
                     Thread.Sleep(20);
-                    string ocrImgPath = mMainWindow.FuncCaptureFromPreview(0, global.NameMode, true);
+                    string ocrImgPath = mMainWindow.FuncCaptureFromPreview(0, global.NameMode, true, 0);
                     SetFormatType(global.FileFormat);
                     if (File.Exists(ocrImgPath))
                     {

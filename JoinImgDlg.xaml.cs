@@ -220,7 +220,7 @@ namespace CameraScan
                     }
                     else 
                     {
-                        SrcPath = mMainWindow.FuncCaptureFromPreview(0, 0, isShowToList);
+                        SrcPath = mMainWindow.FuncCaptureFromPreview(0, 0, isShowToList, 0);
                     }               
                     pImgPathList.Add(SrcPath);
                     SetFormatType(global.FileFormat);

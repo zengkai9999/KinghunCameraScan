@@ -31,6 +31,8 @@ namespace CameraScan
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static int pdf_end();
 
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void ClearCutPoint();
 
         bool isTimerStart = false;
         DispatcherTimer PhotoTimer;
@@ -213,13 +215,33 @@ namespace CameraScan
                         return;
                     }
 
-                    SrcPath = mMainWindow.FuncCaptureFromPreview(global.FileFormat, tmpNameMode, true);
-                    if (global.isTakeSlaveCamImg == 1)
-                        mMainWindow.FuncSlaveCaptureFromPreview(global.FileFormat, tmpNameMode, true);
-                    if (File.Exists(SrcPath))
-                        pdfImgPathList.Add(SrcPath);  
-                    pScanCount++;
-                    NumTextBox.Text = Convert.ToString(pScanCount);
+                    if (global.isAutoCutMore == 1)
+                    {
+                        ClearCutPoint();
+                        for (int i = 1; i <= 10; i++)
+                        {
+                            SrcPath = mMainWindow.FuncCaptureFromPreview(global.FileFormat, tmpNameMode, true, i);
+                            if (File.Exists(SrcPath))
+                            {
+                                if (global.isTakeSlaveCamImg == 1)
+                                    mMainWindow.FuncSlaveCaptureFromPreview(global.FileFormat, tmpNameMode, true);
+                                if (File.Exists(SrcPath))
+                                    pdfImgPathList.Add(SrcPath);
+                                pScanCount++;
+                                NumTextBox.Text = Convert.ToString(pScanCount);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        SrcPath = mMainWindow.FuncCaptureFromPreview(global.FileFormat, tmpNameMode, true, 0);
+                        if (global.isTakeSlaveCamImg == 1)
+                            mMainWindow.FuncSlaveCaptureFromPreview(global.FileFormat, tmpNameMode, true);
+                        if (File.Exists(SrcPath))
+                            pdfImgPathList.Add(SrcPath);
+                        pScanCount++;
+                        NumTextBox.Text = Convert.ToString(pScanCount);
+                    }
                 }
             }
         }

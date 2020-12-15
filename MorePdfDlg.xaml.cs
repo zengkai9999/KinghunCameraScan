@@ -29,8 +29,11 @@ namespace CameraScan
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static int pdf_end();
 
-        bool isStartPdf = false;
-        private List<string> pdfImgPathList = new List<string>(); 
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void ClearCutPoint();
+
+        private List<string> pdfImgPathList = new List<string>();
+        private int listIndex = 0;
 
         public MorePdfDlg()
         {
@@ -146,22 +149,49 @@ namespace CameraScan
                         SetFormatType(global.FileFormat);
                         if (File.Exists(xSrcPath))
                         {
-                            pdfImgPathList.Add(xSrcPath);
+                            //pdfImgPathList.Add(xSrcPath);
+                            pdfImgPathList.Insert(listIndex, xSrcPath);
+                            listIndex++;
+                            PageCurrentLabel.Content = Convert.ToString(listIndex);
                             PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(xSrcPath, 200, 150);
                             PageCountLabel.Content = Convert.ToString(pdfImgPathList.Count);
                         }                       
                         return;
                     }
-                  
-                    //string SrcPath = mMainWindow.FuncCaptureFromPreview(0, global.NameMode, isShowToList);
-                    string SrcPath = mMainWindow.FuncCaptureFromPreview(0, 0, isShowToList);
-                    SetFormatType(global.FileFormat);
-                    if (File.Exists(SrcPath))
+
+                    if (global.isAutoCutMore == 1)
                     {
-                        pdfImgPathList.Add(SrcPath);
-                        PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(SrcPath, 200, 150);
-                        PageCountLabel.Content = Convert.ToString(pdfImgPathList.Count);
-                    }                       
+                        ClearCutPoint();
+                        for (int i = 1; i <= 10; i++)
+                        {
+                            string SrcPath = mMainWindow.FuncCaptureFromPreview(0, 0, isShowToList, i);
+                            SetFormatType(global.FileFormat);
+                            if (File.Exists(SrcPath))
+                            {
+                                //pdfImgPathList.Add(SrcPath);
+                                pdfImgPathList.Insert(listIndex, SrcPath);
+                                listIndex++;
+                                PageCurrentLabel.Content = Convert.ToString(listIndex);
+                                PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(SrcPath, 200, 150);
+                                PageCountLabel.Content = Convert.ToString(pdfImgPathList.Count);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        string SrcPath = mMainWindow.FuncCaptureFromPreview(0, 0, isShowToList, 0);
+                        SetFormatType(global.FileFormat);
+                        if (File.Exists(SrcPath))
+                        {
+                            //pdfImgPathList.Add(SrcPath);
+                            pdfImgPathList.Insert(listIndex, SrcPath);
+                            listIndex++;
+                            PageCurrentLabel.Content = Convert.ToString(listIndex);
+                            PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(SrcPath, 200, 150);
+                            PageCountLabel.Content = Convert.ToString(pdfImgPathList.Count);
+                        }
+                    }
+                                          
                 }
             }
             
@@ -258,6 +288,7 @@ namespace CameraScan
                 }
             }
             pdfImgPathList.Clear();
+            listIndex = 0;
         }
 
 
@@ -279,8 +310,71 @@ namespace CameraScan
             EndPdfBt_Click(null,null);
             global.pMorePdfFormScanDo = false;
         }
-       
 
-       
+        private void PageUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (listIndex <= 1)
+                return;
+
+            listIndex--;
+            PageCurrentLabel.Content = Convert.ToString(listIndex);
+            MainWindow mMainWindow = (MainWindow)this.Owner;
+            PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(pdfImgPathList[listIndex - 1], 200, 150);
+        }
+
+        private void PageDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (listIndex >= pdfImgPathList.Count)
+                return;
+
+            listIndex++;
+            PageCurrentLabel.Content = Convert.ToString(listIndex);
+            MainWindow mMainWindow = (MainWindow)this.Owner;
+            PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(pdfImgPathList[listIndex - 1], 200, 150);
+        }
+
+        private void PageDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (listIndex <= 0)
+                return;
+            // 索引减1
+            listIndex--;
+            PageCurrentLabel.Content = Convert.ToString(listIndex);
+            // 显示前一张
+            MainWindow mMainWindow = (MainWindow)this.Owner;
+            if(listIndex > 0)
+                PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(pdfImgPathList[listIndex - 1], 200, 150);
+            else
+                PdfImg.Source = mMainWindow.CreateImageSourceThumbnia(null, 200, 150);
+            // 删除文件
+            if (File.Exists(pdfImgPathList[listIndex]))
+                File.Delete(pdfImgPathList[listIndex]);
+            if (global.isSavePdfSoure == 1)
+            {
+                //foreach (PreviewPhoto item in mMainWindow.PreviewImgList.Items)
+                //{
+                //    if(item.ImagePath == pdfImgPathList[listIndex])
+                //    {
+                //        mMainWindow.PreviewImgList.Items.Remove(item);
+                //    }
+                //}
+                int index = 0;
+                for (int i = 0; i < mMainWindow.PreviewImgList.Items.Count; i++)
+                {
+                    var obj = mMainWindow.PreviewImgList.Items[i] as PreviewPhoto;
+                    if (obj.ImagePath == pdfImgPathList[listIndex])
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                mMainWindow.PreviewImgList.Items.RemoveAt(index);
+                //mMainWindow.PreviewImgList.ScrollIntoView(mMainWindow.PreviewImgList.Items[mMainWindow.PreviewImgList.Items.Count - 1]); //设置总显示最后一项
+            }
+            // 从列表中移除
+            pdfImgPathList.RemoveAt(listIndex);
+            // 更新总页数
+            PageCountLabel.Content = Convert.ToString(pdfImgPathList.Count);
+        }
     }
 }

@@ -103,10 +103,10 @@ namespace CameraScan
         public extern static void SetStillPhotoCallBack(STILLPHOTOCALLBACK mCB);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
-        public extern static IntPtr CaptureFromPreview(byte[] Imagepath, int type);
+        public extern static IntPtr CaptureFromPreview(byte[] Imagepath, int type, int cutIndex);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
-        public extern static IntPtr CaptureFromPreview_2(byte[] Imagepath, int type);
+        public extern static void ClearCutPoint();
 
         [DllImport("DevCapture.dll",  CallingConvention = CallingConvention.Cdecl)]
         public extern static int CaptureFromStill(byte[] Imagepath,int type);
@@ -379,7 +379,7 @@ namespace CameraScan
                 }
                 else
                 {
-                    FuncCaptureFromPreview(global.FileFormat, global.NameMode, true);
+                    FuncCaptureFromPreview(global.FileFormat, global.NameMode, true, 0);
                 }
             }
             if (signal == 0x55)
@@ -1157,6 +1157,8 @@ namespace CameraScan
         //##################创建缩略图函数#######################
         public  ImageSource CreateImageSourceThumbnia(string fileName, double width, double height)
         {
+            if (!File.Exists(fileName))
+                return null;
             BitmapSource bitmapSource = null;
             if (fileName.Substring(fileName.Length - 3, 3) == "pdf")
             {
@@ -1164,8 +1166,6 @@ namespace CameraScan
             }
             else 
             {
-                if (!File.Exists(fileName))
-                    return null;
                 System.Drawing.Image sourceImage = System.Drawing.Image.FromFile(fileName);
                 double rw = width / sourceImage.Width; 
                 double rh = height / sourceImage.Height;
@@ -2051,7 +2051,7 @@ namespace CameraScan
                 else
                 {
                     SetFormatType(global.FileFormat);
-                   FuncCaptureFromPreview(global.FileFormat, global.NameMode, true);
+                   FuncCaptureFromPreview(global.FileFormat, global.NameMode, true, 0);
                 }
             }
         }
@@ -2061,7 +2061,7 @@ namespace CameraScan
         * 从预览中拍照
         ****************/
         //int regCount = 0;
-        public string FuncCaptureFromPreview(int FileType,int pNameMode,bool isShowToList) 
+        public string FuncCaptureFromPreview(int FileType,int pNameMode,bool isShowToList, int cutIndex) 
         {
             SetDpi(global.DpiType,global.DpiVal);
             if (global.isOpenCameraA && FrameCount>2)
@@ -2141,8 +2141,15 @@ namespace CameraScan
                     }
                 }
 
+                //if(cutIndex > 0 && cutIndex <= 10)        // 插入_i后缀
+                //{
+                //    int pp = imgpath.LastIndexOf('.');
+                //    string addStr = "_" + cutIndex.ToString();
+                //    imgpath = imgpath.Insert(pp, addStr);
+                //}
+
                 byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
-                IntPtr namePtr = CaptureFromPreview(pBuf, isBarcode);
+                IntPtr namePtr = CaptureFromPreview(pBuf, isBarcode, cutIndex);
                 imgpath = Marshal.PtrToStringAnsi(namePtr);
 
                 //regCount++;
@@ -2153,7 +2160,7 @@ namespace CameraScan
                 // mQRDlg.listBox1.Items.Add(name + "\r");
                 // mQRDlg.listBox1.ScrollIntoView(mQRDlg.listBox1.Items[mQRDlg.listBox1.Items.Count-1]);
 
-                if (isShowToList)
+                if (isShowToList && File.Exists(imgpath))
                 {
                     int pos = imgpath.LastIndexOf("\\");
                     string name = imgpath.Substring(pos + 1, imgpath.Length - pos - 1);
@@ -2194,138 +2201,6 @@ namespace CameraScan
             }
         }
 
-        /*****************
-        * 从预览中拍照
-        ****************/
-        //int regCount = 0;
-        public string FuncCaptureFromPreview_2(int FileType, int pNameMode, bool isShowToList)
-        {
-            SetDpi(global.DpiType, global.DpiVal);
-            if (global.isOpenCameraA && FrameCount > 2)
-            {
-
-                string fFormatStr = ".jpg";
-                if (FileType == 0) fFormatStr = ".jpg";
-                if (FileType == 1) fFormatStr = ".bmp";
-                if (FileType == 2) fFormatStr = ".png";
-                if (FileType == 3) fFormatStr = ".tif";
-                if (FileType == 4) fFormatStr = ".pdf";
-                string ImgName = DateTime.Now.ToString("yyyyMMddhhmmssfff");
-                string imgpath = global.ImagesFolder + "\\" + ImgName + fFormatStr;
-
-                int isBarcode = 0;
-                if (pNameMode == 3)
-                    isBarcode = 1;
-                if (pNameMode == 4)
-                    isBarcode = 2;
-
-                //add at 2019.04.02
-                if (pNameMode == 5)
-                {
-
-                    mFixedNameDlg = new FixedNameDlg();
-                    //mFixedNameDlg.Owner = this;
-                    mFixedNameDlg.ShowDialog();
-                    if (global.pFixedNameStr == "")
-                    {
-                        mFixedNameDlg.Close();
-                        return "";
-                    }
-                    imgpath = global.ImagesFolder + "\\" + global.pFixedNameStr + fFormatStr;
-                }
-
-                if (pNameMode == 1)
-                {
-                    string dateStr = DateTime.Now.ToString("yyyy-MM-dd");
-                    imgpath = global.ImagesFolder + "\\" + dateStr;
-                    if (!Directory.Exists(imgpath))
-                        Directory.CreateDirectory(imgpath);
-                    string timeStr = DateTime.Now.ToString("yyyyMMddhhmmssfff");
-                    imgpath = imgpath + "\\" + timeStr + fFormatStr;
-                }
-                if (pNameMode == 2)
-                {
-                    global.CalculateSuffix();
-                    string CountStr = global.SuffixSupplyZero(global.SuffixCount, global.SuffixLength);
-                    imgpath = global.ImagesFolder + "\\" + global.PrefixNmae + "_" + CountStr + fFormatStr;
-                    global.PreviousSuffixCount = global.SuffixCount;
-                    global.SuffixCount = global.SuffixCount + global.IncreaseStep;
-                    if (global.pSetDlgHaveRun)
-                    {
-                        CountStr = global.SuffixSupplyZero(global.SuffixCount, global.SuffixLength);
-                        mSettingDlg.SuffixTextBox.Text = CountStr;
-                    }
-                }
-
-                byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
-                IntPtr namePtr = CaptureFromPreview_2(pBuf, isBarcode);
-                imgpath = Marshal.PtrToStringAnsi(namePtr);
-
-                //regCount++;
-                // int pos = imgpath.LastIndexOf("\\");
-                // int pos1 = imgpath.LastIndexOf(".");
-                // string name = imgpath.Substring(pos + 1, pos1 - pos - 1);
-                // mQRDlg.listBox1.Items.Add("识别结果:" + Convert.ToString(regCount) + "\n");
-                // mQRDlg.listBox1.Items.Add(name + "\r");
-                // mQRDlg.listBox1.ScrollIntoView(mQRDlg.listBox1.Items[mQRDlg.listBox1.Items.Count-1]);
-
-                if (isShowToList)
-                {
-                    for (int i = 1; i <= 10; i++)
-                    {
-                        int pp = imgpath.LastIndexOf('.');
-                        string addStr = "_" + i.ToString();
-                        string pathStr = imgpath;
-                        pathStr = pathStr.Insert(pp, addStr);
-
-                        if (File.Exists(pathStr))
-                        {
-                            global.WriteMessage(pathStr);
-                            int pos = pathStr.LastIndexOf("\\");
-                            string name = pathStr.Substring(pos + 1, pathStr.Length - pos - 1);
-                            PreviewPhoto mPhoto = new PreviewPhoto();
-                            string prePath = pathStr;
-                            if (FileType == 4)
-                            {
-                                prePath = System.Windows.Forms.Application.StartupPath + "\\tpdf.jpg";
-                                int pp1 = pathStr.LastIndexOf("\\");
-                                int pp2 = pathStr.LastIndexOf(".");
-                                if (pp2 > pp1)
-                                {
-                                    string tmpname = pathStr.Substring(pp1 + 1, pp2 - pp1 - 1);
-                                    prePath = System.Windows.Forms.Application.StartupPath + "\\" + tmpname + ".jpg";
-                                    //prePath = "C:\\" + tmpname + ".jpg";
-                                }
-                            }
-                            mPhoto.SourceImage = CreateImageSourceThumbnia(prePath, 120, 90);
-                            if (File.Exists(prePath) && FileType == 4)
-                                File.Delete(prePath);
-
-                            if (FileType == 4)
-                                mPhoto.LogoImage = new BitmapImage(new Uri(@"Images\pdfb.png", UriKind.Relative));
-                            mPhoto.ImageName = name;
-                            mPhoto.ImagePath = pathStr;
-                            PreviewImgList.Items.Add(mPhoto);
-                            PreviewImgList.ScrollIntoView(PreviewImgList.Items[PreviewImgList.Items.Count - 1]); //设置总显示最后一项
-                            //global.pImagePathList.Add(pathStr);
-                        }
-                        else
-                            continue;
-                    }
-
-                    
-                }
-
-                global.PlaySound(); //播放声音
-                //GC.Collect();
-                return imgpath;
-            }
-            else
-            {
-                return "";
-            }
-        }
-
         private void CaptureBt_Click(object sender, RoutedEventArgs e)
         {
             isGetSlaveCamImage = true;
@@ -2335,10 +2210,16 @@ namespace CameraScan
                 FuncMainAssistImageJoin(global.FileFormat, global.NameMode, true);
                 return;
             }
-            if(global.isAutoCutMore == 1)
-                FuncCaptureFromPreview_2(global.FileFormat, global.NameMode, true);
+            if (global.isAutoCutMore == 1)
+            {
+                ClearCutPoint();
+                for (int i = 1; i <= 10; i++)
+                {
+                    FuncCaptureFromPreview(global.FileFormat, global.NameMode, true, i);
+                }
+            }
             else
-                FuncCaptureFromPreview(global.FileFormat,global.NameMode,true);
+                FuncCaptureFromPreview(global.FileFormat, global.NameMode, true, 0);
             if(global.isTakeSlaveCamImg==1)
                 FuncSlaveCaptureFromPreview(global.FileFormat, global.NameMode, true);
         }
@@ -3475,8 +3356,8 @@ namespace CameraScan
             if (global.pWiseShootDlgHaveRun)
                return;
             mWiseDlg = new WiseDlg();
-            mWiseDlg.Left = this.Left + (this.Width - 250) / 2;
-            mWiseDlg.Top = this.Top + (this.Height - 250) / 2;
+            mWiseDlg.Left = this.Left + (this.Width - mWiseDlg.Width) / 2;
+            mWiseDlg.Top = this.Top + (this.Height - mWiseDlg.Height) / 2;
             mWiseDlg.Owner = this;
             mWiseDlg.Show();
             global.pWiseShootDlgHaveRun = true;
@@ -3547,7 +3428,16 @@ namespace CameraScan
                     SetFormatType(global.FileFormat);
                     return;
                 }
-                FuncCaptureFromPreview(4, global.NameMode,true);
+                if (global.isAutoCutMore == 1)
+                {
+                    ClearCutPoint();
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        FuncCaptureFromPreview(4, global.NameMode, true, i);
+                    }
+                }
+                else
+                    FuncCaptureFromPreview(4, global.NameMode,true, 0);
                 SetFormatType(global.FileFormat);
             }
         }
@@ -3595,8 +3485,17 @@ namespace CameraScan
                 {                   
                     FuncMainAssistImageJoin(global.FileFormat, IsBarCode, true);
                     return;
-                }  
-                FuncCaptureFromPreview(global.FileFormat, IsBarCode,true);       
+                }
+                if (global.isAutoCutMore == 1)
+                {
+                    ClearCutPoint();
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        FuncCaptureFromPreview(global.FileFormat, IsBarCode, true, i);
+                    }
+                }
+                else
+                    FuncCaptureFromPreview(global.FileFormat, IsBarCode,true, 0);       
             }
         }
 
@@ -3666,8 +3565,18 @@ namespace CameraScan
                 PrintImage(xprintPath);
                 return;
             }
-    
-            string printPath=FuncCaptureFromPreview(0, global.NameMode, true);
+
+            string printPath = "";
+            if (global.isAutoCutMore == 1)
+            {
+                ClearCutPoint();
+                for (int i = 1; i <= 10; i++)
+                {
+                    printPath = FuncCaptureFromPreview(0, global.NameMode, true, i);
+                }
+            }
+            else
+                printPath=FuncCaptureFromPreview(0, global.NameMode, true, 0);
             SetFormatType(global.FileFormat);
             PrintImage(printPath);
         }
@@ -3831,7 +3740,7 @@ namespace CameraScan
                 }
                 else
                 {
-                    FuncCaptureFromPreview(global.FileFormat, global.NameMode, true);
+                    FuncCaptureFromPreview(global.FileFormat, global.NameMode, true, 0);
                 }
             }
         }
@@ -4707,7 +4616,16 @@ namespace CameraScan
                 SetDelBlackEdge(1);
                 SetDelBgColor(1);
                 SetFormatType(global.FileFormat);
-                FuncCaptureFromPreview(global.FileFormat, global.NameMode, true);
+                if (global.isAutoCutMore == 1)
+                {
+                    ClearCutPoint();
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        FuncCaptureFromPreview(global.FileFormat, global.NameMode, true, i);
+                    }
+                }
+                else
+                    FuncCaptureFromPreview(global.FileFormat, global.NameMode, true, 0);
                 SetDelBlackEdge(global.isDelBlackEdge);
                 SetDelBgColor(global.isDelBgColor);
             }

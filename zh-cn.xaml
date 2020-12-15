@@ -158,6 +158,11 @@
     <sys:String x:Key="lanBtPdfPhoto">添加PDF页面</sys:String>
     <sys:String x:Key="lanBtPdfFinish">完成PDF拍摄</sys:String>
 
+    <sys:String x:Key="lanMorePdfPageUp">上一页</sys:String>
+    <sys:String x:Key="lanMorePdfPageDown">下一页</sys:String>
+    <sys:String x:Key="lanMorePdfPageCurrent">当前页：</sys:String>
+    <sys:String x:Key="lanMorePdfPageDelete">删除该页</sys:String>
+
     <sys:String x:Key="lanRecordDlgTitle">RecordDlg</sys:String>
     <sys:String x:Key="lanLabelRECSource">来源</sys:String>
     <sys:String x:Key="lanLabelCBoxItemCamera">摄像头</sys:String>

@@ -158,6 +158,11 @@
     <sys:String x:Key="lanBtPdfPhoto">Agregar página PDF</sys:String>
     <sys:String x:Key="lanBtPdfFinish">Captura PDF completa</sys:String>
 
+    <sys:String x:Key="lanMorePdfPageUp">En un rincón</sys:String>
+    <sys:String x:Key="lanMorePdfPageDown">Bajo el sol</sys:String>
+    <sys:String x:Key="lanMorePdfPageCurrent">Presente：</sys:String>
+    <sys:String x:Key="lanMorePdfPageDelete">Eliminar</sys:String>
+
     <sys:String x:Key="lanRecordDlgTitle">RecordDlg</sys:String>
     <sys:String x:Key="lanLabelRECSource">Fuente</sys:String>
     <sys:String x:Key="lanLabelCBoxItemCamera">Cámara</sys:String>

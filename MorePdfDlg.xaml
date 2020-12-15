@@ -8,9 +8,23 @@
 
         <CheckBox Name="PdfSetCheck" Margin="0,3,0,3"  HorizontalAlignment="Center" Checked="PdfSetCheck_Checked" Unchecked="PdfSetCheck_Unchecked" Content="{DynamicResource lanChBSavePdfSource}"></CheckBox>
 
-        <Border Width="202" Height="152" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,3,0,0">
-            <Image Name="PdfImg" Width="200" Height="150" ></Image>
-        </Border>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Border Width="202" Height="152" BorderThickness="1" BorderBrush="SlateGray" CornerRadius="5,5,5,5" Margin="0,3,0,0">
+                <Image Name="PdfImg" Width="200" Height="150" ></Image>
+            </Border>
+            
+            <StackPanel Orientation="Vertical" Margin="10, 5, 0, 0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="{DynamicResource lanMorePdfPageCurrent}" Foreground="Black" Margin="5,2,5,2"  />
+                    <Label Name="PageCurrentLabel" Content="0" Foreground="Black" Margin="0,2,5,2"  />
+                </StackPanel>
+                
+                <xi:ImageButton x:Name="PageUp"  Content="{DynamicResource lanMorePdfPageUp}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="100" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageUp_Click" />
+                <xi:ImageButton x:Name="PageDown"  Content="{DynamicResource lanMorePdfPageDown}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="100" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageDown_Click" />
+                <xi:ImageButton x:Name="PageDelete"  Content="{DynamicResource lanMorePdfPageDelete}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="100" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageDelete_Click" />
+            </StackPanel>
+        </StackPanel>
+
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Label Content="{DynamicResource lanLabelPdfPages}" Foreground="Black" Margin="0,5,0,2"  />
