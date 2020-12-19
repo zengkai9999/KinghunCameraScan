@@ -186,6 +186,7 @@
     <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
     <sys:String x:Key="lanCBoxItemEn">English</sys:String>
     <sys:String x:Key="lanCBoxItemSpain">Español</sys:String>
+    <sys:String x:Key="lanCBoxItemJapanese">日本語</sys:String>
     <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
     <sys:String x:Key="lanRaBDPIdefault">默認</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">自定義</sys:String>
