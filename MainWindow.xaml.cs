@@ -859,14 +859,14 @@ namespace CameraScan
         //##################刷新显示2#######################
         private void CameraPaint2(IntPtr buf, int width, int height)
         {
-            global.WriteMessage("CameraPaint->001");
+            //global.WriteMessage("CameraPaint->001");
             if (RotateFlag != 0)
             {
                 GC.Collect();
                 RotateFlag--;
                 return;
             }
-            global.WriteMessage("CameraPaint->002");
+            //global.WriteMessage("CameraPaint->002");
             int w = 0;
             int h = 0;
             if (global.RotateCount == 0 || global.RotateCount == 2)
@@ -879,7 +879,7 @@ namespace CameraScan
             }
             if (global.isOpenCameraA &&  (global.pHostCamera.PreWidth == w) && (global.pHostCamera.PreHeight == h))
                 mWBitmap.WritePixels(CamRect, buf, width * height * 3, mWBitmap.BackBufferStride);
-            global.WriteMessage("CameraPaint->003");
+            //global.WriteMessage("CameraPaint->003");
         }
 
 
