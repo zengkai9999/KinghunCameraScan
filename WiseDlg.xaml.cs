@@ -63,6 +63,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 4)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Japan.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 5)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Germany.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -136,6 +138,7 @@ namespace CameraScan
                 if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
                 if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
                 if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
+                if (global.pLangusge == 5) TipStr = "Das Foto wurde gemacht. Bitte wieder in die Zeitung geben";
                 this.Dispatcher.BeginInvoke(new UpdateStatusTextDelegate(UpdateStatusText), TipStr);    
             }
         }
@@ -215,6 +218,7 @@ namespace CameraScan
                         if (global.pLangusge == 2) TipStr = "Taking photos...";
                         if (global.pLangusge == 3) TipStr = "Tomando fotos...";
                         if (global.pLangusge == 4) TipStr = "写真を撮っています...";
+                        if (global.pLangusge == 5) TipStr = "Fotos machen...";
                         StatusLabel.Content = TipStr;
 
                         if (global.isJoinMainCam == 1 && global.isOpenCameraB)  //如果与主画面合并拍照
@@ -253,6 +257,7 @@ namespace CameraScan
                     if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
                     if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
                     if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
+                    if (global.pLangusge == 5) TipStr = "Das Foto wurde gemacht. Bitte wieder in die Zeitung geben";
                     StatusLabel.Content = TipStr;
                 }
 
@@ -280,6 +285,7 @@ namespace CameraScan
                 if (global.pLangusge == 2) TipStr = "Stop";
                 if (global.pLangusge == 3) TipStr = "Stop";
                 if (global.pLangusge == 4) TipStr = "停止";
+                if (global.pLangusge == 5) TipStr = "Hör auf";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Stop.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)
@@ -297,6 +303,7 @@ namespace CameraScan
                 if (global.pLangusge == 2) TipStr = "Start";
                 if (global.pLangusge == 3) TipStr = "Empezar";
                 if (global.pLangusge == 4) TipStr = "開始";
+                if (global.pLangusge == 5) TipStr = "Start";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Start.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)

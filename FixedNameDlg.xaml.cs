@@ -54,6 +54,7 @@ namespace CameraScan
                 if (global.pLangusge == 2) TipStr = "File name cannot be empty";
                 if (global.pLangusge == 3) TipStr = "El nombre de archivo no puede estar vacío.";
                 if (global.pLangusge == 4) TipStr = "ファイル名を空白にすることはできません。";
+                if (global.pLangusge == 5) TipStr = "Dateiname kann nicht leer sein!";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }

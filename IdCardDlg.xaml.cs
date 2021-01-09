@@ -91,6 +91,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 4)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Japan.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 5)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Germany.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -135,6 +137,7 @@ namespace CameraScan
                     if (global.pLangusge == 2) TipStr = "    ID card information is not recognized. \r\n please keep the ID card level as far as possible \r\n and the scope of identification is the size of the ID card.";
                     if (global.pLangusge == 3) TipStr = "      La tarjeta de identificación no puede ser reconocida. \r\n Por favor, mantener la tarjeta \r\n de identificación horizontal y dentro del área de captura.";
                     if (global.pLangusge == 4) TipStr = "      IDカードが認識できませんでした。\r\n IDカードを読み取る箇所は水平に保ってください。";
+                    if (global.pLangusge == 5) TipStr = "     ID-Karte Informationen nicht erkannt!\r\n  Bitte versuchen Sie Ihr Bestes, um Ihre ID-Karte waagerecht \r\n zu halten und der Umfang der Identifikation ist die Größe Ihrer ID-Karte!";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -151,6 +154,7 @@ namespace CameraScan
                         if (global.pLangusge == 2) TipStr = "   ID card information is not recognized. \r\n please turn off the open ID data table first!";
                         if (global.pLangusge == 3) TipStr = "   La tarjeta de identificación no puede ser reconocida. \r\n Por favor, cerrar el formulario abierto. ";
                         if (global.pLangusge == 4) TipStr = "   IDカードが認識できませんでした。\r\n 開いているIDカードのデータフォームを閉じてください。 ";
+                        if (global.pLangusge == 5) TipStr = "  ID-Karte Informationen nicht erkannt!\r\n Bitte schließen Sie zuerst die geöffnete ID-Karte-Datentabelle!";
                         System.Windows.MessageBox.Show(TipStr);
                         return;
                     }
@@ -434,6 +438,7 @@ namespace CameraScan
                             if (global.pLangusge == 2) TipStr = "    ID card information is not recognized. \r\n please keep the ID card level as far as possible \r\n and the scope of identification is the size of the ID card.";
                             if (global.pLangusge == 3) TipStr = "      La tarjeta de identificación no puede ser reconocida. \r\n Por favor, mantener la tarjeta \r\n de identificación horizontal y dentro del área de captura.";
                             if (global.pLangusge == 4) TipStr = "      IDカードが認識できませんでした。\r\n IDカードを読み取る箇所は水平に保ってください。";
+                            if (global.pLangusge == 5) TipStr = "     ID-Karte Informationen nicht erkannt!\r\n  Bitte versuchen Sie Ihr Bestes, um Ihre ID-Karte waagerecht \r\n zu halten und der Umfang der Identifikation ist die Größe Ihrer ID-Karte!";
                             System.Windows.MessageBox.Show(TipStr);
                             return;
                         }
@@ -450,6 +455,7 @@ namespace CameraScan
                                 if (global.pLangusge == 2) TipStr = "   ID card information is not recognized. \r\n please turn off the open ID data table first!";
                                 if (global.pLangusge == 3) TipStr = "   La tarjeta de identificación no puede ser reconocida. \r\n Por favor, cerrar el formulario abierto. ";
                                 if (global.pLangusge == 4) TipStr = "   IDカードが認識できませんでした。\r\n 開いているIDカードのデータフォームを閉じてください。 ";
+                                if (global.pLangusge == 5) TipStr = "  ID-Karte Informationen nicht erkannt!\r\n Bitte schließen Sie zuerst die geöffnete ID-Karte-Datentabelle!";
                                 System.Windows.MessageBox.Show(TipStr);
                                 return;
                             }                           
@@ -490,6 +496,7 @@ namespace CameraScan
                     if (global.pLangusge == 2) TipStr = "The ID information can not be empty!";
                     if (global.pLangusge == 3) TipStr = "La información de la tarjeta ID guardada no puede estar vacía.";
                     if (global.pLangusge == 4) TipStr = "保存するIDカード情報は空にできません。";
+                    if (global.pLangusge == 5) TipStr = "Die gespeicherten ID-Card-Informationen können nicht leer sein!";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -515,6 +522,7 @@ namespace CameraScan
                             if (global.pLangusge == 2) TipStr = "Please close the open ID data table before saving the modified information.";
                             if (global.pLangusge == 3) TipStr = "Por favor, cierre el formulario de datos de tarjeta de identificación abierto antes de guardar la información modificada.";
                             if (global.pLangusge == 4) TipStr = "修正した情報を保存する前に開いているIDカードのデータフォームを閉じてください。";
+                            if (global.pLangusge == 5) TipStr = "Bitte schließen Sie das geöffnete ID-Kartendatenformular, bevor Sie die geänderten Informationen speichern!";
                             System.Windows.MessageBox.Show(TipStr);
                             return;
                         }
@@ -523,6 +531,7 @@ namespace CameraScan
                         if (global.pLangusge == 2) TipStr2 = "Amend success";
                         if (global.pLangusge == 3) TipStr2 = "Datos modificados correctamente.";
                         if (global.pLangusge == 4) TipStr2 = "修正が完了しました。";
+                        if (global.pLangusge == 5) TipStr2 = "Geändert erfolgreich";
                         System.Windows.MessageBox.Show(TipStr2);
                     }
                 }
@@ -533,6 +542,7 @@ namespace CameraScan
                     if (global.pLangusge == 2) TipStr = "Please close the open ID data table before saving the modified information.";
                     if (global.pLangusge == 3) TipStr = "Por favor, cierre el formulario de datos de tarjeta de identificación abierto antes de guardar la información modificada.";
                     if (global.pLangusge == 4) TipStr = "修正した情報を保存する前に開いているIDカードのデータフォームを閉じてください。";
+                    if (global.pLangusge == 5) TipStr = "Bitte schließen Sie das geöffnete ID-Kartendatenformular, bevor Sie die geänderten Informationen speichern!";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -572,6 +582,7 @@ namespace CameraScan
                 if (global.pLangusge == 2) TipStr = "Failed to read card! Please check whether the card reader connection is normal.";
                 if (global.pLangusge == 3) TipStr = "La lectura de la tarjeta ha fallado. Por favor, compruebe si el lector está conectado correctamente.";
                 if (global.pLangusge == 4) TipStr = "カードの読み取りができませんでした。カードリーダーが正しく接続されているかご確認ください。";
+                if (global.pLangusge == 5) TipStr = "Kartenlesen fehlgeschlagen!Bitte überprüfen Sie die Verbindung des Kartenlesers!";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -582,6 +593,7 @@ namespace CameraScan
                 if (global.pLangusge == 2) TipStr = "Failed to read card!";
                 if (global.pLangusge == 3) TipStr = "Fallo de lectura de la tarjeta!";
                 if (global.pLangusge == 4) TipStr = "カードの読み取り不可!";
+                if (global.pLangusge == 5) TipStr = "Kartenlesen fehlgeschlagen!";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -629,6 +641,7 @@ namespace CameraScan
                     //    if (global.pLangusge == 2) TipStr = "Failed to write ID data! Please close the open ID data table!";
                     //    if (global.pLangusge == 3) TipStr = "No se ha podido guardar la tarjeta de identificación. Por favor, cierre el formulario de tarjeta de identificación abierto.";
                     //    if (global.pLangusge == 4) TipStr = "IDカードへの書き込みができませんでした。開いているIDカードのデータフォームテーブルを閉じてください。";
+                    //    if (global.pLangusge == 5) TipStr = "Fehler beim Schreiben von ID-Kartendaten! Bitte schließen Sie die geöffnete ID-Karte-Datentabelle!";
                     //    System.Windows.MessageBox.Show(TipStr);
                     //    return;
                     //}
@@ -656,6 +669,7 @@ namespace CameraScan
                         if (global.pLangusge == 2) TipStr = "Failed to write ID data! Please close the open ID data table!";
                         if (global.pLangusge == 3) TipStr = "No se ha podido guardar la tarjeta de identificación. Por favor, cierre el formulario de tarjeta de identificación abierto.";
                         if (global.pLangusge == 4) TipStr = "IDカードへの書き込みができませんでした。開いているIDカードのデータフォームテーブルを閉じてください。";
+                        if (global.pLangusge == 5) TipStr = "Fehler beim Schreiben von ID-Kartendaten! Bitte schließen Sie die geöffnete ID-Karte-Datentabelle!";
                         System.Windows.MessageBox.Show(TipStr);
                         return;
                     }

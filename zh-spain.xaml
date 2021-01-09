@@ -183,11 +183,12 @@
     <sys:String x:Key="lanRaBBestPrint">Imprimir 1:1</sys:String>
     <sys:String x:Key="lanChBSound">Capturar voz</sys:String>
     <sys:String x:Key="lanLabelLanguage">Idioma</sys:String>
-    <sys:String x:Key="lanCBoxItemCn">中文</sys:String>
-    <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
-    <sys:String x:Key="lanCBoxItemEn">English</sys:String>
+    <sys:String x:Key="lanCBoxItemCn">Chino(simplificado)</sys:String>
+    <sys:String x:Key="lanCBoxItemTw">Chino(tradicional)</sys:String>
+    <sys:String x:Key="lanCBoxItemEn">Inglés</sys:String>
     <sys:String x:Key="lanCBoxItemSpain">Español</sys:String>
-    <sys:String x:Key="lanCBoxItemJapanese">Japanese</sys:String>
+    <sys:String x:Key="lanCBoxItemJapanese">Japonés</sys:String>
+    <sys:String x:Key="lanCBoxItemGermany">Alemán</sys:String>
     <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
     <sys:String x:Key="lanRaBDPIdefault">Predeterminado</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">Personalizar</sys:String>

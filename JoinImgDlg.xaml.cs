@@ -72,6 +72,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 4)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Japan.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 5)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Germany.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -168,6 +170,7 @@ namespace CameraScan
                 if (global.pLangusge == 2) TipStr = "Merging pictures...";
                 if (global.pLangusge == 3) TipStr = "Combinando imágenes...";
                 if (global.pLangusge == 4) TipStr = "写真統合...";
+                if (global.pLangusge == 5) TipStr = "Bilder zusammenführen...";
                 this.Title = TipStr;
                 ScanBt.IsEnabled = false;
                 DispatcherTimer timer = new DispatcherTimer();
@@ -183,6 +186,7 @@ namespace CameraScan
                     if (global.pLangusge == 2) TitleStr = "MergeImage";
                     if (global.pLangusge == 3) TitleStr = "Combinando imágenes";
                     if (global.pLangusge == 4) TitleStr = "写真統合";
+                    if (global.pLangusge == 5) TipStr = "Zusammenführen";
                     this.Title = TitleStr;
                 };
                 timer.Start();
@@ -244,6 +248,7 @@ namespace CameraScan
                         if (global.pLangusge == 2) TipStr = "Merging pictures...";
                         if (global.pLangusge == 3) TipStr = "Combinando imágenes...";
                         if (global.pLangusge == 4) TipStr = "写真統合...";
+                        if (global.pLangusge == 5) TipStr = "Bilder zusammenführen...";
                         this.Title = TipStr;
                         ScanBt.IsEnabled = false;
                         DispatcherTimer timer = new DispatcherTimer();
@@ -259,6 +264,7 @@ namespace CameraScan
                             if (global.pLangusge == 2) TitleStr = "MergeImage";
                             if (global.pLangusge == 3) TipStr = "Combinando imágenes";
                             if (global.pLangusge == 4) TitleStr = "写真統合";
+                            if (global.pLangusge == 5) TipStr = "Zusammenführen";
                             this.Title = TitleStr;
                         };
                         timer.Start();
@@ -356,6 +362,7 @@ namespace CameraScan
                     if (global.pLangusge == 2) TipStr = "Image merging failure";
                     if (global.pLangusge == 3) TipStr = "Fallo al combinar imágenes";
                     if (global.pLangusge == 4) TipStr = "画像統合エラー";
+                    if (global.pLangusge == 5) TipStr = "Zusammenführung fehlgeschlagen";
                     System.Windows.MessageBox.Show(TipStr);
                 }
             }

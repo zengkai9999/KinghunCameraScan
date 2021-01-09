@@ -183,11 +183,12 @@
     <sys:String x:Key="lanRaBBestPrint">1 : 1比印刷</sys:String>
     <sys:String x:Key="lanChBSound">音声入力</sys:String>
     <sys:String x:Key="lanLabelLanguage">言語</sys:String>
-    <sys:String x:Key="lanCBoxItemCn">中文</sys:String>
-    <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
-    <sys:String x:Key="lanCBoxItemEn">English</sys:String>
-    <sys:String x:Key="lanCBoxItemSpain">Español</sys:String>
+    <sys:String x:Key="lanCBoxItemCn">中国語の簡体字</sys:String>
+    <sys:String x:Key="lanCBoxItemTw">中国語繁体字</sys:String>
+    <sys:String x:Key="lanCBoxItemEn">英語</sys:String>
+    <sys:String x:Key="lanCBoxItemSpain">スペイン語</sys:String>
     <sys:String x:Key="lanCBoxItemJapanese">日本語</sys:String>
+    <sys:String x:Key="lanCBoxItemGermany">ドイツ語</sys:String>
     <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
     <sys:String x:Key="lanRaBDPIdefault">規定値</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">カスタマイズ</sys:String>

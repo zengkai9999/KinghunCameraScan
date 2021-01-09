@@ -65,6 +65,8 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 4)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Japan.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 5)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Germany.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -217,6 +219,7 @@ namespace CameraScan
                     if (global.pLangusge == 2) TipStr = "Failed to start video recording!";
                     if (global.pLangusge == 3) TipStr = "No se ha podido iniciar la grabación de vídeo!";
                     if (global.pLangusge == 4) TipStr = "録画が開始できません。";
+                    if (global.pLangusge == 5) TipStr = "Die Aufnahme ist fehlgeschlagen!";
                     System.Windows.MessageBox.Show(TipStr);
                 }
                 else 
