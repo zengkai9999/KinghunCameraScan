@@ -225,6 +225,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "録画が開始できません。";
                     if (global.pLangusge == 5) TipStr = "Impossibile avviare la registrazione video.";
                     if (global.pLangusge == 6) TipStr = "Échec du démarrage de l'enregistrement vidéo.";
+                    if (global.pLangusge == 7) TipStr = "Fehler beim Starten der Videoaufnahme.";
                     System.Windows.MessageBox.Show(TipStr);
                 }
                 else 

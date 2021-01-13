@@ -115,6 +115,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "名前を変更する際、名前を空白にすることはできません。";
                     if (global.pLangusge == 5) TipStr = "Il nome non può essere vuoto durante la ridenominazione.";
                     if (global.pLangusge == 6) TipStr = "Le nom ne peut pas être vide lors du changement du nom.";
+                    if (global.pLangusge == 7) TipStr = "Der Dateiname darf beim Umbenennen nicht leer sein.";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -128,6 +129,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "オリジナルファイルが存在しません。名前の変更ができませんでした。";
                 if (global.pLangusge == 5) TipStr = "Il file originale non esiste, impossibile rinominare.";
                 if (global.pLangusge == 6) TipStr = "Le fichier d'origine n'existe pas, le changement de nom a échoué.";
+                if (global.pLangusge == 7) TipStr = "Die Originaldatei existiert nicht. Das Umbennen ist fehlgeschlagen.";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }

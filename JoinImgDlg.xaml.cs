@@ -176,6 +176,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "写真統合...";
                 if (global.pLangusge == 5) TipStr = "Unione di immagini...";
                 if (global.pLangusge == 6) TipStr = "Fusionner des images...";
+                if (global.pLangusge == 7) TipStr = "Bilder verbinden...";
                 this.Title = TipStr;
                 ScanBt.IsEnabled = false;
                 DispatcherTimer timer = new DispatcherTimer();
@@ -193,6 +194,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TitleStr = "写真統合";
                     if (global.pLangusge == 5) TitleStr = "Unione di immagini";
                     if (global.pLangusge == 6) TitleStr = "Fusionner des images";
+                    if (global.pLangusge == 7) TitleStr = "Bilder verbinden";
                     this.Title = TitleStr;
                 };
                 timer.Start();
@@ -256,6 +258,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) TipStr = "写真統合...";
                         if (global.pLangusge == 5) TipStr = "Unione di immagini...";
                         if (global.pLangusge == 6) TipStr = "Fusionner des images...";
+                        if (global.pLangusge == 7) TipStr = "Bilder verbinden...";
                         this.Title = TipStr;
                         ScanBt.IsEnabled = false;
                         DispatcherTimer timer = new DispatcherTimer();
@@ -273,6 +276,7 @@ namespace CameraScan
                             if (global.pLangusge == 4) TitleStr = "写真統合";
                             if (global.pLangusge == 5) TitleStr = "Unione di immagini";
                             if (global.pLangusge == 6) TitleStr = "Fusionner des images";
+                            if (global.pLangusge == 7) TitleStr = "Bilder verbinden";
                             this.Title = TitleStr;
                         };
                         timer.Start();
@@ -372,6 +376,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "画像統合エラー";
                     if (global.pLangusge == 5) TipStr = "Impossibile scattare la foto";
                     if (global.pLangusge == 6) TipStr = "Échec de la prise de photo";
+                    if (global.pLangusge == 7) TipStr = "Bildzusammenführung fehlgeschlagen";
                     System.Windows.MessageBox.Show(TipStr);
                 }
             }

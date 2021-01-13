@@ -1,0 +1,223 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    
+    <!--<sys:String x:Key="lanMainFormTitle">高拍仪</sys:String>-->
+    <sys:String x:Key="lanMainFormTitle">Scanmega</sys:String>
+    <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">维融高拍仪</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">讯派高拍仪</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">久派高拍仪</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">柏菱高拍仪</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">MICROTEK CamScan MIZK</sys:String>-->
+    <!--<sys:String x:Key="lanMainFormTitle">巨行高拍仪</sys:String>-->
+
+
+    <sys:String x:Key="lanWisePhoto">Kontinuierliche Aufnahme</sys:String>
+    <sys:String x:Key="lanTimerPhoto">Scanintervall</sys:String>
+    <sys:String x:Key="lanCapture">Aufnahme</sys:String>
+    <sys:String x:Key="lanPhoto">Aufnahme</sys:String>
+    <sys:String x:Key="lanSet">Einstellungen</sys:String>
+    <sys:String x:Key="lanWaterMark">Wasserzeichen</sys:String>
+    <sys:String x:Key="lanPrint">Drucken</sys:String>
+    <sys:String x:Key="lanDocument">Dokument</sys:String>
+    <sys:String x:Key="lanBarCode">Barcode</sys:String>
+    <sys:String x:Key="lanS_PDF">PDF</sys:String>
+    <sys:String x:Key="lanM_PDF">Multiple PDFs</sys:String>
+    <sys:String x:Key="lanImgJoin">Bild verbinden</sys:String>
+    <sys:String x:Key="lanIdCard">Ausweis</sys:String>
+    <sys:String x:Key="lanRecord">REC(Record)</sys:String>
+    <sys:String x:Key="lanEdit">Bearbeiten</sys:String>
+
+    <sys:String x:Key="lanSavePath">Pfad speichern:</sys:String>
+    <sys:String x:Key="lanSeletePath">Pfad auswählen</sys:String>
+    <sys:String x:Key="lanOpenPath">Pfad öffnen</sys:String>
+
+    <sys:String x:Key="lanMenuOpen">Öffnen</sys:String>
+    <sys:String x:Key="lanMenuDelete">Löschen</sys:String>
+    <sys:String x:Key="lanMenuSeleteAll">Alle auswählen</sys:String>
+    <sys:String x:Key="lanMenuPrintPreview">Druckvorschau</sys:String>
+    <sys:String x:Key="lanMenuPrintSet">Drucksatz</sys:String>
+    <sys:String x:Key="lanMenuPrint">Drucken</sys:String>
+    <sys:String x:Key="lanMenuCopy">Kopieren</sys:String>
+    <sys:String x:Key="lanMenuPDF">PDF verbinden</sys:String>
+    <sys:String x:Key="lanMenuIncrePDF">PDFs in der angegebenen Suffix-Reihenfolge verbinden</sys:String>
+    <sys:String x:Key="lanMenuRenam">Umbenennen</sys:String>
+    <sys:String x:Key="lanMenuPropertie">Attribut</sys:String>
+
+    <sys:String x:Key="lanGBoxDevice">Gerät</sys:String>
+    <sys:String x:Key="lanGBoxPreviewRes">Auflösung Vorschau</sys:String>
+    <sys:String x:Key="lanGBoxStillRes">Auflösung ansehen</sys:String>
+    <sys:String x:Key="lanGBoxFileType">Dateifromat</sys:String>
+
+    <sys:String x:Key="lanGBoxColorMod">Farbmodus</sys:String>
+    <sys:String x:Key="lanRaBtColor">Farbe</sys:String>
+    <sys:String x:Key="lanRaBtGray">Graustufen</sys:String>
+    <sys:String x:Key="lanRaBtBlackWhite">Schwarz-Weiss</sys:String>
+
+    <sys:String x:Key="lanGBoxCutType">Zuschneiden</sys:String>
+    <sys:String x:Key="lanRaBtNoCut">Nicht Zuschneiden</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">Automatisch(einzelne)</sys:String>
+    <sys:String x:Key="lanRaBtManulCut">Anpassen</sys:String>
+    <sys:String x:Key="lanRaBtAutoCutMore">Automatisch(mehrere)</sys:String>
+
+    <sys:String x:Key="lanGBoxImgEffect">Grafische Anpassung</sys:String>
+    <sys:String x:Key="lanLabelLight">Helligkeit</sys:String>
+    <sys:String x:Key="lanLabelContrast">Kontrastverhältnis</sys:String>
+    <sys:String x:Key="lanLabelExp">Bildexposition</sys:String>
+    <sys:String x:Key="lanChBAutoExp">Automatische Belichtung</sys:String>
+    <sys:String x:Key="lanBtDefault">Standard</sys:String>
+    <sys:String x:Key="lanBtMore">Mehr</sys:String>
+
+    <sys:String x:Key="lanGBoxImgHadle">Bildverarbeitung</sys:String>
+    <sys:String x:Key="lanChBDelBlackEdge">Schwarzen Rand entfernen</sys:String>
+    <sys:String x:Key="lanChBDelBgColor">Hintergrundfarbe entfernen</sys:String>
+    <sys:String x:Key="lanChBDelShade">Bildschärfe</sys:String>
+    <sys:String x:Key="lanChBDelGray">Entrauschen</sys:String>
+    <sys:String x:Key="lanChBTextRed">Roter Stempel</sys:String>
+    <sys:String x:Key="lanChBTextBlue">Blauer Stempel</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">Autom Seitenausrichtung</sys:String>
+
+    <sys:String x:Key="lanTipOpenAssistCam">Zweitkamera öffnen</sys:String>
+    <sys:String x:Key="lanTipSetAssistCam">Zweitkamera einstellen</sys:String>
+    <sys:String x:Key="lanAssistDlgTitle">Zweitkamera einstellen</sys:String>
+    <sys:String x:Key="lanChBAssistPhoto">Zweitkamera schließen</sys:String>
+    <sys:String x:Key="lanLabelShowSize">Bildgröße</sys:String>
+    <sys:String x:Key="lanChBJoinInMain">Mit Hauptbild verbinden</sys:String>
+    <sys:String x:Key="lanLabelJoinPos">Position zusammenführen</sys:String>
+    <sys:String x:Key="lanCBoxItemCustom">Kostenlos</sys:String>
+    <sys:String x:Key="lanCBoxItemLeftTop">Oben links</sys:String>
+    <sys:String x:Key="lanCBoxItemRightTop">Oben rechts</sys:String>
+    <sys:String x:Key="lanCBoxItemCenter">Mitte</sys:String>
+    <sys:String x:Key="lanCBoxItemLeftBottom">Unten links</sys:String>
+    <sys:String x:Key="lanCBoxItemRightBottom">Rechts unten</sys:String>
+    <sys:String x:Key="lanLabelAssistRes">Auflösung</sys:String>
+    <sys:String x:Key="lanBtAssisProgram">Bild bearbeiten</sys:String>
+
+    <sys:String x:Key="lanIDCardDlgTitle">Ausweis</sys:String>
+    <sys:String x:Key="lanGBoxIDCardInfo">Personalausweis Reisepass</sys:String>
+    <sys:String x:Key="lanLabelName">Name</sys:String>
+    <sys:String x:Key="lanLabelSex">Geschlecht</sys:String>
+    <sys:String x:Key="lanLabelNation">Nation</sys:String>
+    <sys:String x:Key="lanLabelBorn">Geburtsort</sys:String>
+    <sys:String x:Key="lanLabelAddress">Hinzufügen</sys:String>
+    <sys:String x:Key="lanLabelCardNum">Ausweisnummer</sys:String>
+    <sys:String x:Key="lanBtSaveModify">Änderungen speichern</sys:String>
+    <sys:String x:Key="lanBtOpenExcel">Formular öffnen</sys:String>
+    <sys:String x:Key="lanBtReadCard">Ausweis auslesen</sys:String>
+    <sys:String x:Key="lanBtRecogCard">Ausweis erkennen</sys:String>
+    <sys:String x:Key="lanBtExit">Ausloggen</sys:String>
+
+    <sys:String x:Key="lanJoinImgDlgTitle">Bild(er) verbinden</sys:String>
+    <sys:String x:Key="lanLabelJoinPages">Seite(n) verbinden：</sys:String>
+    <sys:String x:Key="lanCBoxItemTwoPages">2 Seiten</sys:String>
+    <sys:String x:Key="lanCBoxItemThreePages">3 Seiten</sys:String>
+    <sys:String x:Key="lanCBoxItemFourPages">4 Seiten</sys:String>
+    <sys:String x:Key="lanLabelDirection">Ausrichtung：</sys:String>
+    <sys:String x:Key="lanCBoxItemVertical">Vertikal</sys:String>
+    <sys:String x:Key="lanCBoxItemHorizontal">Horizontal</sys:String>
+    <sys:String x:Key="lanChBSaveJoinSource">Verbundenes Bild speichen</sys:String>
+    <sys:String x:Key="lanLabelJoinPhotoPages">Erfasste Seiten verbinden：</sys:String>
+    <sys:String x:Key="lanBtJoinPhoto">Aufnahme verbinden</sys:String>
+
+    <sys:String x:Key="lanMarkDlgTitle">Wasserzeichen</sys:String>
+    <sys:String x:Key="lanChBAddTheMark">Wasserzeichen hinzufügen</sys:String>
+    <sys:String x:Key="lanLabelMarkType">Wasserzeichentyp</sys:String>
+    <sys:String x:Key="lanCBoxItemText">Zeichen</sys:String>
+    <sys:String x:Key="lanCBoxItemImage">Bild</sys:String>
+    <sys:String x:Key="lanChBAddTimeMark">Datumsanzeige hinzufpgen</sys:String>
+    <sys:String x:Key="lanLabelTextContent">Gesprochener Inhalt</sys:String>
+    <sys:String x:Key="lanLabelMarkSize">Wasserzeichengröße</sys:String>
+    <sys:String x:Key="lanLabelMarkFont">Wasserzeichentext</sys:String>
+    <sys:String x:Key="lanLabelMarkTran">Transparenz</sys:String>
+    <sys:String x:Key="lanLabelFontType">Schriftart</sys:String>
+    <sys:String x:Key="lanCBoxItemGeneral">Gewöhnlich</sys:String>
+    <sys:String x:Key="lanCBoxItemBold">Fett</sys:String>
+    <sys:String x:Key="lanCBoxItemTilt">Kursiv</sys:String>
+    <sys:String x:Key="lanCBoxItemBoldtilt">Fett und kursiv</sys:String>
+    <sys:String x:Key="lanCBoxItemUnderline">Unterstrichen</sys:String>
+    <sys:String x:Key="lanLabelXOffest">Horizontaler Versatz</sys:String>
+    <sys:String x:Key="lanLabelYOffest">Vertikaler Versatz</sys:String>
+    <sys:String x:Key="lanLabelMarkColor">Wasserzeichenfarbe</sys:String>
+    <sys:String x:Key="lanCBoxItemRed">rot</sys:String>
+    <sys:String x:Key="lanCBoxItemGreen">Grün</sys:String>
+    <sys:String x:Key="lanCBoxItemBlue">Blau</sys:String>
+    <sys:String x:Key="lanCBoxItemCyan">Türkis</sys:String>
+    <sys:String x:Key="lanCBoxItemOrange">Orange</sys:String>
+    <sys:String x:Key="lanCBoxItemYellow">Gelb</sys:String>
+    <sys:String x:Key="lanCBoxItemBlack">Schwarz</sys:String>
+    <sys:String x:Key="lanCBoxItemWhite">Weiß</sys:String>
+    <sys:String x:Key="lanLabelMarkImgPath">Bildpfad</sys:String>
+    <sys:String x:Key="lanLabelMarkImgSize">Groß Klein</sys:String>
+    <sys:String x:Key="lanBtMarkOK">Anwendung</sys:String>
+
+    <sys:String x:Key="lanMorePdfDlgTitle">Mehrseitige PDF-Aufnahme</sys:String>
+    <sys:String x:Key="lanChBSavePdfSource">PDF-Datei Speichern</sys:String>
+    <sys:String x:Key="lanLabelPdfPages">PDF添加页数：</sys:String>
+    <sys:String x:Key="lanBtPdfPhoto">PDF-Seite hinzufügen</sys:String>
+    <sys:String x:Key="lanBtPdfFinish">Komplette PDF-Aufnahme</sys:String>
+
+    <sys:String x:Key="lanMorePdfPageUp">Vorige Seite</sys:String>
+    <sys:String x:Key="lanMorePdfPageDown">Nächste Seite</sys:String>
+    <sys:String x:Key="lanMorePdfPageCurrent">Aktuelle Seite：</sys:String>
+    <sys:String x:Key="lanMorePdfPageDelete">Seite löschen</sys:String>
+
+    <sys:String x:Key="lanRecordDlgTitle">RecordDlg</sys:String>
+    <sys:String x:Key="lanLabelRECSource">Quelle</sys:String>
+    <sys:String x:Key="lanLabelCBoxItemCamera">Kamera</sys:String>
+    <sys:String x:Key="lanLabelCBoxItemScreen">Bildschirm</sys:String>
+    <sys:String x:Key="lanLabelRECFormat">Format</sys:String>
+    <sys:String x:Key="lanLabelRECFps">Bildrate</sys:String>
+
+    <sys:String x:Key="lanRenameDlgTitle">Umbenennen</sys:String>
+    <sys:String x:Key="lanLabelInputName">Neuen Namen eingeben</sys:String>
+    <sys:String x:Key="lanLabelInFileName">Dateiname:</sys:String>
+    <sys:String x:Key="lanBtOK">Bestätigen</sys:String>
+
+    <sys:String x:Key="lanSetDlgTitle">Einstellen</sys:String>
+    <sys:String x:Key="lanGBoxNameType">Namensgebungsmethode</sys:String>
+    <sys:String x:Key="lanRaBNameTime">Nach Zeit benennen</sys:String>
+    <sys:String x:Key="lanRaBNameCode">Nach Barcode benennen</sys:String>
+    <sys:String x:Key="lanRaBNameQr">Nach QR-Code benennen</sys:String>
+    <sys:String x:Key="lanRaBNameFolder">Nach Datum benennen</sys:String>
+    <sys:String x:Key="lanRaBNameDIY">Anpassen</sys:String>
+    <sys:String x:Key="lanRaBNameFixed">Standardname</sys:String>
+    <sys:String x:Key="lanLabelPrefix">Präfix：</sys:String>
+    <sys:String x:Key="lanChBStepText">Erhöhen Sie um 2</sys:String>
+    <sys:String x:Key="lanGBoxJPGquality">JPG-Qualität</sys:String>
+    <sys:String x:Key="lanGBoxOtherConfig">Weitere Einstellungen</sys:String>
+    <sys:String x:Key="lanLabelPrintMod">Druckmodus:</sys:String>
+    <sys:String x:Key="lanRaBAdjust">Automatische Anpassung</sys:String>
+    <sys:String x:Key="lanRaBBestPrint">1: 1 Drucken</sys:String>
+    <sys:String x:Key="lanChBSound">Stimme aufnehmen</sys:String>
+    <sys:String x:Key="lanLabelLanguage">Sprache</sys:String>
+    <sys:String x:Key="lanCBoxItemCn">Chinesisch(Vereinfachtes)</sys:String>
+    <sys:String x:Key="lanCBoxItemTw">Chinesisch(Traditionelle)</sys:String>
+    <sys:String x:Key="lanCBoxItemEn">Englisch</sys:String>
+    <sys:String x:Key="lanCBoxItemSpain">Spanisch</sys:String>
+    <sys:String x:Key="lanCBoxItemJapanese">Japanisch</sys:String>
+    <sys:String x:Key="lanCBoxItemItalian">Italienisch</sys:String>
+    <sys:String x:Key="lanCBoxItemFrench">Französisch</sys:String>
+    <sys:String x:Key="lanCBoxItemGermany">Deutsch</sys:String>
+    <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
+    <sys:String x:Key="lanRaBDPIdefault">Standard</sys:String>
+    <sys:String x:Key="lanRaBDPIdiy">Anpassen</sys:String>
+
+    <sys:String x:Key="lanTimerDlgTitle">Kamera-Intervall</sys:String>
+    <sys:String x:Key="lanLabelInterval">Aufnahme-Intervall：</sys:String>
+    <sys:String x:Key="lanLabelTimerPages">Anzahl der aufgenommenen Fotos：</sys:String>
+    <sys:String x:Key="lanBtStart">Start</sys:String>
+
+    <sys:String x:Key="lanWiseDlgTitle">Automatische Aufnahme</sys:String>
+    <sys:String x:Key="lanLabelWiseStatus">Erkennungsmodus：</sys:String>
+    <sys:String x:Key="lanLabelWiseStatusT">Nicht gestartet</sys:String>
+    <sys:String x:Key="lanLabelWisePages">Anzahl der aufgenommenen Fotos：</sys:String>
+    <sys:String x:Key="lanChBMordPdf">Multi-PDFs</sys:String>
+    <sys:String x:Key="lanLabelWiseTips">* Vor der automatischen/kontinuierlichen Aufnahme das Objekt bitte nicht in den Aufnahmebereich stellen</sys:String>
+
+    <sys:String x:Key="lanTBCaptureStatus">Jetzt aufnehmen...</sys:String>
+    
+    
+
+</ResourceDictionary>

@@ -147,6 +147,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
                 if (global.pLangusge == 5) TipStr = "Ripresa completata, sostituire il file.";
                 if (global.pLangusge == 6) TipStr = "Prise de vue terminée, veuillez remplacer le fichier. ";
+                if (global.pLangusge == 7) TipStr = "Nach Abschluss der Aufnahme ersetzen Sie bitte die Datei.";
                 this.Dispatcher.BeginInvoke(new UpdateStatusTextDelegate(UpdateStatusText), TipStr);    
             }
         }
@@ -237,6 +238,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr_2 = "写真を撮っています...";
                 if (global.pLangusge == 5) TipStr_2 = "Scattare foto...";
                 if (global.pLangusge == 6) TipStr_2 = "Prendre des photos...";
+                if (global.pLangusge == 7) TipStr_2 = "Fotografieren...";
                 StatusLabel.Content = TipStr_2;
                 //StatusLabel.Content = "已稳定,开始拍照...";
 
@@ -257,6 +259,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) TipStr = "写真を撮っています...";
                         if (global.pLangusge == 5) TipStr = "Scattare foto...";
                         if (global.pLangusge == 6) TipStr = "Prendre des photos...";
+                        if (global.pLangusge == 7) TipStr = "Fotografieren...";
                         StatusLabel.Content = TipStr;
 
                         if (global.isJoinMainCam == 1 && global.isOpenCameraB)  //如果与主画面合并拍照
@@ -331,6 +334,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
                 if (global.pLangusge == 5) TipStr = "Ripresa completata, sostituire il file.";
                 if (global.pLangusge == 6) TipStr = "Prise de vue terminée, veuillez remplacer le fichier. ";
+                if (global.pLangusge == 7) TipStr = "Nach Abschluss der Aufnahme ersetzen Sie bitte die Datei.";
                 StatusLabel.Content = TipStr;
             }
                 
@@ -354,6 +358,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "停止";
                 if (global.pLangusge == 5) TipStr = "La smetta";
                 if (global.pLangusge == 6) TipStr = "Arrêtez";
+                if (global.pLangusge == 7) TipStr = "Hör auf";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Stop.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)
@@ -373,6 +378,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "開始";
                 if (global.pLangusge == 5) TipStr = "Inizio";
                 if (global.pLangusge == 6) TipStr = "Commencer ";
+                if (global.pLangusge == 7) TipStr = "Start";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Start.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)

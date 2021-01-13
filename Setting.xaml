@@ -77,7 +77,7 @@
                         <ComboBoxItem Content="{DynamicResource lanCBoxItemJapanese}"></ComboBoxItem>
                         <ComboBoxItem Content="{DynamicResource lanCBoxItemItalian}"></ComboBoxItem>
                         <ComboBoxItem Content="{DynamicResource lanCBoxItemFrench}"></ComboBoxItem>
-                        <!--<ComboBoxItem Content="{DynamicResource lanCBoxItemGermany}"></ComboBoxItem>-->
+                        <ComboBoxItem Content="{DynamicResource lanCBoxItemGermany}"></ComboBoxItem>
                     </ComboBox>
 
                     <CheckBox Name="VoiceCheck" Margin="40,2,2,2" VerticalAlignment="Center"  Checked="VoiceCheck_Checked" Unchecked="VoiceCheck_Unchecked" Content="{DynamicResource lanChBSound}"></CheckBox>

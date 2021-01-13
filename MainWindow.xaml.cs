@@ -407,6 +407,7 @@ namespace CameraScan
             IdCardBt.Width = 66;
             SetBt.Width = 66;
             RecordBt.Width = 66;
+            MarkBt.Width = 66;
 
             if (global.pLangusge == 3)
             {
@@ -437,9 +438,18 @@ namespace CameraScan
                 JoinImgBt.Width = 96;
                 RecordBt.Width = 106;
             }
+            if (global.pLangusge == 7)
+            {
+                SetBt.Width = 76;
+                MarkBt.Width = 76;
+
+                MorePdfBt.Width = 76;
+                JoinImgBt.Width = 76;
+                RecordBt.Width = 76;
+            }
 
 
-            if (global.pLangusge == 5 || global.pLangusge == 3 || global.pLangusge == 6)
+            if (global.pLangusge == 5 || global.pLangusge == 3 || global.pLangusge == 6 || global.pLangusge == 7)
             {
                 CkBox_DelBgColor.SetValue(Grid.RowProperty, 1);
                 CkBox_DelBgColor.SetValue(Grid.ColumnProperty, 0);
@@ -1316,6 +1326,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) btStr = "撮影";
                     if (global.pLangusge == 5) btStr = "Cattura";
                     if (global.pLangusge == 6) btStr = "Capturer";
+                    if (global.pLangusge == 7) btStr = "Aufnahme";
                     CaptureBt.Content = btStr;
 
 #if VERIFY  //验证是否本公司高拍仪设备
@@ -1431,6 +1442,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) btStr = "撮影";
                         if (global.pLangusge == 5) btStr = "Cattura";
                         if (global.pLangusge == 6) btStr = "Capturer";
+                        if (global.pLangusge == 7) btStr = "Aufnahme";
                         CaptureBt.Content = btStr;
                     }
                     else
@@ -1447,6 +1459,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) btStr = "撮影";
                         if (global.pLangusge == 5) btStr = "Cattura";
                         if (global.pLangusge == 6) btStr = "Capturer";
+                        if (global.pLangusge == 7) btStr = "Aufnahme";
                         CaptureBt.Content = btStr;
 
 #if VERIFY  //验证是否本公司高拍仪设备
@@ -1911,6 +1924,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "デバイスが見つかりません。";
                     if (global.pLangusge == 5) TipStr = "Nessun dispositivo trovato!";
                     if (global.pLangusge == 6) TipStr = "Aucun appareil trouvé!";
+                    if (global.pLangusge == 7) TipStr = "Kein Gerät gefunden!";
                     System.Windows.MessageBox.Show(TipStr);
                     global.isOpenCameraA = false;
                     return;
@@ -1927,6 +1941,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "デバイスを開けません。";
                     if (global.pLangusge == 5) TipStr = "Impossibile aprire il dispositivo!";
                     if (global.pLangusge == 6) TipStr = "Échec de l'ouverture de l'appareil!";
+                    if (global.pLangusge == 7) TipStr = "Gerät konnte nicht geöffnet werden!";
                     System.Windows.MessageBox.Show(TipStr);
                     global.isOpenCameraA = false;
                 }
@@ -2192,6 +2207,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) TipStr = "裁断箇所を設定してください。";
                         if (global.pLangusge == 5) TipStr = "Si prega di impostare l'area di taglio!";
                         if (global.pLangusge == 6) TipStr = "Veuillez définir la zone de coupe!";
+                        if (global.pLangusge == 7) TipStr = "Bitte Schnittfläche definieren!";
                         System.Windows.MessageBox.Show(TipStr);
                         return "";
                     }
@@ -2385,6 +2401,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "撮影に失敗しました。";
                 if (global.pLangusge == 5) TipStr = "Impossibile scattare la foto!";
                 if (global.pLangusge == 6) TipStr = "Échec de la prise de photo!";
+                if (global.pLangusge == 7) TipStr = "Bild konnte nicht aufgenommen werden!";
                 System.Windows.MessageBox.Show(TipStr);
             }
         }
@@ -2417,6 +2434,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) TipStr = "裁断箇所を設定してください。";
                         if (global.pLangusge == 5) TipStr = "Si prega di impostare l'area di taglio!";
                         if (global.pLangusge == 6) TipStr = "Veuillez définir la zone de coupe!";
+                        if (global.pLangusge == 7) TipStr = "Bitte Schnittfläche definieren!";
                         System.Windows.MessageBox.Show(TipStr);
                         return "";
                     }
@@ -2796,6 +2814,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "画像を選択してPDFのマージを完了してください。";
                     if (global.pLangusge == 5) TipStr = "Seleziona le immagini per completare l'unione PDF.";
                     if (global.pLangusge == 6) TipStr = "Veuillez sélectionner des images pour terminer la fusion PDF.";
+                    if (global.pLangusge == 7) TipStr = "Bitte wählen Sie Bilder aus, um die PDF-Zusammenführung abzuschließen.";
                     System.Windows.Forms.MessageBox.Show(TipStr);
                 }
             }
@@ -2894,6 +2913,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "画像を選択してPDFのマージを完了してください。";
                     if (global.pLangusge == 5) TipStr = "Seleziona le immagini per completare l'unione PDF.";
                     if (global.pLangusge == 6) TipStr = "Veuillez sélectionner des images pour terminer la fusion PDF.";
+                    if (global.pLangusge == 7) TipStr = "Bitte wählen Sie Bilder aus, um die PDF-Zusammenführung abzuschließen.";
                     System.Windows.Forms.MessageBox.Show(TipStr);
                 }
             }
@@ -3844,6 +3864,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "本バージョンは編集機能が備わっていません。";
                 if (global.pLangusge == 5) TipStr = "Questa versione non supporta la funzione di modifica.";
                 if (global.pLangusge == 6) TipStr = "Cette version n'a pas de fonction d'édition.";
+                if (global.pLangusge == 7) TipStr = "Die ausgewählte Version bietet keine Bearbeitungsfunktion an.";
                 System.Windows.MessageBox.Show(TipStr);
             }
         }
@@ -3997,6 +4018,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "サブカメラが検出できません。";
                 if (global.pLangusge == 5) TipStr = "Nessuna fotocamera secondaria rilevata.";
                 if (global.pLangusge == 6) TipStr = "Aucune caméra secondaire détectée.";
+                if (global.pLangusge == 7) TipStr = "Zweitkamera nicht erkannt.";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -4010,6 +4032,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "サブカメラがオンの状態です。";
                 if (global.pLangusge == 5) TipStr = "La fotocamera secondaria è attiva.";
                 if (global.pLangusge == 6) TipStr = "La caméra secondaire est allumée.";
+                if (global.pLangusge == 7) TipStr = "Zweitkamera eingeschaltet.";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -4095,6 +4118,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "サブカメラを開けません。";
                 if (global.pLangusge == 5) TipStr = "Impossibile aprire la fotocamera secondaria.";
                 if (global.pLangusge == 6) TipStr = "Échec de l'ouverture de la caméra secondaire.";
+                if (global.pLangusge == 7) TipStr = "Zweitkamera kann nicht geöffnet werden.";
                 System.Windows.MessageBox.Show(TipStr);
                 global.isOpenCameraB = false;
             }
@@ -4167,6 +4191,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "サブヘッダを開く。";
                 if (global.pLangusge == 5) TipStr = "Accendi la telecamera secondaria.";
                 if (global.pLangusge == 6) TipStr = "Allumez la caméra secondaire.";
+                if (global.pLangusge == 7) TipStr = "Schalten Sie die Sekundärkamera ein.";
                 AssistBt.ToolTip = TipStr;
                 GC.Collect();
             }
@@ -4180,6 +4205,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "副ヘッダを閉じる。";
                 if (global.pLangusge == 5) TipStr = "Spegni la telecamera secondaria.";
                 if (global.pLangusge == 6) TipStr = "Éteignez la caméra secondaire.";
+                if (global.pLangusge == 7) TipStr = "Schalten Sie die Sekundärkamera aus.";
                 AssistBt.ToolTip = TipStr;
             }
         }
@@ -4641,6 +4667,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) btStr = "撮影";
                     if (global.pLangusge == 5) btStr = "Cattura";
                     if (global.pLangusge == 6) btStr = "Capturer";
+                    if (global.pLangusge == 7) btStr = "Aufnahme";
                     CaptureBt.Content = btStr;
                 }
                 else 
@@ -4652,6 +4679,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) btStr = "撮影";
                     if (global.pLangusge == 5) btStr = "Cattura";
                     if (global.pLangusge == 6) btStr = "Capturer";
+                    if (global.pLangusge == 7) btStr = "Aufnahme";
                     CaptureBt.Content = btStr;
                 }
 
@@ -4861,6 +4889,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "OCRを開けません。";
                     if (global.pLangusge == 5) TipStr = "Impossibile aprire l’OCR.";
                     if (global.pLangusge == 6) TipStr = "L'ouverture de la ROC a échoué.";
+                    if (global.pLangusge == 7) TipStr = "OCR-Erkennung fehlgeschlagen.";
                     System.Windows.MessageBox.Show(TipStr);
                 }
 
@@ -4886,6 +4915,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "OCRを開けません。";
                     if (global.pLangusge == 5) TipStr = "Impossibile aprire l’OCR.";
                     if (global.pLangusge == 6) TipStr = "L'ouverture de la ROC a échoué.";
+                    if (global.pLangusge == 7) TipStr = "OCR-Erkennung fehlgeschlagen.";
                     System.Windows.MessageBox.Show(TipStr);
                 }
             }

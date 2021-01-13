@@ -143,6 +143,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "      IDカードが認識できませんでした。\r\n IDカードを読み取る箇所は水平に保ってください。";
                     if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto.\r\n Prova a mantenere il documento d'identità in posizione \r\n orizzontale e all'interno della zona di acquisizione.";
                     if (global.pLangusge == 6) TipStr = "La carte d'identité ne peut pas être reconnue, \r\nveuillez essayer de garder la carte d'identité à l'horizontale et dans la plage capturée.";
+                    if (global.pLangusge == 7) TipStr = "Ausweis horizontal und innerhalb des angegebenen Bereiches platzieren.";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -161,6 +162,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) TipStr = "   IDカードが認識できませんでした。\r\n 開いているIDカードのデータフォームを閉じてください。 ";
                         if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto, \r\n si prega di chiudere il modulo dei dati del documento d'identità prima dell’acquisizione.";
                         if (global.pLangusge == 6) TipStr = "La carte d'identité ne peut pas être reconnue, \r\n veuillez d'abord fermer le formulaire de données de la carte d'identité.";
+                        if (global.pLangusge == 7) TipStr = "Ausweis kann nicht erkannt werden.\r\n Füllen Sie zuerst das benötigte Formular aus.";
                         System.Windows.MessageBox.Show(TipStr);
                         return;
                     }
@@ -446,6 +448,7 @@ namespace CameraScan
                             if (global.pLangusge == 4) TipStr = "      IDカードが認識できませんでした。\r\n IDカードを読み取る箇所は水平に保ってください。";
                             if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto.\r\n Prova a mantenere il documento d'identità in posizione \r\n orizzontale e all'interno della zona di acquisizione.";
                             if (global.pLangusge == 6) TipStr = "La carte d'identité ne peut pas être reconnue, \r\nveuillez essayer de garder la carte d'identité à l'horizontale et dans la plage capturée.";
+                            if (global.pLangusge == 7) TipStr = "Ausweis horizontal und innerhalb des angegebenen Bereiches platzieren.";
                             System.Windows.MessageBox.Show(TipStr);
                             return;
                         }
@@ -464,6 +467,7 @@ namespace CameraScan
                                 if (global.pLangusge == 4) TipStr = "   IDカードが認識できませんでした。\r\n 開いているIDカードのデータフォームを閉じてください。 ";
                                 if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto, \r\n si prega di chiudere il modulo dei dati del documento d'identità prima dell’acquisizione.";
                                 if (global.pLangusge == 6) TipStr = "La carte d'identité ne peut pas être reconnue, \r\n veuillez d'abord fermer le formulaire de données de la carte d'identité.";
+                                if (global.pLangusge == 7) TipStr = "Ausweis kann nicht erkannt werden.\r\n Füllen Sie zuerst das benötigte Formular aus.";
                                 System.Windows.MessageBox.Show(TipStr);
                                 return;
                             }                           
@@ -506,6 +510,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "保存するIDカード情報は空にできません。";
                     if (global.pLangusge == 5) TipStr = "Le informazioni del documento d'identità salvate non possono essere vuote.";
                     if (global.pLangusge == 6) TipStr = "Les informations de la carte d'identité enregistrées ne peuvent pas être vides.";
+                    if (global.pLangusge == 7) TipStr = "Die gespeicherten Ausweisinformationen dürfen nicht leer sein.";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -533,6 +538,7 @@ namespace CameraScan
                             if (global.pLangusge == 4) TipStr = "修正した情報を保存する前に開いているIDカードのデータフォームを閉じてください。";
                             if (global.pLangusge == 5) TipStr = "Chiudere il modulo dati del documento d'identità aperto prima di salvare le informazioni modificate.";
                             if (global.pLangusge == 6) TipStr = "Veuillez fermer le formulaire de données de la carte d'identité ouvert avant d'enregistrer les informations modifiées.";
+                            if (global.pLangusge == 7) TipStr = "Bitte schließen Sie das geöffnete Ausweisdatenformular bevor Sie die geänderten Informationen übernhemen.";
                             System.Windows.MessageBox.Show(TipStr);
                             return;
                         }
@@ -543,6 +549,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) TipStr2 = "修正が完了しました。";
                         if (global.pLangusge == 5) TipStr2 = "Modifica riuscita.";
                         if (global.pLangusge == 6) TipStr2 = "La modification a réussi.";
+                        if (global.pLangusge == 7) TipStr2 = "Änderung erfolgreich.";
                         System.Windows.MessageBox.Show(TipStr2);
                     }
                 }
@@ -555,6 +562,7 @@ namespace CameraScan
                     if (global.pLangusge == 4) TipStr = "修正した情報を保存する前に開いているIDカードのデータフォームを閉じてください。";
                     if (global.pLangusge == 5) TipStr = "Chiudere il modulo dati del documento d'identità aperto prima di salvare le informazioni modificate.";
                     if (global.pLangusge == 6) TipStr = "Veuillez fermer le formulaire de données de la carte d'identité ouvert avant d'enregistrer les informations modifiées.";
+                    if (global.pLangusge == 7) TipStr = "Bitte schließen Sie das geöffnete Ausweisdatenformular bevor Sie die geänderten Informationen übernhemen.";
                     System.Windows.MessageBox.Show(TipStr);
                     return;
                 }
@@ -596,6 +604,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "カードの読み取りができませんでした。カードリーダーが正しく接続されているかご確認ください。";
                 if (global.pLangusge == 5) TipStr = "Lettura della carta non riuscita, controllare se il lettore è collegato correttamente!";
                 if (global.pLangusge == 6) TipStr = "La lecture de la carte a échoué, veuillez vérifier si le lecteur est correctement connecté!";
+                if (global.pLangusge == 7) TipStr = "Kartenlesung fehlgeschlagen. Bitte prüfen Sie, ob der Kartenleser verbunden ist.";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -608,6 +617,7 @@ namespace CameraScan
                 if (global.pLangusge == 4) TipStr = "カードの読み取り不可!";
                 if (global.pLangusge == 5) TipStr = "Errore di lettura della carta!";
                 if (global.pLangusge == 6) TipStr = "Échec de lecture de la carte!";
+                if (global.pLangusge == 7) TipStr = "Fehler beim Lesen der Karte!";
                 System.Windows.MessageBox.Show(TipStr);
                 return;
             }
@@ -684,6 +694,7 @@ namespace CameraScan
                         if (global.pLangusge == 4) TipStr = "IDカードへの書き込みができませんでした。開いているIDカードのデータフォームテーブルを閉じてください。";
                         if (global.pLangusge == 5) TipStr = "Impossibile scrivere i dati del documento d'identità! Chiudere la tabella dei dati del documento d'identità!";
                         if (global.pLangusge == 6) TipStr = "Échec de l'écriture des données de la carte d'identité! Veuillez fermer le tableau de données de la carte d'identité ouvert!";
+                        if (global.pLangusge == 7) TipStr = "Ausweis-Daten konnten nicht gelesen werden! Bitte schließen sie die ausgewählte Tabelle.";
                         System.Windows.MessageBox.Show(TipStr);
                         return;
                     }
