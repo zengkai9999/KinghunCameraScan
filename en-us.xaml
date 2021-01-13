@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--<sys:String x:Key="lanMainFormTitle">Scan</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">Wutong Scan</sys:String>
+    <sys:String x:Key="lanMainFormTitle">Scanmega</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">Comet Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">Weirong Scan</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">XunPai Scan</sys:String>-->
@@ -55,9 +55,9 @@
 
     <sys:String x:Key="lanGBoxCutType">CutMode</sys:String>
     <sys:String x:Key="lanRaBtNoCut">NoCut</sys:String>
-    <sys:String x:Key="lanRaBtAutoCut">AutoCut(Single)</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">Automatic(Single)</sys:String>
     <sys:String x:Key="lanRaBtManulCut">Custom</sys:String>
-    <sys:String x:Key="lanRaBtAutoCutMore">AutoCut(More)</sys:String>
+    <sys:String x:Key="lanRaBtAutoCutMore">Automatic(More)</sys:String>
 
     <sys:String x:Key="lanGBoxImgEffect">Video Proc Amp</sys:String>
     <sys:String x:Key="lanLabelLight">Brightness</sys:String>
@@ -72,9 +72,9 @@
     <sys:String x:Key="lanChBDelBgColor">delBackCol</sys:String>
     <sys:String x:Key="lanChBDelShade">sharpen</sys:String>
     <sys:String x:Key="lanChBDelGray">delNoise</sys:String>
-    <sys:String x:Key="lanChBTextRed">enhance red</sys:String>
-    <sys:String x:Key="lanChBTextBlue">enhance blue</sys:String>
-    <sys:String x:Key="lanChBTextAutoRotate">characters auto rotate</sys:String>
+    <sys:String x:Key="lanChBTextRed">red stamp</sys:String>
+    <sys:String x:Key="lanChBTextBlue">blue stamp</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">auto page orientation</sys:String>
 
     <sys:String x:Key="lanTipOpenAssistCam">Open AssistCam</sys:String>
     <sys:String x:Key="lanTipSetAssistCam">Set AssistCam</sys:String>
@@ -190,10 +190,14 @@
     <sys:String x:Key="lanRaBBestPrint">1 : 1</sys:String>
     <sys:String x:Key="lanChBSound">Play audio</sys:String>
     <sys:String x:Key="lanLabelLanguage">Language</sys:String>
-    <sys:String x:Key="lanCBoxItemCn">中文</sys:String>
-    <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
+    <sys:String x:Key="lanCBoxItemCn">Chinese(simplified)</sys:String>
+    <sys:String x:Key="lanCBoxItemTw">Chinese(traditional)</sys:String>
     <sys:String x:Key="lanCBoxItemEn">English</sys:String>
-    <sys:String x:Key="lanCBoxItemSpain">Español</sys:String>
+    <sys:String x:Key="lanCBoxItemSpain">Spanish</sys:String>
+    <sys:String x:Key="lanCBoxItemJapanese">Japanese</sys:String>
+    <sys:String x:Key="lanCBoxItemItalian">Italian</sys:String>
+    <sys:String x:Key="lanCBoxItemFrench">French</sys:String>
+    <sys:String x:Key="lanCBoxItemGermany">German</sys:String>
     <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
     <sys:String x:Key="lanRaBDPIdefault">Default</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">Custom</sys:String>

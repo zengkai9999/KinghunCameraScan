@@ -69,6 +69,14 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"en-us.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 3)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 4)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Japan.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 5)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Italian.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 6)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-French.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 7)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Germany.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -136,7 +144,10 @@ namespace CameraScan
                 string TipStr = "时间间隔必须大于0";
                 if (global.pLangusge == 1) TipStr = "時間間隔必須大於0";
                 if (global.pLangusge == 2) TipStr = "The time interval must be greater than 0.";
-                if (global.pLangusge == 3) TipStr = "El intervalo debe ser superior a 0.";
+                if (global.pLangusge == 3) TipStr = "El intervalo de tiempo debe ser mayor que 0.";
+                if (global.pLangusge == 4) TipStr = "時間間隔は0より大きい必要があります。";
+                if (global.pLangusge == 5) TipStr = "L'intervallo di tempo deve essere maggiore di 0.";
+                if (global.pLangusge == 6) TipStr = "L'intervalle de temps doit être supérieur à 0.";
                 System.Windows.Forms.MessageBox.Show(TipStr);
                 return;
             }
@@ -147,6 +158,9 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "停止";
                 if (global.pLangusge == 2) TipStr = "Stop";
                 if (global.pLangusge == 3) TipStr = "Stop";
+                if (global.pLangusge == 4) TipStr = "停止";
+                if (global.pLangusge == 5) TipStr = "La smetta";
+                if (global.pLangusge == 6) TipStr = "Arrêtez";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Stop.png", UriKind.Relative));
                 if (global.isOpenCameraA)
@@ -162,6 +176,9 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "開始";
                 if (global.pLangusge == 2) TipStr = "Start";
                 if (global.pLangusge == 3) TipStr = "Empezar";
+                if (global.pLangusge == 4) TipStr = "開始";
+                if (global.pLangusge == 5) TipStr = "Inizio";
+                if (global.pLangusge == 6) TipStr = "Commencer ";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Start.png", UriKind.Relative));
                 if (global.isOpenCameraA)

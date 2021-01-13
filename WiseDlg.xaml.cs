@@ -65,6 +65,14 @@ namespace CameraScan
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"en-us.xaml", UriKind.Relative)) as ResourceDictionary;
                 if (global.pLangusge == 3)
                     langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-spain.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 4)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Japan.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 5)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Italian.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 6)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-French.xaml", UriKind.Relative)) as ResourceDictionary;
+                if (global.pLangusge == 7)
+                    langRd = System.Windows.Application.LoadComponent(new Uri(@"zh-Germany.xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch (Exception e2)
             {
@@ -134,8 +142,11 @@ namespace CameraScan
          
                 string TipStr = "拍照已完成，请重新放纸";
                 if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
-                if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
-                if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
+                if (global.pLangusge == 2) TipStr = "Shooting completed, please replace the file.";
+                if (global.pLangusge == 3) TipStr = "Disparo completado, reemplace el archivo.";
+                if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
+                if (global.pLangusge == 5) TipStr = "Ripresa completata, sostituire il file.";
+                if (global.pLangusge == 6) TipStr = "Prise de vue terminée, veuillez remplacer le fichier. ";
                 this.Dispatcher.BeginInvoke(new UpdateStatusTextDelegate(UpdateStatusText), TipStr);    
             }
         }
@@ -188,6 +199,27 @@ namespace CameraScan
                     else
                         TipStr = "Probando...";
                 }
+                if (global.pLangusge == 4)
+                {
+                    if (statusCount == 1)
+                        TipStr = "検出中.....";
+                    else
+                        TipStr = "検出中...";
+                }
+                if (global.pLangusge == 5)
+                {
+                    if (statusCount == 1)
+                        TipStr = "In prova.....";
+                    else
+                        TipStr = "In prova...";
+                }
+                if (global.pLangusge == 6)
+                {
+                    if (statusCount == 1)
+                        TipStr = "Test en cours.....";
+                    else
+                        TipStr = "Test en cours...";
+                }
 
                 StatusLabel.Content = TipStr;
 
@@ -202,6 +234,9 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr_2 = "拍摄中...";
                 if (global.pLangusge == 2) TipStr_2 = "Taking photos...";
                 if (global.pLangusge == 3) TipStr_2 = "Tomando fotos...";
+                if (global.pLangusge == 4) TipStr_2 = "写真を撮っています...";
+                if (global.pLangusge == 5) TipStr_2 = "Scattare foto...";
+                if (global.pLangusge == 6) TipStr_2 = "Prendre des photos...";
                 StatusLabel.Content = TipStr_2;
                 //StatusLabel.Content = "已稳定,开始拍照...";
 
@@ -219,6 +254,9 @@ namespace CameraScan
                         if (global.pLangusge == 1) TipStr = "拍摄中...";
                         if (global.pLangusge == 2) TipStr = "Taking photos...";
                         if (global.pLangusge == 3) TipStr = "Tomando fotos...";
+                        if (global.pLangusge == 4) TipStr = "写真を撮っています...";
+                        if (global.pLangusge == 5) TipStr = "Scattare foto...";
+                        if (global.pLangusge == 6) TipStr = "Prendre des photos...";
                         StatusLabel.Content = TipStr;
 
                         if (global.isJoinMainCam == 1 && global.isOpenCameraB)  //如果与主画面合并拍照
@@ -290,6 +328,9 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
                 if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
                 if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
+                if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
+                if (global.pLangusge == 5) TipStr = "Ripresa completata, sostituire il file.";
+                if (global.pLangusge == 6) TipStr = "Prise de vue terminée, veuillez remplacer le fichier. ";
                 StatusLabel.Content = TipStr;
             }
                 
@@ -310,6 +351,9 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "停止";
                 if (global.pLangusge == 2) TipStr = "Stop";
                 if (global.pLangusge == 3) TipStr = "Stop";
+                if (global.pLangusge == 4) TipStr = "停止";
+                if (global.pLangusge == 5) TipStr = "La smetta";
+                if (global.pLangusge == 6) TipStr = "Arrêtez";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Stop.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)
@@ -326,6 +370,9 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "開始";
                 if (global.pLangusge == 2) TipStr = "Start";
                 if (global.pLangusge == 3) TipStr = "Empezar";
+                if (global.pLangusge == 4) TipStr = "開始";
+                if (global.pLangusge == 5) TipStr = "Inizio";
+                if (global.pLangusge == 6) TipStr = "Commencer ";
                 StartBt.Content = TipStr;
                 StartBt.Image = new BitmapImage(new Uri(@"/Images/Start.png", UriKind.Relative));
                 if (WiseCallBackFunc == null)

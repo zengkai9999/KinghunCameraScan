@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
 
-    <sys:String x:Key="lanMainFormTitle">Cámara de Documentos</sys:String>
+    <sys:String x:Key="lanMainFormTitle">Scanmega</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">维融高拍仪</sys:String>-->
@@ -58,16 +58,16 @@
 
     <sys:String x:Key="lanGBoxCutType">Modo de recorte</sys:String>
     <sys:String x:Key="lanRaBtNoCut">Sin recorte</sys:String>
-    <sys:String x:Key="lanRaBtAutoCut">Recorte automático(Uno)</sys:String>
+    <sys:String x:Key="lanRaBtAutoCut">Automático(única)</sys:String>
     <sys:String x:Key="lanRaBtManulCut">Personalizar</sys:String>
-    <sys:String x:Key="lanRaBtAutoCutMore">Recorte automático(Muchos)</sys:String>
+    <sys:String x:Key="lanRaBtAutoCutMore">Automático(múltiple)</sys:String>
 
     <sys:String x:Key="lanGBoxImgEffect">Ajustes gráficos</sys:String>
     <sys:String x:Key="lanLabelLight">Brillo</sys:String>
     <sys:String x:Key="lanLabelContrast">Contraste</sys:String>
     <sys:String x:Key="lanLabelExp">Exposición</sys:String>
     <sys:String x:Key="lanChBAutoExp">Auto-exposición</sys:String>
-    <sys:String x:Key="lanBtDefault">Predeterminado</sys:String>
+    <sys:String x:Key="lanBtDefault">Por defecto</sys:String>
     <sys:String x:Key="lanBtMore">Más</sys:String>
 
     <sys:String x:Key="lanGBoxImgHadle">Procesar/Efecto imágenes</sys:String>
@@ -75,9 +75,9 @@
     <sys:String x:Key="lanChBDelBgColor">Borrar fondo</sys:String>
     <sys:String x:Key="lanChBDelShade">Nitidez</sys:String>
     <sys:String x:Key="lanChBDelGray">Eliminación de ruido</sys:String>
-    <sys:String x:Key="lanChBTextRed">Documento rojo</sys:String>
-    <sys:String x:Key="lanChBTextBlue">Documento azul</sys:String>
-    <sys:String x:Key="lanChBTextAutoRotate">Identificador de texto</sys:String>
+    <sys:String x:Key="lanChBTextRed">Sello rojo</sys:String>
+    <sys:String x:Key="lanChBTextBlue">Sello azul</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">Orientación de página automática</sys:String>
 
     <sys:String x:Key="lanTipOpenAssistCam">Abrir cámara secundaria</sys:String>
     <sys:String x:Key="lanTipSetAssistCam">Configurar cámara secundaria</sys:String>
@@ -192,12 +192,16 @@
     <sys:String x:Key="lanRaBBestPrint">Imprimir 1:1</sys:String>
     <sys:String x:Key="lanChBSound">Capturar voz</sys:String>
     <sys:String x:Key="lanLabelLanguage">Idioma</sys:String>
-    <sys:String x:Key="lanCBoxItemCn">中文</sys:String>
-    <sys:String x:Key="lanCBoxItemTw">繁體</sys:String>
-    <sys:String x:Key="lanCBoxItemEn">English</sys:String>
+    <sys:String x:Key="lanCBoxItemCn">Chino(simplificado)</sys:String>
+    <sys:String x:Key="lanCBoxItemTw">Chino(tradicional)</sys:String>
+    <sys:String x:Key="lanCBoxItemEn">Inglés</sys:String>
     <sys:String x:Key="lanCBoxItemSpain">Español</sys:String>
+    <sys:String x:Key="lanCBoxItemJapanese">Japonés</sys:String>
+    <sys:String x:Key="lanCBoxItemItalian">Italiano</sys:String>
+    <sys:String x:Key="lanCBoxItemFrench">Francés</sys:String>
+    <sys:String x:Key="lanCBoxItemGermany">Alemán</sys:String>
     <sys:String x:Key="lanLabelDPI">DPI:</sys:String>
-    <sys:String x:Key="lanRaBDPIdefault">Predeterminado</sys:String>
+    <sys:String x:Key="lanRaBDPIdefault">Por defecto</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">Personalizar</sys:String>
 
     <sys:String x:Key="lanTimerDlgTitle">Tiempo de disparo</sys:String>
