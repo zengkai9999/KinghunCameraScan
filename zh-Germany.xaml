@@ -154,7 +154,7 @@
 
     <sys:String x:Key="lanMorePdfDlgTitle">Mehrseitige PDF-Aufnahme</sys:String>
     <sys:String x:Key="lanChBSavePdfSource">PDF-Datei Speichern</sys:String>
-    <sys:String x:Key="lanLabelPdfPages">PDF添加页数：</sys:String>
+    <sys:String x:Key="lanLabelPdfPages">Seite zu PDF-Datei hinzufügen：</sys:String>
     <sys:String x:Key="lanBtPdfPhoto">PDF-Seite hinzufügen</sys:String>
     <sys:String x:Key="lanBtPdfFinish">Komplette PDF-Aufnahme</sys:String>
 

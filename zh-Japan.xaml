@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    
+
     <!--<sys:String x:Key="lanMainFormTitle">高拍仪</sys:String>-->
     <sys:String x:Key="lanMainFormTitle">Scanmega</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
@@ -14,32 +14,32 @@
     <!--<sys:String x:Key="lanMainFormTitle">巨行高拍仪</sys:String>-->
 
 
-    <sys:String x:Key="lanWisePhoto">連写</sys:String>
-    <sys:String x:Key="lanTimerPhoto">定時撮影</sys:String>
+    <sys:String x:Key="lanWisePhoto">連続撮影</sys:String>
+    <sys:String x:Key="lanTimerPhoto">タイマー撮影</sys:String>
     <sys:String x:Key="lanCapture">撮影</sys:String>
     <sys:String x:Key="lanPhoto">撮影</sys:String>
     <sys:String x:Key="lanSet">設定</sys:String>
-    <sys:String x:Key="lanWaterMark">マーク</sys:String>
-    <sys:String x:Key="lanPrint">印刷</sys:String>
-    <sys:String x:Key="lanDocument">文書</sys:String>
+    <sys:String x:Key="lanWaterMark">透かし</sys:String>
+    <sys:String x:Key="lanPrint">プリント</sys:String>
+    <sys:String x:Key="lanDocument">ドキュメント</sys:String>
     <sys:String x:Key="lanBarCode">バーコード</sys:String>
     <sys:String x:Key="lanS_PDF">PDF</sys:String>
     <sys:String x:Key="lanM_PDF">マルチPDF</sys:String>
-    <sys:String x:Key="lanImgJoin">写真統合</sys:String>
+    <sys:String x:Key="lanImgJoin">画像統合</sys:String>
     <sys:String x:Key="lanIdCard">IDカード</sys:String>
     <sys:String x:Key="lanRecord">録画</sys:String>
     <sys:String x:Key="lanEdit">編集</sys:String>
 
-    <sys:String x:Key="lanSavePath">パスの保存:</sys:String>
+    <sys:String x:Key="lanSavePath">保存パス:</sys:String>
     <sys:String x:Key="lanSeletePath">パスの選択</sys:String>
     <sys:String x:Key="lanOpenPath">パスを開く</sys:String>
 
     <sys:String x:Key="lanMenuOpen">開く</sys:String>
     <sys:String x:Key="lanMenuDelete">削除</sys:String>
-    <sys:String x:Key="lanMenuSeleteAll">全選択</sys:String>
-    <sys:String x:Key="lanMenuPrintPreview">印刷プレビュー</sys:String>
-    <sys:String x:Key="lanMenuPrintSet">印刷設定</sys:String>
-    <sys:String x:Key="lanMenuPrint">印刷</sys:String>
+    <sys:String x:Key="lanMenuSeleteAll">すべて選択</sys:String>
+    <sys:String x:Key="lanMenuPrintPreview">プリントプレビュー</sys:String>
+    <sys:String x:Key="lanMenuPrintSet">プリント設定</sys:String>
+    <sys:String x:Key="lanMenuPrint">プリント</sys:String>
     <sys:String x:Key="lanMenuCopy">コピー</sys:String>
     <sys:String x:Key="lanMenuPDF">PDF統合</sys:String>
     <sys:String x:Key="lanMenuIncrePDF">PDF統合名前順</sys:String>
@@ -48,12 +48,12 @@
 
     <sys:String x:Key="lanGBoxDevice">デバイス</sys:String>
     <sys:String x:Key="lanGBoxPreviewRes">プレビュー解像度</sys:String>
-    <sys:String x:Key="lanGBoxStillRes">キャプチャー解像度</sys:String>
+    <sys:String x:Key="lanGBoxStillRes">撮影解像度</sys:String>
     <sys:String x:Key="lanGBoxFileType">ファイルフォーマット</sys:String>
 
     <sys:String x:Key="lanGBoxColorMod">カラーモード</sys:String>
     <sys:String x:Key="lanRaBtColor">カラー</sys:String>
-    <sys:String x:Key="lanRaBtGray">グレーレベル</sys:String>
+    <sys:String x:Key="lanRaBtGray">グレー</sys:String>
     <sys:String x:Key="lanRaBtBlackWhite">白黒</sys:String>
 
     <sys:String x:Key="lanGBoxCutType">裁断モード</sys:String>
@@ -63,15 +63,15 @@
     <sys:String x:Key="lanRaBtAutoCutMore">自動裁断(多図)</sys:String>
 
     <sys:String x:Key="lanGBoxImgEffect">グラフィック調整</sys:String>
-    <sys:String x:Key="lanLabelLight">明るさ</sys:String>
-    <sys:String x:Key="lanLabelContrast">コトントラスト度合い</sys:String>
+    <sys:String x:Key="lanLabelLight">輝度</sys:String>
+    <sys:String x:Key="lanLabelContrast">コントラスト</sys:String>
     <sys:String x:Key="lanLabelExp">露出</sys:String>
     <sys:String x:Key="lanChBAutoExp">自動露出</sys:String>
     <sys:String x:Key="lanBtDefault">既定値</sys:String>
-    <sys:String x:Key="lanBtMore">より多く</sys:String>
+    <sys:String x:Key="lanBtMore">もっと</sys:String>
 
-    <sys:String x:Key="lanGBoxImgHadle">画像処理/画像効果</sys:String>
-    <sys:String x:Key="lanChBDelBlackEdge">黒縁に行く</sys:String>
+    <sys:String x:Key="lanGBoxImgHadle">画像処理</sys:String>
+    <sys:String x:Key="lanChBDelBlackEdge">黒縁カット処理</sys:String>
     <sys:String x:Key="lanChBDelBgColor">背景削除</sys:String>
     <sys:String x:Key="lanChBDelShade">鮮明化</sys:String>
     <sys:String x:Key="lanChBDelGray">ノイズ除去</sys:String>
@@ -112,42 +112,42 @@
     <sys:String x:Key="lanJoinImgDlgTitle">画像統合</sys:String>
     <sys:String x:Key="lanLabelJoinPages">ページ統合：</sys:String>
     <sys:String x:Key="lanCBoxItemTwoPages">２ページ</sys:String>
-    <sys:String x:Key="lanCBoxItemThreePages">３ページ</sys:String>
-    <sys:String x:Key="lanCBoxItemFourPages">４ページ</sys:String>
+    <sys:String x:Key="lanCBoxItemThreePages">3 ページ</sys:String>
+    <sys:String x:Key="lanCBoxItemFourPages">4 ページ</sys:String>
     <sys:String x:Key="lanLabelDirection">方向：</sys:String>
     <sys:String x:Key="lanCBoxItemVertical">垂直</sys:String>
     <sys:String x:Key="lanCBoxItemHorizontal">水平</sys:String>
     <sys:String x:Key="lanChBSaveJoinSource">統合画像の保存</sys:String>
-    <sys:String x:Key="lanLabelJoinPhotoPages">キャプチャーページ統合：</sys:String>
-    <sys:String x:Key="lanBtJoinPhoto">キャプチャー統合</sys:String>
+    <sys:String x:Key="lanLabelJoinPhotoPages">撮影ページ統合：</sys:String>
+    <sys:String x:Key="lanBtJoinPhoto">統合撮影</sys:String>
 
-    <sys:String x:Key="lanMarkDlgTitle">電子透かし</sys:String>
-    <sys:String x:Key="lanChBAddTheMark">電子透かし追加</sys:String>
-    <sys:String x:Key="lanLabelMarkType">電子透かしの種類</sys:String>
+    <sys:String x:Key="lanMarkDlgTitle">透かし</sys:String>
+    <sys:String x:Key="lanChBAddTheMark">透かし追加</sys:String>
+    <sys:String x:Key="lanLabelMarkType">透かしの種類</sys:String>
     <sys:String x:Key="lanCBoxItemText">文字</sys:String>
-    <sys:String x:Key="lanCBoxItemImage">写真</sys:String>
-    <sys:String x:Key="lanChBAddTimeMark">電子透かし追加時間</sys:String>
+    <sys:String x:Key="lanCBoxItemImage">画像</sys:String>
+    <sys:String x:Key="lanChBAddTimeMark">時間透かしを追加</sys:String>
     <sys:String x:Key="lanLabelTextContent">文字内容</sys:String>
-    <sys:String x:Key="lanLabelMarkSize">電子透かしのサイズ</sys:String>
-    <sys:String x:Key="lanLabelMarkFont">電子透かしのテキスト</sys:String>
-    <sys:String x:Key="lanLabelMarkTran">    透 明 度</sys:String>
+    <sys:String x:Key="lanLabelMarkSize">透かしのサイズ</sys:String>
+    <sys:String x:Key="lanLabelMarkFont">透かしのフォント</sys:String>
+    <sys:String x:Key="lanLabelMarkTran">透 明 度</sys:String>
     <sys:String x:Key="lanLabelFontType">フォント種類</sys:String>
-    <sys:String x:Key="lanCBoxItemGeneral">共通</sys:String>
+    <sys:String x:Key="lanCBoxItemGeneral">一般</sys:String>
     <sys:String x:Key="lanCBoxItemBold">太字</sys:String>
     <sys:String x:Key="lanCBoxItemTilt">斜字</sys:String>
     <sys:String x:Key="lanCBoxItemBoldtilt">太字および斜字</sys:String>
     <sys:String x:Key="lanCBoxItemUnderline">下線</sys:String>
     <sys:String x:Key="lanLabelXOffest">水平移動</sys:String>
     <sys:String x:Key="lanLabelYOffest">垂直移動</sys:String>
-    <sys:String x:Key="lanLabelMarkColor">電子透かしの色</sys:String>
-    <sys:String x:Key="lanCBoxItemRed">赤色</sys:String>
-    <sys:String x:Key="lanCBoxItemGreen">緑色</sys:String>
-    <sys:String x:Key="lanCBoxItemBlue">藍色</sys:String>
-    <sys:String x:Key="lanCBoxItemCyan">青色</sys:String>
-    <sys:String x:Key="lanCBoxItemOrange">オレンジ色</sys:String>
-    <sys:String x:Key="lanCBoxItemYellow">黄色</sys:String>
-    <sys:String x:Key="lanCBoxItemBlack">黑色</sys:String>
-    <sys:String x:Key="lanCBoxItemWhite">白色</sys:String>
+    <sys:String x:Key="lanLabelMarkColor">透かしの色</sys:String>
+    <sys:String x:Key="lanCBoxItemRed">レッド</sys:String>
+    <sys:String x:Key="lanCBoxItemGreen">グリーン</sys:String>
+    <sys:String x:Key="lanCBoxItemBlue">ブルー</sys:String>
+    <sys:String x:Key="lanCBoxItemCyan">シアン</sys:String>
+    <sys:String x:Key="lanCBoxItemOrange">オレンジ</sys:String>
+    <sys:String x:Key="lanCBoxItemYellow">イエロー</sys:String>
+    <sys:String x:Key="lanCBoxItemBlack">ブラック</sys:String>
+    <sys:String x:Key="lanCBoxItemWhite">ホワイト</sys:String>
     <sys:String x:Key="lanLabelMarkImgPath">画像パス</sys:String>
     <sys:String x:Key="lanLabelMarkImgSize">大小</sys:String>
     <sys:String x:Key="lanBtMarkOK">アプリケーション</sys:String>
@@ -162,35 +162,35 @@
     <sys:String x:Key="lanMorePdfPageDown">次のページ</sys:String>
     <sys:String x:Key="lanMorePdfPageCurrent">現在のページ：</sys:String>
     <sys:String x:Key="lanMorePdfPageDelete">ページを削除</sys:String>
-    
+
     <sys:String x:Key="lanRecordDlgTitle">RecordDlg</sys:String>
     <sys:String x:Key="lanLabelRECSource">ソース</sys:String>
     <sys:String x:Key="lanLabelCBoxItemCamera">カメラ</sys:String>
     <sys:String x:Key="lanLabelCBoxItemScreen">スクリーン</sys:String>
     <sys:String x:Key="lanLabelRECFormat">フォーマット</sys:String>
-    <sys:String x:Key="lanLabelRECFps">動画一秒あたりのコマ数</sys:String>
+    <sys:String x:Key="lanLabelRECFps">フレームレート</sys:String>
 
     <sys:String x:Key="lanRenameDlgTitle">名前変更</sys:String>
     <sys:String x:Key="lanLabelInputName">新しい名前の入力</sys:String>
     <sys:String x:Key="lanLabelInFileName">ファイル名:</sys:String>
-    <sys:String x:Key="lanBtOK">確定</sys:String>
+    <sys:String x:Key="lanBtOK">確認</sys:String>
 
     <sys:String x:Key="lanSetDlgTitle">設定</sys:String>
-    <sys:String x:Key="lanGBoxNameType">名づけ方法</sys:String>
-    <sys:String x:Key="lanRaBNameTime">時間による名づけ</sys:String>
-    <sys:String x:Key="lanRaBNameCode">バーコードによる名づけ</sys:String>
-    <sys:String x:Key="lanRaBNameQr">QRコードによる名づけ</sys:String>
-    <sys:String x:Key="lanRaBNameFolder">日付による名づけ</sys:String>
+    <sys:String x:Key="lanGBoxNameType">名付け方法</sys:String>
+    <sys:String x:Key="lanRaBNameTime">時間による名付け</sys:String>
+    <sys:String x:Key="lanRaBNameCode">バーコードによる名付け</sys:String>
+    <sys:String x:Key="lanRaBNameQr">QRコードによる名付け</sys:String>
+    <sys:String x:Key="lanRaBNameFolder">日付による名付け</sys:String>
     <sys:String x:Key="lanRaBNameDIY">カスタマイズ</sys:String>
     <sys:String x:Key="lanRaBNameFixed">既定名</sys:String>
-    <sys:String x:Key="lanLabelPrefix">事前確定：</sys:String>
-    <sys:String x:Key="lanChBStepText">2ステップ</sys:String>
+    <sys:String x:Key="lanLabelPrefix">プレフィックス：</sys:String>
+    <sys:String x:Key="lanChBStepText">ステップバイ2</sys:String>
     <sys:String x:Key="lanGBoxJPGquality">JPG品質</sys:String>
     <sys:String x:Key="lanGBoxOtherConfig">その他の配置</sys:String>
-    <sys:String x:Key="lanLabelPrintMod">印刷モード:</sys:String>
-    <sys:String x:Key="lanRaBAdjust">自己適用</sys:String>
-    <sys:String x:Key="lanRaBBestPrint">1 : 1比印刷</sys:String>
-    <sys:String x:Key="lanChBSound">音声入力</sys:String>
+    <sys:String x:Key="lanLabelPrintMod">プリントモード:</sys:String>
+    <sys:String x:Key="lanRaBAdjust">原寸表示</sys:String>
+    <sys:String x:Key="lanRaBBestPrint">1:1比プリント</sys:String>
+    <sys:String x:Key="lanChBSound">撮影音声</sys:String>
     <sys:String x:Key="lanLabelLanguage">言語</sys:String>
     <sys:String x:Key="lanCBoxItemCn">中国語の簡体字</sys:String>
     <sys:String x:Key="lanCBoxItemTw">中国語繁体字</sys:String>
@@ -204,20 +204,20 @@
     <sys:String x:Key="lanRaBDPIdefault">規定値</sys:String>
     <sys:String x:Key="lanRaBDPIdiy">カスタマイズ</sys:String>
 
-    <sys:String x:Key="lanTimerDlgTitle">時間撮影</sys:String>
+    <sys:String x:Key="lanTimerDlgTitle">タイマー撮影</sys:String>
     <sys:String x:Key="lanLabelInterval">時間間隔：</sys:String>
-    <sys:String x:Key="lanLabelTimerPages">撮影写真枚数：</sys:String>
+    <sys:String x:Key="lanLabelTimerPages">撮影画像枚数：</sys:String>
     <sys:String x:Key="lanBtStart">開始</sys:String>
 
-    <sys:String x:Key="lanWiseDlgTitle">継続入力</sys:String>
-    <sys:String x:Key="lanLabelWiseStatus">検出状況：</sys:String>
+    <sys:String x:Key="lanWiseDlgTitle">連続撮影</sys:String>
+    <sys:String x:Key="lanLabelWiseStatus">検出状態：</sys:String>
     <sys:String x:Key="lanLabelWiseStatusT">未開始</sys:String>
-    <sys:String x:Key="lanLabelWisePages">撮影写真枚数：</sys:String>
+    <sys:String x:Key="lanLabelWisePages">撮影画像枚数：</sys:String>
     <sys:String x:Key="lanChBMordPdf">マルチPDF</sys:String>
-    <sys:String x:Key="lanLabelWiseTips">* 継続撮影が開始する前に題名を撮影範囲に入力しないでください。</sys:String>
+    <sys:String x:Key="lanLabelWiseTips">* 連続撮影が開始する前に被写体を撮影範囲に入れないでください。</sys:String>
 
     <sys:String x:Key="lanTBCaptureStatus">今撮影してください...</sys:String>
-    
-    
+
+
 
 </ResourceDictionary>

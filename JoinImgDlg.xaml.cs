@@ -173,7 +173,7 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "正在合並圖片...";
                 if (global.pLangusge == 2) TipStr = "Merging pictures...";
                 if (global.pLangusge == 3) TipStr = "Combinando imágenes...";
-                if (global.pLangusge == 4) TipStr = "写真統合...";
+                if (global.pLangusge == 4) TipStr = "画像統合...";
                 if (global.pLangusge == 5) TipStr = "Unione di immagini...";
                 if (global.pLangusge == 6) TipStr = "Fusionner des images...";
                 if (global.pLangusge == 7) TipStr = "Bilder verbinden...";
@@ -191,7 +191,7 @@ namespace CameraScan
                     if (global.pLangusge == 1) TitleStr = "圖像合並";
                     if (global.pLangusge == 2) TitleStr = "MergeImage";
                     if (global.pLangusge == 3) TitleStr = "Combinando imágenes";
-                    if (global.pLangusge == 4) TitleStr = "写真統合";
+                    if (global.pLangusge == 4) TitleStr = "画像統合";
                     if (global.pLangusge == 5) TitleStr = "Unione di immagini";
                     if (global.pLangusge == 6) TitleStr = "Fusionner des images";
                     if (global.pLangusge == 7) TitleStr = "Bilder verbinden";
@@ -255,7 +255,7 @@ namespace CameraScan
                         if (global.pLangusge == 1) TipStr = "正在合並圖片...";
                         if (global.pLangusge == 2) TipStr = "Merging pictures...";
                         if (global.pLangusge == 3) TipStr = "Combinando imágenes...";
-                        if (global.pLangusge == 4) TipStr = "写真統合...";
+                        if (global.pLangusge == 4) TipStr = "画像統合...";
                         if (global.pLangusge == 5) TipStr = "Unione di immagini...";
                         if (global.pLangusge == 6) TipStr = "Fusionner des images...";
                         if (global.pLangusge == 7) TipStr = "Bilder verbinden...";
@@ -273,7 +273,7 @@ namespace CameraScan
                             if (global.pLangusge == 1) TitleStr = "圖像合並";
                             if (global.pLangusge == 2) TitleStr = "MergeImage";
                             if (global.pLangusge == 3) TitleStr = "Combinando imágenes";
-                            if (global.pLangusge == 4) TitleStr = "写真統合";
+                            if (global.pLangusge == 4) TitleStr = "画像統合";
                             if (global.pLangusge == 5) TitleStr = "Unione di immagini";
                             if (global.pLangusge == 6) TitleStr = "Fusionner des images";
                             if (global.pLangusge == 7) TitleStr = "Bilder verbinden";
@@ -371,7 +371,7 @@ namespace CameraScan
                 {
                     string TipStr = "图像合并失败";
                     if (global.pLangusge == 1) TipStr = "圖像合並失敗";
-                    if (global.pLangusge == 2) TipStr = "Image merging failure";
+                    if (global.pLangusge == 2) TipStr = "Image merge failed";
                     if (global.pLangusge == 3) TipStr = "Fallo al combinar imágenes";
                     if (global.pLangusge == 4) TipStr = "画像統合エラー";
                     if (global.pLangusge == 5) TipStr = "Impossibile scattare la foto";

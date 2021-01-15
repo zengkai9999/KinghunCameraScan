@@ -138,7 +138,7 @@ namespace CameraScan
                 {
                     string TipStr = "      未识别到身份证信息！\r\n请尽量保持身份证水平放置以及\r\n识别的范围为身份证大小范围！";
                     if (global.pLangusge == 1) TipStr = "      未識別到身份證信息！\r\n請盡量保持身份證水平放置以及\r\n識別的範圍為身份證大小範圍！";
-                    if (global.pLangusge == 2) TipStr = "    ID card information is not recognized. \r\n please keep the ID card level as far as possible \r\n and the scope of identification is the size of the ID card.";
+                    if (global.pLangusge == 2) TipStr = "    ID card can not be recognized, \r\n Please try to keep the ID card horizontal placed and within the captured range.";
                     if (global.pLangusge == 3) TipStr = "      La tarjeta de identificación no puede ser reconocida. \r\n Por favor, mantener la tarjeta \r\n de identificación horizontal y dentro del área de captura.";
                     if (global.pLangusge == 4) TipStr = "      IDカードが認識できませんでした。\r\n IDカードを読み取る箇所は水平に保ってください。";
                     if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto.\r\n Prova a mantenere il documento d'identità in posizione \r\n orizzontale e all'interno della zona di acquisizione.";
@@ -157,7 +157,7 @@ namespace CameraScan
                     {
                         string TipStr = "      未识别到身份证信息！\r\n请先关闭已打开的身份证数据表格！";
                         if (global.pLangusge == 1) TipStr = "      未識別到身份證信息！\r\n請先關閉已打開的身份證數據表格！";
-                        if (global.pLangusge == 2) TipStr = "   ID card information is not recognized. \r\n please turn off the open ID data table first!";
+                        if (global.pLangusge == 2) TipStr = "   ID card can not be recognized. \r\n Please close the opened ID card data form first!";
                         if (global.pLangusge == 3) TipStr = "   La tarjeta de identificación no puede ser reconocida. \r\n Por favor, cerrar el formulario abierto. ";
                         if (global.pLangusge == 4) TipStr = "   IDカードが認識できませんでした。\r\n 開いているIDカードのデータフォームを閉じてください。 ";
                         if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto, \r\n si prega di chiudere il modulo dei dati del documento d'identità prima dell’acquisizione.";
@@ -443,7 +443,7 @@ namespace CameraScan
                         {
                             string TipStr = "      未识别到身份证信息！\r\n请尽量保持身份证水平放置以及\r\n识别的范围为身份证大小范围！";
                             if (global.pLangusge == 1) TipStr = "      未識別到身份證信息！\r\n請盡量保持身份證水平放置以及\r\n識別的範圍為身份證大小範圍！";
-                            if (global.pLangusge == 2) TipStr = "    ID card information is not recognized. \r\n please keep the ID card level as far as possible \r\n and the scope of identification is the size of the ID card.";
+                            if (global.pLangusge == 2) TipStr = "    ID card can not be recognized, \r\n Please try to keep the ID card horizontal placed and within the captured range..";
                             if (global.pLangusge == 3) TipStr = "      La tarjeta de identificación no puede ser reconocida. \r\n Por favor, mantener la tarjeta \r\n de identificación horizontal y dentro del área de captura.";
                             if (global.pLangusge == 4) TipStr = "      IDカードが認識できませんでした。\r\n IDカードを読み取る箇所は水平に保ってください。";
                             if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto.\r\n Prova a mantenere il documento d'identità in posizione \r\n orizzontale e all'interno della zona di acquisizione.";
@@ -462,7 +462,7 @@ namespace CameraScan
                             {
                                 string TipStr = "      未识别到身份证信息！\r\n请先关闭已打开的身份证数据表格！";
                                 if (global.pLangusge == 1) TipStr = "      未識別到身份證信息！\r\n請先關閉已打開的身份證數據表格！";
-                                if (global.pLangusge == 2) TipStr = "   ID card information is not recognized. \r\n please turn off the open ID data table first!";
+                                if (global.pLangusge == 2) TipStr = "   ID card can not be recognized. \r\n Please close the opened ID card data form first!";
                                 if (global.pLangusge == 3) TipStr = "   La tarjeta de identificación no puede ser reconocida. \r\n Por favor, cerrar el formulario abierto. ";
                                 if (global.pLangusge == 4) TipStr = "   IDカードが認識できませんでした。\r\n 開いているIDカードのデータフォームを閉じてください。 ";
                                 if (global.pLangusge == 5) TipStr = "Il documento d'identità non può essere riconosciuto, \r\n si prega di chiudere il modulo dei dati del documento d'identità prima dell’acquisizione.";
@@ -505,7 +505,7 @@ namespace CameraScan
                 {
                     string TipStr = "保存的身份证信息不能为空！";
                     if (global.pLangusge == 1) TipStr = "保存的身份證信息不能為空！";
-                    if (global.pLangusge == 2) TipStr = "The ID information can not be empty!";
+                    if (global.pLangusge == 2) TipStr = "The saved ID card information cannot be empty!";
                     if (global.pLangusge == 3) TipStr = "La información de la tarjeta ID guardada no puede estar vacía.";
                     if (global.pLangusge == 4) TipStr = "保存するIDカード情報は空にできません。";
                     if (global.pLangusge == 5) TipStr = "Le informazioni del documento d'identità salvate non possono essere vuote.";
@@ -533,7 +533,7 @@ namespace CameraScan
                         {
                             string TipStr = "保存修改的信息前，请先关闭已打开的身份证数据表格！";
                             if (global.pLangusge == 1) TipStr = "保存修改的信息前，請先關閉已打開的身份證數據表格！";
-                            if (global.pLangusge == 2) TipStr = "Please close the open ID data table before saving the modified information.";
+                            if (global.pLangusge == 2) TipStr = "Please close the opened ID card data form before saving the modified information.";
                             if (global.pLangusge == 3) TipStr = "Por favor, cierre el formulario de datos de tarjeta de identificación abierto antes de guardar la información modificada.";
                             if (global.pLangusge == 4) TipStr = "修正した情報を保存する前に開いているIDカードのデータフォームを閉じてください。";
                             if (global.pLangusge == 5) TipStr = "Chiudere il modulo dati del documento d'identità aperto prima di salvare le informazioni modificate.";
@@ -544,7 +544,7 @@ namespace CameraScan
                         }
                         string TipStr2 = "修改成功";
                         if (global.pLangusge == 1) TipStr2 = "修改成功";
-                        if (global.pLangusge == 2) TipStr2 = "Amend success";
+                        if (global.pLangusge == 2) TipStr2 = "Modification succeeded";
                         if (global.pLangusge == 3) TipStr2 = "Datos modificados correctamente.";
                         if (global.pLangusge == 4) TipStr2 = "修正が完了しました。";
                         if (global.pLangusge == 5) TipStr2 = "Modifica riuscita.";
@@ -557,7 +557,7 @@ namespace CameraScan
                 {
                     string TipStr = "保存修改的信息前，请先关闭已打开的身份证数据表格！";
                     if (global.pLangusge == 1) TipStr = "保存修改的信息前，請先關閉已打開的身份證數據表格！";
-                    if (global.pLangusge == 2) TipStr = "Please close the open ID data table before saving the modified information.";
+                    if (global.pLangusge == 2) TipStr = "Please close the opened ID card data form before saving the modified information.";
                     if (global.pLangusge == 3) TipStr = "Por favor, cierre el formulario de datos de tarjeta de identificación abierto antes de guardar la información modificada.";
                     if (global.pLangusge == 4) TipStr = "修正した情報を保存する前に開いているIDカードのデータフォームを閉じてください。";
                     if (global.pLangusge == 5) TipStr = "Chiudere il modulo dati del documento d'identità aperto prima di salvare le informazioni modificate.";
@@ -599,7 +599,7 @@ namespace CameraScan
             {
                 string TipStr = "读卡失败！请检查读卡器连接是否正常！";
                 if (global.pLangusge == 1) TipStr = "讀卡失敗！請檢查讀卡器連接是否正常！";
-                if (global.pLangusge == 2) TipStr = "Failed to read card! Please check whether the card reader connection is normal.";
+                if (global.pLangusge == 2) TipStr = "Card reading failed, Please check if the reader is connected properly!";
                 if (global.pLangusge == 3) TipStr = "La lectura de la tarjeta ha fallado. Por favor, compruebe si el lector está conectado correctamente.";
                 if (global.pLangusge == 4) TipStr = "カードの読み取りができませんでした。カードリーダーが正しく接続されているかご確認ください。";
                 if (global.pLangusge == 5) TipStr = "Lettura della carta non riuscita, controllare se il lettore è collegato correttamente!";
@@ -612,7 +612,7 @@ namespace CameraScan
             {
                 string TipStr = "读卡失败！";
                 if (global.pLangusge == 1) TipStr = "讀卡失敗！";
-                if (global.pLangusge == 2) TipStr = "Failed to read card!";
+                if (global.pLangusge == 2) TipStr = "Card reading failure!";
                 if (global.pLangusge == 3) TipStr = "Fallo de lectura de la tarjeta!";
                 if (global.pLangusge == 4) TipStr = "カードの読み取り不可!";
                 if (global.pLangusge == 5) TipStr = "Errore di lettura della carta!";
@@ -689,7 +689,7 @@ namespace CameraScan
                     {
                         string TipStr = "写入身份证数据失败!请关闭已打开的身份证数据表格！";
                         if (global.pLangusge == 1) TipStr = "寫入身份證數據失敗!請關閉已打開的身份證數據表格！";
-                        if (global.pLangusge == 2) TipStr = "Failed to write ID data! Please close the open ID data table!";
+                        if (global.pLangusge == 2) TipStr = "Failed to write ID card data! Please close the opened ID card data table!";
                         if (global.pLangusge == 3) TipStr = "No se ha podido guardar la tarjeta de identificación. Por favor, cierre el formulario de tarjeta de identificación abierto.";
                         if (global.pLangusge == 4) TipStr = "IDカードへの書き込みができませんでした。開いているIDカードのデータフォームテーブルを閉じてください。";
                         if (global.pLangusge == 5) TipStr = "Impossibile scrivere i dati del documento d'identità! Chiudere la tabella dei dati del documento d'identità!";

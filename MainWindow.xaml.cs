@@ -447,9 +447,13 @@ namespace CameraScan
                 JoinImgBt.Width = 76;
                 RecordBt.Width = 76;
             }
+            if (global.pLangusge == 2)
+            {
+                JoinImgBt.Width = 76;
+            }
 
 
-            if (global.pLangusge == 5 || global.pLangusge == 3 || global.pLangusge == 6 || global.pLangusge == 7)
+                if (global.pLangusge == 5 || global.pLangusge == 3 || global.pLangusge == 6 || global.pLangusge == 7 || global.pLangusge == 2)
             {
                 CkBox_DelBgColor.SetValue(Grid.RowProperty, 1);
                 CkBox_DelBgColor.SetValue(Grid.ColumnProperty, 0);
@@ -1919,7 +1923,7 @@ namespace CameraScan
                 {
                     string TipStr = "未发现合适的设备！";
                     if (global.pLangusge == 1) TipStr = "未發現合適的設備！";
-                    if (global.pLangusge == 2) TipStr = "No suitable device!";
+                    if (global.pLangusge == 2) TipStr = "No device found!";
                     if (global.pLangusge == 3) TipStr = "Ningún dispositivo encontrado!";
                     if (global.pLangusge == 4) TipStr = "デバイスが見つかりません。";
                     if (global.pLangusge == 5) TipStr = "Nessun dispositivo trovato!";
@@ -1936,7 +1940,7 @@ namespace CameraScan
                 {
                     string TipStr = "打开设备失败！";
                     if (global.pLangusge == 1) TipStr = "打開設備失敗！";
-                    if (global.pLangusge == 2) TipStr = "Open device error!";
+                    if (global.pLangusge == 2) TipStr = "Failed to open device!";
                     if (global.pLangusge == 3) TipStr = "No se pudo abrir el dispositivo!";
                     if (global.pLangusge == 4) TipStr = "デバイスを開けません。";
                     if (global.pLangusge == 5) TipStr = "Impossibile aprire il dispositivo!";
@@ -2202,7 +2206,7 @@ namespace CameraScan
                     {
                         string TipStr = "请设置裁切区域！";
                         if (global.pLangusge == 1) TipStr = "請設置裁切區域！";
-                        if (global.pLangusge == 2) TipStr = "Please set the cropping area!";
+                        if (global.pLangusge == 2) TipStr = "Please set cutting area!";
                         if (global.pLangusge == 3) TipStr = "Por favor, definir zona de corte!";
                         if (global.pLangusge == 4) TipStr = "裁断箇所を設定してください。";
                         if (global.pLangusge == 5) TipStr = "Si prega di impostare l'area di taglio!";
@@ -2396,7 +2400,7 @@ namespace CameraScan
                 mWaitDialog.Hide();
                 string TipStr = "拍摄图片失败！";
                 if (global.pLangusge == 1) TipStr = "拍攝圖片失敗！";
-                if (global.pLangusge == 2) TipStr = "Shooting pictures failed!";
+                if (global.pLangusge == 2) TipStr = "Failed to take picture!";
                 if (global.pLangusge == 3) TipStr = "No se pudo capturar la imagen!";
                 if (global.pLangusge == 4) TipStr = "撮影に失敗しました。";
                 if (global.pLangusge == 5) TipStr = "Impossibile scattare la foto!";
@@ -2429,7 +2433,7 @@ namespace CameraScan
                     {
                         string TipStr = "请设置裁切区域！";
                         if (global.pLangusge == 1) TipStr = "請設置裁切區域！";
-                        if (global.pLangusge == 2) TipStr = "Please set the cropping area!";
+                        if (global.pLangusge == 2) TipStr = "Please set cutting area!";
                         if (global.pLangusge == 3) TipStr = "Por favor, definir zona de corte!";
                         if (global.pLangusge == 4) TipStr = "裁断箇所を設定してください。";
                         if (global.pLangusge == 5) TipStr = "Si prega di impostare l'area di taglio!";
@@ -3859,7 +3863,7 @@ namespace CameraScan
             {
                 string TipStr = "该版本无编辑功能模块！";
                 if (global.pLangusge == 1) TipStr = "該版本無編輯功能模塊！";
-                if (global.pLangusge == 2) TipStr = "This version has no edit function module!";
+                if (global.pLangusge == 2) TipStr = "This version has no editing function!";
                 if (global.pLangusge == 3) TipStr = "Esta versión no tiene ninguna función de edición!";
                 if (global.pLangusge == 4) TipStr = "本バージョンは編集機能が備わっていません。";
                 if (global.pLangusge == 5) TipStr = "Questa versione non supporta la funzione di modifica.";
@@ -4013,7 +4017,7 @@ namespace CameraScan
             {
                 string TipStr = "未检测到副摄像头！";
                 if (global.pLangusge == 1) TipStr = "未檢測到副攝像頭！";
-                if (global.pLangusge == 2) TipStr = "Not found the assist camera!";
+                if (global.pLangusge == 2) TipStr = "No sub camera detected!";
                 if (global.pLangusge == 3) TipStr = "No se detectó cámara secundaria!";
                 if (global.pLangusge == 4) TipStr = "サブカメラが検出できません。";
                 if (global.pLangusge == 5) TipStr = "Nessuna fotocamera secondaria rilevata.";
@@ -4027,7 +4031,7 @@ namespace CameraScan
             {
                 string TipStr = "副摄像头已被开启！";
                 if (global.pLangusge == 1) TipStr = "副攝像頭已被開啟！";
-                if (global.pLangusge == 2) TipStr = "The assist camera has been opened";
+                if (global.pLangusge == 2) TipStr = "Sub camera is on!";
                 if (global.pLangusge == 3) TipStr = "La cámara secundaria está conectada!";
                 if (global.pLangusge == 4) TipStr = "サブカメラがオンの状態です。";
                 if (global.pLangusge == 5) TipStr = "La fotocamera secondaria è attiva.";
@@ -4113,7 +4117,7 @@ namespace CameraScan
             {
                 string TipStr = "开启副摄像头失败！";
                 if (global.pLangusge == 1) TipStr = "開啟副攝像頭失敗！";
-                if (global.pLangusge == 2) TipStr = "Open the assist camera error!";
+                if (global.pLangusge == 2) TipStr = "Failed to open sub camera!";
                 if (global.pLangusge == 3) TipStr = "Fallo al abrir cámara secundaria!";
                 if (global.pLangusge == 4) TipStr = "サブカメラを開けません。";
                 if (global.pLangusge == 5) TipStr = "Impossibile aprire la fotocamera secondaria.";
@@ -4186,7 +4190,7 @@ namespace CameraScan
                 this.CamVideoPreivew2.Source = null;
                 string TipStr = "开启副头";
                 if (global.pLangusge == 1) TipStr = "開啟副頭！";
-                if (global.pLangusge == 2) TipStr = "Open the assist camera ";
+                if (global.pLangusge == 2) TipStr = "Open the sub camera ";
                 if (global.pLangusge == 3) TipStr = "Enciende la Cámara ";
                 if (global.pLangusge == 4) TipStr = "サブヘッダを開く。";
                 if (global.pLangusge == 5) TipStr = "Accendi la telecamera secondaria.";
@@ -4200,7 +4204,7 @@ namespace CameraScan
                 toOpenSlaveCamera();
                 string TipStr = "关闭副头";
                 if (global.pLangusge == 1) TipStr = "關閉副頭";
-                if (global.pLangusge == 2) TipStr = "Close the assist camera ";
+                if (global.pLangusge == 2) TipStr = "Close the sub camera ";
                 if (global.pLangusge == 3) TipStr = "Apaga la Cámara ";
                 if (global.pLangusge == 4) TipStr = "副ヘッダを閉じる。";
                 if (global.pLangusge == 5) TipStr = "Spegni la telecamera secondaria.";
