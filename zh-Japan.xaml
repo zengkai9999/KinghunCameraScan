@@ -75,9 +75,9 @@
     <sys:String x:Key="lanChBDelBgColor">背景削除</sys:String>
     <sys:String x:Key="lanChBDelShade">鮮明化</sys:String>
     <sys:String x:Key="lanChBDelGray">ノイズ除去</sys:String>
-    <sys:String x:Key="lanChBTextRed">赤い文書</sys:String>
-    <sys:String x:Key="lanChBTextBlue">青い文書</sys:String>
-    <sys:String x:Key="lanChBTextAutoRotate">文字の方向</sys:String>
+    <sys:String x:Key="lanChBTextRed">レッドスタンプ</sys:String>
+    <sys:String x:Key="lanChBTextBlue">ブルースタンプ</sys:String>
+    <sys:String x:Key="lanChBTextAutoRotate">ページ向き</sys:String>
 
     <sys:String x:Key="lanTipOpenAssistCam">補助カムのオープン</sys:String>
     <sys:String x:Key="lanTipSetAssistCam">補助カムの設定</sys:String>
@@ -107,7 +107,7 @@
     <sys:String x:Key="lanBtOpenExcel">フォームを開く</sys:String>
     <sys:String x:Key="lanBtReadCard">IDカード読み取り</sys:String>
     <sys:String x:Key="lanBtRecogCard">IDカード認証</sys:String>
-    <sys:String x:Key="lanBtExit">サインアウト</sys:String>
+    <sys:String x:Key="lanBtExit">キャンセル</sys:String>
 
     <sys:String x:Key="lanJoinImgDlgTitle">画像統合</sys:String>
     <sys:String x:Key="lanLabelJoinPages">ページ統合：</sys:String>
@@ -150,7 +150,7 @@
     <sys:String x:Key="lanCBoxItemWhite">ホワイト</sys:String>
     <sys:String x:Key="lanLabelMarkImgPath">画像パス</sys:String>
     <sys:String x:Key="lanLabelMarkImgSize">大小</sys:String>
-    <sys:String x:Key="lanBtMarkOK">アプリケーション</sys:String>
+    <sys:String x:Key="lanBtMarkOK">適用</sys:String>
 
     <sys:String x:Key="lanMorePdfDlgTitle">複数ページPDF撮影</sys:String>
     <sys:String x:Key="lanChBSavePdfSource">PDF画像ソース保存</sys:String>
@@ -188,7 +188,7 @@
     <sys:String x:Key="lanGBoxJPGquality">JPG品質</sys:String>
     <sys:String x:Key="lanGBoxOtherConfig">その他の配置</sys:String>
     <sys:String x:Key="lanLabelPrintMod">プリントモード:</sys:String>
-    <sys:String x:Key="lanRaBAdjust">原寸表示</sys:String>
+    <sys:String x:Key="lanRaBAdjust">自己適応</sys:String>
     <sys:String x:Key="lanRaBBestPrint">1:1比プリント</sys:String>
     <sys:String x:Key="lanChBSound">撮影音声</sys:String>
     <sys:String x:Key="lanLabelLanguage">言語</sys:String>

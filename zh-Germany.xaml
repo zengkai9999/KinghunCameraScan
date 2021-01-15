@@ -150,7 +150,7 @@
     <sys:String x:Key="lanCBoxItemWhite">Weiß</sys:String>
     <sys:String x:Key="lanLabelMarkImgPath">Bildpfad</sys:String>
     <sys:String x:Key="lanLabelMarkImgSize">Groß Klein</sys:String>
-    <sys:String x:Key="lanBtMarkOK">Anwendung</sys:String>
+    <sys:String x:Key="lanBtMarkOK">Anwenden</sys:String>
 
     <sys:String x:Key="lanMorePdfDlgTitle">Mehrseitige PDF-Aufnahme</sys:String>
     <sys:String x:Key="lanChBSavePdfSource">PDF-Datei Speichern</sys:String>

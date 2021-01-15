@@ -371,7 +371,7 @@ namespace CameraScan
                 {
                     string TipStr = "图像合并失败";
                     if (global.pLangusge == 1) TipStr = "圖像合並失敗";
-                    if (global.pLangusge == 2) TipStr = "Image merge failed";
+                    if (global.pLangusge == 2) TipStr = "Picture merge failed";
                     if (global.pLangusge == 3) TipStr = "Fallo al combinar imágenes";
                     if (global.pLangusge == 4) TipStr = "画像統合エラー";
                     if (global.pLangusge == 5) TipStr = "Impossibile scattare la foto";

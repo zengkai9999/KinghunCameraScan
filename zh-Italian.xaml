@@ -150,7 +150,7 @@
     <sys:String x:Key="lanCBoxItemWhite">Bianco</sys:String>
     <sys:String x:Key="lanLabelMarkImgPath">Percorso dell'immagine</sys:String>
     <sys:String x:Key="lanLabelMarkImgSize">Grande e piccolo</sys:String>
-    <sys:String x:Key="lanBtMarkOK">Applicazione</sys:String>
+    <sys:String x:Key="lanBtMarkOK">Applica</sys:String>
 
     <sys:String x:Key="lanMorePdfDlgTitle">Scatto PDF multi-pagina</sys:String>
     <sys:String x:Key="lanChBSavePdfSource">Salva immagine sorgente PDF</sys:String>

@@ -453,7 +453,7 @@ namespace CameraScan
             }
 
 
-                if (global.pLangusge == 5 || global.pLangusge == 3 || global.pLangusge == 6 || global.pLangusge == 7 || global.pLangusge == 2)
+            if (global.pLangusge == 5 || global.pLangusge == 3 || global.pLangusge == 6 || global.pLangusge == 7 || global.pLangusge == 2 || global.pLangusge == 4)
             {
                 CkBox_DelBgColor.SetValue(Grid.RowProperty, 1);
                 CkBox_DelBgColor.SetValue(Grid.ColumnProperty, 0);
@@ -2815,7 +2815,7 @@ namespace CameraScan
                     if (global.pLangusge == 1) TipStr = "請選擇圖片完成PDF的合並";
                     if (global.pLangusge == 2) TipStr = "Please select pictures to complete the PDF merge.";
                     if (global.pLangusge == 3) TipStr = "Seleccione imágenes para completar la combinación de PDF.";
-                    if (global.pLangusge == 4) TipStr = "画像を選択してPDFのマージを完了してください。";
+                    if (global.pLangusge == 4) TipStr = "画像を選択してPDF統合を完了してください。";
                     if (global.pLangusge == 5) TipStr = "Seleziona le immagini per completare l'unione PDF.";
                     if (global.pLangusge == 6) TipStr = "Veuillez sélectionner des images pour terminer la fusion PDF.";
                     if (global.pLangusge == 7) TipStr = "Bitte wählen Sie Bilder aus, um die PDF-Zusammenführung abzuschließen.";
@@ -2914,7 +2914,7 @@ namespace CameraScan
                     if (global.pLangusge == 1) TipStr = "請選擇圖片完成PDF的合並";
                     if (global.pLangusge == 2) TipStr = "Please select pictures to complete the PDF merge.";
                     if (global.pLangusge == 3) TipStr = "Seleccione imágenes para completar la combinación de PDF.";
-                    if (global.pLangusge == 4) TipStr = "画像を選択してPDFのマージを完了してください。";
+                    if (global.pLangusge == 4) TipStr = "画像を選択してPDF統合を完了してください。";
                     if (global.pLangusge == 5) TipStr = "Seleziona le immagini per completare l'unione PDF.";
                     if (global.pLangusge == 6) TipStr = "Veuillez sélectionner des images pour terminer la fusion PDF.";
                     if (global.pLangusge == 7) TipStr = "Bitte wählen Sie Bilder aus, um die PDF-Zusammenführung abzuschließen.";

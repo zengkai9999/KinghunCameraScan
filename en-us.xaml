@@ -107,7 +107,7 @@
     <sys:String x:Key="lanBtOpenExcel">Open form</sys:String>
     <sys:String x:Key="lanBtReadCard">ID card reading</sys:String>
     <sys:String x:Key="lanBtRecogCard">ID Identification</sys:String>
-    <sys:String x:Key="lanBtExit">Sign out</sys:String>
+    <sys:String x:Key="lanBtExit">Cancel</sys:String>
 
     <sys:String x:Key="lanJoinImgDlgTitle">Merge image</sys:String>
     <sys:String x:Key="lanLabelJoinPages">Merge pages：</sys:String>
@@ -150,7 +150,7 @@
     <sys:String x:Key="lanCBoxItemWhite">White</sys:String>
     <sys:String x:Key="lanLabelMarkImgPath">Image path</sys:String>
     <sys:String x:Key="lanLabelMarkImgSize">Size</sys:String>
-    <sys:String x:Key="lanBtMarkOK">Application</sys:String>
+    <sys:String x:Key="lanBtMarkOK">Apply</sys:String>
 
     <sys:String x:Key="lanMorePdfDlgTitle">Multi page PDF shooting</sys:String>
     <sys:String x:Key="lanChBSavePdfSource">Save PDF source image</sys:String>
@@ -188,7 +188,7 @@
     <sys:String x:Key="lanGBoxJPGquality">JPG quality</sys:String>
     <sys:String x:Key="lanGBoxOtherConfig">Other configurations</sys:String>
     <sys:String x:Key="lanLabelPrintMod">Print mode:</sys:String>
-    <sys:String x:Key="lanRaBAdjust">Self-adaption</sys:String>
+    <sys:String x:Key="lanRaBAdjust">Fit screen</sys:String>
     <sys:String x:Key="lanRaBBestPrint">1:1 Print</sys:String>
     <sys:String x:Key="lanChBSound">Photo sound</sys:String>
     <sys:String x:Key="lanLabelLanguage">Language</sys:String>

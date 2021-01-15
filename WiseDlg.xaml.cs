@@ -144,7 +144,7 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
                 if (global.pLangusge == 2) TipStr = "Shooting completed, please replace the file.";
                 if (global.pLangusge == 3) TipStr = "Disparo completado, reemplace el archivo.";
-                if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
+                if (global.pLangusge == 4) TipStr = "撮影が完了しました。ファイルを置き換えてください。";
                 if (global.pLangusge == 5) TipStr = "Ripresa completata, sostituire il file.";
                 if (global.pLangusge == 6) TipStr = "Prise de vue terminée, veuillez remplacer le fichier. ";
                 if (global.pLangusge == 7) TipStr = "Nach Abschluss der Aufnahme ersetzen Sie bitte die Datei.";
@@ -221,6 +221,13 @@ namespace CameraScan
                     else
                         TipStr = "Test en cours...";
                 }
+                if (global.pLangusge == 7)
+                {
+                    if (statusCount == 1)
+                        TipStr = "Im Test.....";
+                    else
+                        TipStr = "Im Test...";
+                }
 
                 StatusLabel.Content = TipStr;
 
@@ -235,7 +242,7 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr_2 = "拍摄中...";
                 if (global.pLangusge == 2) TipStr_2 = "Taking photos...";
                 if (global.pLangusge == 3) TipStr_2 = "Tomando fotos...";
-                if (global.pLangusge == 4) TipStr_2 = "写真を撮っています...";
+                if (global.pLangusge == 4) TipStr_2 = "撮影中...";
                 if (global.pLangusge == 5) TipStr_2 = "Scattare foto...";
                 if (global.pLangusge == 6) TipStr_2 = "Prendre des photos...";
                 if (global.pLangusge == 7) TipStr_2 = "Fotografieren...";
@@ -256,7 +263,7 @@ namespace CameraScan
                         if (global.pLangusge == 1) TipStr = "拍摄中...";
                         if (global.pLangusge == 2) TipStr = "Taking photos...";
                         if (global.pLangusge == 3) TipStr = "Tomando fotos...";
-                        if (global.pLangusge == 4) TipStr = "写真を撮っています...";
+                        if (global.pLangusge == 4) TipStr = "撮影中...";
                         if (global.pLangusge == 5) TipStr = "Scattare foto...";
                         if (global.pLangusge == 6) TipStr = "Prendre des photos...";
                         if (global.pLangusge == 7) TipStr = "Fotografieren...";
@@ -331,7 +338,7 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "拍照已完成，請重新放紙";
                 if (global.pLangusge == 2) TipStr = "Photo is complete. Please put the paper back";
                 if (global.pLangusge == 3) TipStr = "La foto ha sido tomada.";
-                if (global.pLangusge == 4) TipStr = "写真を撮りました。紙をもう一度置いてください。";
+                if (global.pLangusge == 4) TipStr = "撮影が完了しました。ファイルを置き換えてください。";
                 if (global.pLangusge == 5) TipStr = "Ripresa completata, sostituire il file.";
                 if (global.pLangusge == 6) TipStr = "Prise de vue terminée, veuillez remplacer le fichier. ";
                 if (global.pLangusge == 7) TipStr = "Nach Abschluss der Aufnahme ersetzen Sie bitte die Datei.";

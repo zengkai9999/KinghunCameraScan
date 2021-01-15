@@ -145,7 +145,7 @@ namespace CameraScan
                 if (global.pLangusge == 1) TipStr = "時間間隔必須大於0";
                 if (global.pLangusge == 2) TipStr = "The time interval must be greater than 0.";
                 if (global.pLangusge == 3) TipStr = "El intervalo de tiempo debe ser mayor que 0.";
-                if (global.pLangusge == 4) TipStr = "時間間隔は0より大きい必要があります。";
+                if (global.pLangusge == 4) TipStr = "時間間隔は0より大きくなければなりません。";
                 if (global.pLangusge == 5) TipStr = "L'intervallo di tempo deve essere maggiore di 0.";
                 if (global.pLangusge == 6) TipStr = "L'intervalle de temps doit être supérieur à 0.";
                 if (global.pLangusge == 7) TipStr = "Das Zeitintervall muss größer als 0 sein.";
