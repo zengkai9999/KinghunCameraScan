@@ -158,10 +158,10 @@
     <sys:String x:Key="lanBtPdfPhoto">Ajouter une page PDF</sys:String>
     <sys:String x:Key="lanBtPdfFinish">Prise de vue PDF complète</sys:String>
 
-    <sys:String x:Key="lanMorePdfPageUp">上一页</sys:String>
-    <sys:String x:Key="lanMorePdfPageDown">下一页</sys:String>
-    <sys:String x:Key="lanMorePdfPageCurrent">当前页：</sys:String>
-    <sys:String x:Key="lanMorePdfPageDelete">删除该页</sys:String>
+    <sys:String x:Key="lanMorePdfPageUp">Page précédente</sys:String>
+    <sys:String x:Key="lanMorePdfPageDown">Page suivante</sys:String>
+    <sys:String x:Key="lanMorePdfPageCurrent">Page actuelle：</sys:String>
+    <sys:String x:Key="lanMorePdfPageDelete">Supprimer la page</sys:String>
 
     <sys:String x:Key="lanRecordDlgTitle">RecordDlg</sys:String>
     <sys:String x:Key="lanLabelRECSource">Source</sys:String>

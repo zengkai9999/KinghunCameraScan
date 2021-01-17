@@ -23,9 +23,9 @@
                     <Label Name="PageCurrentLabel" Content="0" Foreground="Black" Margin="0,2,5,2"  />
                 </StackPanel>
 
-                <xi:ImageButton x:Name="PageUp"  Content="{DynamicResource lanMorePdfPageUp}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="100" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageUp_Click" />
-                <xi:ImageButton x:Name="PageDown"  Content="{DynamicResource lanMorePdfPageDown}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="100" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageDown_Click" />
-                <xi:ImageButton x:Name="PageDelete"  Content="{DynamicResource lanMorePdfPageDelete}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="100" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageDelete_Click" />
+                <xi:ImageButton x:Name="PageUp"  Content="{DynamicResource lanMorePdfPageUp}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="110" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageUp_Click" />
+                <xi:ImageButton x:Name="PageDown"  Content="{DynamicResource lanMorePdfPageDown}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="110" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageDown_Click" />
+                <xi:ImageButton x:Name="PageDelete"  Content="{DynamicResource lanMorePdfPageDelete}" FontSize="12" ImageHeight="0" ImageWidth="0"  Width="110" Height="34" Margin="5,2,5,2"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PageDelete_Click" />
             </StackPanel>
         </StackPanel>
 
