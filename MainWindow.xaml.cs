@@ -2049,8 +2049,8 @@ namespace CameraScan
                     CkBox_TextRed.IsEnabled = true;
                 if (CkBox_TextBlue.IsEnabled == false)
                     CkBox_TextBlue.IsEnabled = true;
-                if (CkBox_TextAutoRotate.IsEnabled == false)
-                    CkBox_TextAutoRotate.IsEnabled = true;
+                //if (CkBox_TextAutoRotate.IsEnabled == false)
+                //    CkBox_TextAutoRotate.IsEnabled = true;
             }
         }
 
@@ -2071,8 +2071,8 @@ namespace CameraScan
                 if (CkBox_TextBlue.IsEnabled == true)
                     CkBox_TextBlue.IsEnabled = false;
 
-                if (CkBox_TextAutoRotate.IsEnabled == false)
-                    CkBox_TextAutoRotate.IsEnabled = true;
+                //if (CkBox_TextAutoRotate.IsEnabled == false)
+                //    CkBox_TextAutoRotate.IsEnabled = true;
                 //if (CkBox_TextAutoRotate.IsChecked == true)
                 //    CkBox_TextAutoRotate.IsChecked = false;
                 //if (CkBox_TextAutoRotate.IsEnabled == true)
@@ -2097,10 +2097,10 @@ namespace CameraScan
                 if (CkBox_TextBlue.IsEnabled == true)
                     CkBox_TextBlue.IsEnabled = false;
 
-                if (CkBox_TextAutoRotate.IsChecked == true)
-                    CkBox_TextAutoRotate.IsChecked = false;
-                if (CkBox_TextAutoRotate.IsEnabled == true)
-                    CkBox_TextAutoRotate.IsEnabled = false;
+                //if (CkBox_TextAutoRotate.IsChecked == true)
+                //    CkBox_TextAutoRotate.IsChecked = false;
+                //if (CkBox_TextAutoRotate.IsEnabled == true)
+                //    CkBox_TextAutoRotate.IsEnabled = false;
             }
         }
 
