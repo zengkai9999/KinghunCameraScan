@@ -103,7 +103,7 @@ namespace CameraScan
         public extern static void SetStillPhotoCallBack(STILLPHOTOCALLBACK mCB);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
-        public extern static IntPtr CaptureFromPreview(byte[] Imagepath, int type, int cutIndex);
+        public extern static IntPtr CaptureFromPreview(byte[] Imagepath, int type, ref int cutIndex);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void ClearCutPoint();
@@ -2276,10 +2276,20 @@ namespace CameraScan
                 //    imgpath = imgpath.Insert(pp, addStr);
                 //}
 
+                global.WriteMessage("imgpath set = " + imgpath);
+                //byte[] pBuf = UTF8Encoding.Default.GetBytes(imgpath);
+                //byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
+                //imgpath = "E:\\a\\Auflösung  Alle ßeauswählenü\\1.jpg";
                 byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
-                IntPtr namePtr = CaptureFromPreview(pBuf, isBarcode, cutIndex);
-                imgpath = Marshal.PtrToStringAnsi(namePtr);
+                global.WriteMessage("pBuf[] = " + Encoding.GetEncoding(global.pEncodType).GetString(pBuf) + "   ------pBuf.Length=" + Convert.ToString(pBuf.Length));
+                IntPtr namePtr = CaptureFromPreview(pBuf, isBarcode,ref cutIndex);      // cutIndex作为返回的字节数据大小
 
+                //imgpath = Marshal.PtrToStringAuto(namePtr);
+                byte[] bPtr = new byte[cutIndex];       // cutIndex作为返回的字节数据大小
+                Marshal.Copy(namePtr, bPtr, 0, cutIndex);
+
+                imgpath = Encoding.GetEncoding(global.pEncodType).GetString(bPtr);
+                global.WriteMessage("imgpath read = " + imgpath);
                 //regCount++;
                 // int pos = imgpath.LastIndexOf("\\");
                 // int pos1 = imgpath.LastIndexOf(".");
@@ -3596,7 +3606,7 @@ namespace CameraScan
                 return;
             isGetSlaveCamImage = false;
             mMorePdfDlg = new MorePdfDlg();
-            mMorePdfDlg.Left = this.Left + (this.Width - 450) - 10;
+            mMorePdfDlg.Left = this.Left + (this.Width - 440) - 10;
             //mMorePdfDlg.Left = this.Left ;
             mMorePdfDlg.Top = this.Top + (this.Height - 280) - 10;
             mMorePdfDlg.Owner = this;
@@ -3654,7 +3664,7 @@ namespace CameraScan
             isGetSlaveCamImage = false;
             mJoinImgDlg = new JoinImgDlg();
             mJoinImgDlg.Left = this.Left + (this.Width - 445) - 10;
-            mJoinImgDlg.Top = this.Top + (this.Height - 310) - 10;
+            mJoinImgDlg.Top = this.Top + (this.Height - 300) - 10;
             mJoinImgDlg.Owner = this;
             mJoinImgDlg.Show();
             global.pJoinImgDlgHaveRun = true;

@@ -218,14 +218,14 @@ namespace CameraScan
                 {
                     //MessageBox.Show(Convert.ToString(iRest));
                     isRecord = false;
-                    string TipStr = "启动录像失败！";
-                    if (global.pLangusge == 1) TipStr = "啟動錄像失敗！";
-                    if (global.pLangusge == 2) TipStr = "Failed to start video recording!";
-                    if (global.pLangusge == 3) TipStr = "No se ha podido iniciar la grabación de vídeo!";
-                    if (global.pLangusge == 4) TipStr = "録画が開始できません。";
-                    if (global.pLangusge == 5) TipStr = "Impossibile avviare la registrazione video.";
-                    if (global.pLangusge == 6) TipStr = "Échec du démarrage de l'enregistrement vidéo.";
-                    if (global.pLangusge == 7) TipStr = "Fehler beim Starten der Videoaufnahme.";
+                    string TipStr = "启动录像失败！请将路径设为全英文之后重试...";
+                    if (global.pLangusge == 1) TipStr = "啟動錄像失敗！請將路徑設為全英文之後重試...";
+                    if (global.pLangusge == 2) TipStr = "Failed to start video recording!Please set the path to English and try again...";
+                    if (global.pLangusge == 3) TipStr = "No se ha podido iniciar la grabación de vídeo!Por favor, ponga la ruta en inglés completo e inténtelo de nuevo...";
+                    if (global.pLangusge == 4) TipStr = "録画が開始できません。パスを全英語に設定してやり直してください...";
+                    if (global.pLangusge == 5) TipStr = "Impossibile avviare la registrazione video!Per favore imposta il percorso all'inglese e riprova...";
+                    if (global.pLangusge == 6) TipStr = "Échec du démarrage de l'enregistrement vidéo!Veuillez définir le chemin en anglais complet et réessayer...";
+                    if (global.pLangusge == 7) TipStr = "Fehler beim Starten der Videoaufnahme!Bitte setzen Sie den Pfad auf Englisch und versuchen Sie es erneut...";
                     System.Windows.MessageBox.Show(TipStr);
                 }
                 else 
