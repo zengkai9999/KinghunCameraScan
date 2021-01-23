@@ -10,10 +10,11 @@ namespace CameraScan
 {
     class global
     {
-        //[DllImport("kernel32.dll")]
-        //public extern static int WritePrivateProfileString(string lpApplicationName, string lpKeyName, string lpString, string lpFileName);
-        //[DllImport("kernel32.dll")]
-        //public extern static int GetPrivateProfileString(string lpApplicationName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);
+        [DllImport("kernel32.dll")]
+        public extern static int WritePrivateProfileString(string lpApplicationName, string lpKeyName, string lpString, string lpFileName);
+        [DllImport("kernel32.dll")]
+        public extern static int GetPrivateProfileString(string lpApplicationName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);
+
         [DllImport("kernel32")] public static extern bool WritePrivateProfileString(byte[] section, byte[] key, byte[] val, string filePath);
         [DllImport("kernel32")] public static extern int GetPrivateProfileString(byte[] section, byte[] key, byte[] def, byte[] retVal, int size, string filePath);
 
@@ -182,8 +183,8 @@ namespace CameraScan
         public static int pRecordFormat = 0;   //默认AVI格式
         public static int pRecordFps = 1;     //帧率，默认10帧
 
-        public static int pLangusge = 0;     //默认汉语
-        //public static int pLangusge = 2;     //默认英语
+        //public static int pLangusge = 0;     //默认汉语
+        public static int pLangusge = 2;     //默认英语
         public static string pEncodType = "utf-8";     //编码类型        utf-8  gb2312
 
         public static string pFixedNameStr = "";     //固定命名
@@ -208,12 +209,28 @@ namespace CameraScan
         //************************************保存读取配置******************************************//
 
         public static string ConfigIniPath = System.Windows.Forms.Application.StartupPath + "\\KHCAMERA.ini";
+        public static string LanguageIniPath = System.Windows.Forms.Application.StartupPath + "\\LANGUAGE.ini";
         // public static string ConfigIniPath = "D:\\KHCAMERA.ini";
 
         #region "读取设置参数"
 
         public static int ReadConfigPramas()
         {
+            if (File.Exists(LanguageIniPath))
+            {
+                int iRest;
+                StringBuilder Str = new StringBuilder(256);
+                iRest = GetPrivateProfileString("SET", "pLangusge", "", Str, 256, LanguageIniPath);
+                if (iRest == 0)
+                {
+                    WritePrivateProfileString("SET", "pLangusge", Convert.ToString(pLangusge), LanguageIniPath);
+                }
+                else pLangusge = Convert.ToInt32(Str.ToString());
+            }
+            else
+            {
+                WritePrivateProfileString("SET", "pLangusge", Convert.ToString(pLangusge), LanguageIniPath);
+            }
             if (File.Exists(ConfigIniPath))
             {
                 //int iRest;
@@ -606,7 +623,7 @@ namespace CameraScan
                 //    WritePrivateProfileString("SET", "pLangusge", Convert.ToString(pLangusge), ConfigIniPath);
                 //}
                 //else pLangusge = Convert.ToInt32(Str.ToString());
-                pLangusge = Convert.ToInt32(ReadString("SET", "pLangusge", "", ConfigIniPath));
+                //pLangusge = Convert.ToInt32(ReadString("SET", "pLangusge", "", ConfigIniPath));       // 屏蔽
 
                 //if (pLangusge == 1)
                 //    global.pEncodType = "big5";
@@ -701,7 +718,7 @@ namespace CameraScan
                 WriteString("SET", "pRecordType", Convert.ToString(pRecordType), ConfigIniPath);
                 WriteString("SET", "pRecordFormat", Convert.ToString(pRecordFormat), ConfigIniPath);
                 WriteString("SET", "pRecordFps", Convert.ToString(pRecordFps), ConfigIniPath);
-                WriteString("SET", "pLangusge", Convert.ToString(pLangusge), ConfigIniPath);
+                //WriteString("SET", "pLangusge", Convert.ToString(pLangusge), ConfigIniPath);
                 WriteString("SET", "DpiType", Convert.ToString(DpiType), ConfigIniPath);
                 WriteString("SET", "DpiVal", Convert.ToString(DpiVal), ConfigIniPath);
 
@@ -783,7 +800,9 @@ namespace CameraScan
             WriteString("SET", "pRecordType", Convert.ToString(pRecordType), ConfigIniPath);
             WriteString("SET", "pRecordFormat", Convert.ToString(pRecordFormat), ConfigIniPath);
             WriteString("SET", "pRecordFps", Convert.ToString(pRecordFps), ConfigIniPath);
-            WriteString("SET", "pLangusge", Convert.ToString(pLangusge), ConfigIniPath);
+            //WriteString("SET", "pLangusge", Convert.ToString(pLangusge), ConfigIniPath);
+            WritePrivateProfileString("SET", "pLangusge", Convert.ToString(pLangusge), LanguageIniPath);
+
             WriteString("SET", "DpiType", Convert.ToString(DpiType), ConfigIniPath);
             WriteString("SET", "DpiVal", Convert.ToString(DpiVal), ConfigIniPath);
 
