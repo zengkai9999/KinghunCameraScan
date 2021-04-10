@@ -103,7 +103,7 @@ namespace CameraScan
         public extern static void SetStillPhotoCallBack(STILLPHOTOCALLBACK mCB);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
-        public extern static IntPtr CaptureFromPreview(byte[] Imagepath, int type);
+        public extern static IntPtr CaptureFromPreview(byte[] Imagepath, int type, ref int cutIndex);
 
         [DllImport("DevCapture.dll",  CallingConvention = CallingConvention.Cdecl)]
         public extern static int CaptureFromStill(byte[] Imagepath,int type);
@@ -181,7 +181,7 @@ namespace CameraScan
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static IntPtr MainAssistJoinImages(byte[] Imagepath, int isBarcode,byte[] slaveBuf, int slWidth,int slHeight,
-                                                         int jx, int jy, int jw, int jh ,int JoinType);
+                                                         int jx, int jy, int jw, int jh ,int JoinType, ref int current);
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static int StillMainAssistJoinImages(byte[] Imagepath, int isBarcode, byte[] slaveBuf, int slWidth, int slHeight,
                                                          int jx, int jy, int jw, int jh, int JoinType);
@@ -211,7 +211,7 @@ namespace CameraScan
         public extern static void SetCallBackFunctionB(PFCALLBACK mCB);
 
         [DllImport("DevCaptureB.dll", CallingConvention = CallingConvention.Cdecl)]
-        public extern static IntPtr CaptureFromPreviewB(byte[] Imagepath, int type);
+        public extern static IntPtr CaptureFromPreviewB(byte[] Imagepath, int type, ref int cutIndex);
 
         [DllImport("DevCaptureB.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetCutTypeB(int cutType);
@@ -2132,9 +2132,21 @@ namespace CameraScan
                     }
                 }
 
+                int cutIndex = 1;
+                global.WriteMessage("imgpath set = " + imgpath);
+                //byte[] pBuf = UTF8Encoding.Default.GetBytes(imgpath);
+                //byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
+                //imgpath = "E:\\a\\Auflösung  Alle ßeauswählenü\\1.jpg";
                 byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
-                IntPtr namePtr = CaptureFromPreview(pBuf, isBarcode);
-                imgpath = Marshal.PtrToStringAnsi(namePtr);
+                global.WriteMessage("pBuf[] = " + Encoding.GetEncoding(global.pEncodType).GetString(pBuf) + "   ------pBuf.Length=" + Convert.ToString(pBuf.Length));
+                IntPtr namePtr = CaptureFromPreview(pBuf, isBarcode, ref cutIndex);      // cutIndex作为返回的字节数据大小
+
+                //imgpath = Marshal.PtrToStringAuto(namePtr);
+                byte[] bPtr = new byte[cutIndex];       // cutIndex作为返回的字节数据大小
+                Marshal.Copy(namePtr, bPtr, 0, cutIndex);
+
+                imgpath = Encoding.GetEncoding(global.pEncodType).GetString(bPtr);
+                global.WriteMessage("imgpath read = " + imgpath);
 
                 //regCount++;
                 // int pos = imgpath.LastIndexOf("\\");
@@ -3758,7 +3770,7 @@ namespace CameraScan
                 }
 
 
-                #if ADDRESOLUTION
+#if ADDRESOLUTION
                     if (global.isSelectAddRes == true)
                     {
                         int left=(global.pSlaveCamera.PreWidth-358)/2;
@@ -3767,11 +3779,20 @@ namespace CameraScan
                         int bottom=top+441;
                         SetManualCutRectB(left, top, right, bottom);
                     }     
-                #endif
-              
+#endif
+
+
+                int cutIndex = 1;
                 byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
-                IntPtr namePtr = CaptureFromPreviewB(pBuf, 0);  //副头拍照没有条码命名
-                imgpath = Marshal.PtrToStringAnsi(namePtr);
+                global.WriteMessage("pBuf[] = " + Encoding.GetEncoding(global.pEncodType).GetString(pBuf) + "   ------pBuf.Length=" + Convert.ToString(pBuf.Length));
+                IntPtr namePtr = CaptureFromPreviewB(pBuf, 0, ref cutIndex);      // cutIndex作为返回的字节数据大小
+                byte[] bPtr = new byte[cutIndex];       // cutIndex作为返回的字节数据大小
+                Marshal.Copy(namePtr, bPtr, 0, cutIndex);
+                imgpath = Encoding.GetEncoding(global.pEncodType).GetString(bPtr);
+
+                //byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
+                //IntPtr namePtr = CaptureFromPreviewB(pBuf, 0);  //副头拍照没有条码命名
+                //imgpath = Marshal.PtrToStringAnsi(namePtr);
 
                
 
@@ -4143,10 +4164,20 @@ namespace CameraScan
                 int SlaveJoinX = (int)((global.pSlaveImgShowStartX - global.pImgShowStartX) * 100 / global.pImgShowScale);
                 int SlaveJoinY = (int)((global.pSlaveImgShowStartY - global.pImgShowStartY) * 100 / global.pImgShowScale);
 
+                //byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
+                //IntPtr namePtr = MainAssistJoinImages(pBuf, isBarcode, CamSlaveBuf, global.pSlaveCamera.PreWidth, global.pSlaveCamera.PreHeight,
+                //                                      SlaveJoinX, SlaveJoinY, SlaveJoinW, SlaveJoinH, global.JoinPosition);
+                //imgpath = Marshal.PtrToStringAnsi(namePtr);
+
+                int cutIndex = 1;
                 byte[] pBuf = Encoding.GetEncoding(global.pEncodType).GetBytes(imgpath);
+                global.WriteMessage("pBuf[] = " + Encoding.GetEncoding(global.pEncodType).GetString(pBuf) + "   ------pBuf.Length=" + Convert.ToString(pBuf.Length));
                 IntPtr namePtr = MainAssistJoinImages(pBuf, isBarcode, CamSlaveBuf, global.pSlaveCamera.PreWidth, global.pSlaveCamera.PreHeight,
-                                                      SlaveJoinX, SlaveJoinY, SlaveJoinW, SlaveJoinH, global.JoinPosition);
-                imgpath = Marshal.PtrToStringAnsi(namePtr);
+                                                      SlaveJoinX, SlaveJoinY, SlaveJoinW, SlaveJoinH, global.JoinPosition, ref cutIndex);  // cutIndex作为返回的字节数据大小
+                byte[] bPtr = new byte[cutIndex];       // cutIndex作为返回的字节数据大小
+                Marshal.Copy(namePtr, bPtr, 0, cutIndex);
+                imgpath = Encoding.GetEncoding(global.pEncodType).GetString(bPtr);
+                global.WriteMessage("imgpath read = " + imgpath);
 
                 if (isShowToList)
                 {

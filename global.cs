@@ -14,6 +14,12 @@ namespace CameraScan
         public extern static int WritePrivateProfileString(string lpApplicationName, string lpKeyName, string lpString, string lpFileName);
         [DllImport("kernel32.dll")]
         public extern static int GetPrivateProfileString(string lpApplicationName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);
+        [DllImport("kernel32")]
+        public static extern bool WritePrivateProfileString(byte[] section, byte[] key, byte[] val, string filePath);
+        [DllImport("kernel32")]
+        public static extern int GetPrivateProfileString(byte[] section, byte[] key, byte[] def, byte[] retVal, int size, string filePath);
+
+
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static int AddMark(int isAdd);
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -177,28 +183,56 @@ namespace CameraScan
 
         public static int pLangusge = 0;     //默认汉语
         //public static int pLangusge = 2;     //默认英语
-        public static string pEncodType = "gb2312";     //编码类型
+        public static string pEncodType = "utf-8";     //编码类型
 
         public static string pFixedNameStr = "";     //固定命名
 
+        //与ini交互必须统一编码格式
+        private static byte[] getBytes(string s, string encodingName)
+        {
+            return null == s ? null : Encoding.GetEncoding(encodingName).GetBytes(s);
+        }
+        public static string ReadString(string section, string key, string def, string fileName, string encodingName = "utf-8", int size = 1024)
+        {
+            byte[] buffer = new byte[size];
+            int count = GetPrivateProfileString(getBytes(section, encodingName), getBytes(key, encodingName), getBytes(def, encodingName), buffer, size, fileName);
+            return Encoding.GetEncoding(encodingName).GetString(buffer, 0, count).Trim();
+        }
+        public static bool WriteString(string section, string key, string value, string fileName, string encodingName = "utf-8")
+        {
+            return WritePrivateProfileString(getBytes(section, encodingName), getBytes(key, encodingName), getBytes(value, encodingName), fileName);
+        }
 
         //************************************保存读取配置******************************************//
 
         public static string ConfigIniPath = System.Windows.Forms.Application.StartupPath + "\\KHCAMERA.ini";
+        public static string ConfigIniUTF8 = System.Windows.Forms.Application.StartupPath + "\\PATH_MARK.ini";
         // public static string ConfigIniPath = "D:\\KHCAMERA.ini";
 
         #region "读取设置参数"
 
         public static int ReadConfigPramas()
         {
+            if (File.Exists(ConfigIniUTF8))
+            {
+                ImagesFolder = ReadString("SET", "ImagesFolder", "", ConfigIniUTF8);
+                txtMarkContent = ReadString("SET", "txtMarkContent", "", ConfigIniUTF8);
+                imgMarkPath = ReadString("SET", "imgMarkPath", "", ConfigIniUTF8);
+            }
+            else
+            {
+                WriteString("SET", "ImagesFolder", ImagesFolder, ConfigIniUTF8);  //图片保存路径
+                WriteString("SET", "txtMarkContent", txtMarkContent, ConfigIniUTF8);    
+                WriteString("SET", "imgMarkPath", imgMarkPath, ConfigIniUTF8);
+            }
             if (File.Exists(ConfigIniPath))
             {
                 int iRest;
                 StringBuilder Str = new StringBuilder(256);
 
-                iRest = GetPrivateProfileString("SET", "ImagesFolder", "", Str, 256, ConfigIniPath);
-                if (iRest == 0) WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);
-                else ImagesFolder = Str.ToString();
+                //iRest = GetPrivateProfileString("SET", "ImagesFolder", "", Str, 256, ConfigIniPath);
+                //if (iRest == 0) WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);
+                //else ImagesFolder = Str.ToString();
 
                 iRest = GetPrivateProfileString("SET", "JpgQuality", "", Str, 256, ConfigIniPath);
                 if (iRest == 0) WritePrivateProfileString("SET", "JpgQuality", Convert.ToString(JpgQuality), ConfigIniPath);
@@ -277,9 +311,9 @@ namespace CameraScan
                 if (iRest == 0) WritePrivateProfileString("SET", "isAddTimeMark", Convert.ToString(isAddTimeMark), ConfigIniPath);
                 else isAddTimeMark = Convert.ToInt32(Str.ToString());
 
-                iRest = GetPrivateProfileString("SET", "txtMarkContent", "", Str, 256, ConfigIniPath);
-                if (iRest == 0) WritePrivateProfileString("SET", "txtMarkContent", txtMarkContent, ConfigIniPath);
-                else txtMarkContent = Str.ToString();
+                //iRest = GetPrivateProfileString("SET", "txtMarkContent", "", Str, 256, ConfigIniPath);
+                //if (iRest == 0) WritePrivateProfileString("SET", "txtMarkContent", txtMarkContent, ConfigIniPath);
+                //else txtMarkContent = Str.ToString();
 
                 iRest = GetPrivateProfileString("SET", "txtMarkFontSize", "", Str, 256, ConfigIniPath);
                 if (iRest == 0) WritePrivateProfileString("SET", "txtMarkFontSize", Convert.ToString(txtMarkFontSize), ConfigIniPath);
@@ -309,9 +343,9 @@ namespace CameraScan
                 if (iRest == 0) WritePrivateProfileString("SET", "txtMarkYPos", Convert.ToString(txtMarkYPos), ConfigIniPath);
                 else txtMarkYPos = Convert.ToInt32(Str.ToString());
 
-                iRest = GetPrivateProfileString("SET", "imgMarkPath", "", Str, 256, ConfigIniPath);
-                if (iRest == 0) WritePrivateProfileString("SET", "imgMarkPath", imgMarkPath, ConfigIniPath);
-                else imgMarkPath = Str.ToString();
+                //iRest = GetPrivateProfileString("SET", "imgMarkPath", "", Str, 256, ConfigIniPath);
+                //if (iRest == 0) WritePrivateProfileString("SET", "imgMarkPath", imgMarkPath, ConfigIniPath);
+                //else imgMarkPath = Str.ToString();
 
                 iRest = GetPrivateProfileString("SET", "imgMarkSize", "", Str, 256, ConfigIniPath);
                 if (iRest == 0) WritePrivateProfileString("SET", "imgMarkSize", Convert.ToString(imgMarkSize), ConfigIniPath);
@@ -510,10 +544,10 @@ namespace CameraScan
                 }
                 else pLangusge = Convert.ToInt32(Str.ToString());
 
-                if (pLangusge == 1)
-                    global.pEncodType = "big5";
-                else
-                    global.pEncodType = "gb2312";
+                //if (pLangusge == 1)
+                //    global.pEncodType = "big5";
+                //else
+                //    global.pEncodType = "utf-8";
 
                 //pLangusge = 2;  //英语界面
 
@@ -554,7 +588,7 @@ namespace CameraScan
                 //    }
                 //}   
 
-                WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);  //图片保存路径
+                //WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);  //图片保存路径
                 WritePrivateProfileString("SET", "JpgQuality", Convert.ToString(JpgQuality), ConfigIniPath);  //图片质量
                 WritePrivateProfileString("SET", "FileFormat", Convert.ToString(FileFormat), ConfigIniPath);  //文件格式
                 WritePrivateProfileString("SET", "CutType", Convert.ToString(CutType), ConfigIniPath);       //裁切方式
@@ -585,7 +619,7 @@ namespace CameraScan
                 WritePrivateProfileString("SET", "MarkType", Convert.ToString(MarkType), ConfigIniPath);
                 WritePrivateProfileString("SET", "isAddMark", Convert.ToString(isAddMark), ConfigIniPath);
                 WritePrivateProfileString("SET", "isAddTimeMark", Convert.ToString(isAddTimeMark), ConfigIniPath);
-                WritePrivateProfileString("SET", "txtMarkContent", txtMarkContent, ConfigIniPath);
+                //WritePrivateProfileString("SET", "txtMarkContent", txtMarkContent, ConfigIniPath);
                 WritePrivateProfileString("SET", "txtMarkFontSize", Convert.ToString(txtMarkFontSize), ConfigIniPath);
                 WritePrivateProfileString("SET", "txtMarkFontType", Convert.ToString(txtMarkFontType), ConfigIniPath);
                 WritePrivateProfileString("SET", "txtMarkFontName", txtMarkFontName, ConfigIniPath);
@@ -593,7 +627,7 @@ namespace CameraScan
                 WritePrivateProfileString("SET", "txtMarkTrans", Convert.ToString(txtMarkTrans), ConfigIniPath);
                 WritePrivateProfileString("SET", "txtMarkXPos", Convert.ToString(txtMarkXPos), ConfigIniPath);
                 WritePrivateProfileString("SET", "txtMarkYPos", Convert.ToString(txtMarkYPos), ConfigIniPath);
-                WritePrivateProfileString("SET", "imgMarkPath", imgMarkPath, ConfigIniPath);
+                //WritePrivateProfileString("SET", "imgMarkPath", imgMarkPath, ConfigIniPath);
                 WritePrivateProfileString("SET", "imgMarkSize", Convert.ToString(imgMarkSize), ConfigIniPath);
                 WritePrivateProfileString("SET", "imgMarkTrans", Convert.ToString(imgMarkTrans), ConfigIniPath);
                 WritePrivateProfileString("SET", "imgMarkXPos", Convert.ToString(imgMarkXPos), ConfigIniPath);
@@ -632,7 +666,8 @@ namespace CameraScan
         #region "保存设置参数"
         public static int WriteConfigPramas()
         {
-            WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);  //图片保存路径
+            //WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);  //图片保存路径
+            WriteString("SET", "ImagesFolder", ImagesFolder, ConfigIniUTF8);  //图片保存路径
             WritePrivateProfileString("SET", "JpgQuality", Convert.ToString(JpgQuality), ConfigIniPath);  //图片质量
             WritePrivateProfileString("SET", "FileFormat", Convert.ToString(FileFormat), ConfigIniPath);  //文件格式
             WritePrivateProfileString("SET", "CutType", Convert.ToString(CutType), ConfigIniPath);       //裁切方式
@@ -663,7 +698,8 @@ namespace CameraScan
             WritePrivateProfileString("SET", "MarkType", Convert.ToString(MarkType), ConfigIniPath);
             WritePrivateProfileString("SET", "isAddMark", Convert.ToString(isAddMark), ConfigIniPath);
             WritePrivateProfileString("SET", "isAddTimeMark", Convert.ToString(isAddTimeMark), ConfigIniPath);
-            WritePrivateProfileString("SET", "txtMarkContent", txtMarkContent, ConfigIniPath);
+            //WritePrivateProfileString("SET", "txtMarkContent", txtMarkContent, ConfigIniPath);
+            WriteString("SET", "txtMarkContent", txtMarkContent, ConfigIniUTF8);
             WritePrivateProfileString("SET", "txtMarkFontSize", Convert.ToString(txtMarkFontSize), ConfigIniPath);
             WritePrivateProfileString("SET", "txtMarkFontType", Convert.ToString(txtMarkFontType), ConfigIniPath);
             WritePrivateProfileString("SET", "txtMarkFontName", txtMarkFontName, ConfigIniPath);
@@ -671,7 +707,8 @@ namespace CameraScan
             WritePrivateProfileString("SET", "txtMarkTrans", Convert.ToString(txtMarkTrans), ConfigIniPath);
             WritePrivateProfileString("SET", "txtMarkXPos", Convert.ToString(txtMarkXPos), ConfigIniPath);
             WritePrivateProfileString("SET", "txtMarkYPos", Convert.ToString(txtMarkYPos), ConfigIniPath);
-            WritePrivateProfileString("SET", "imgMarkPath", imgMarkPath, ConfigIniPath);
+            //WritePrivateProfileString("SET", "imgMarkPath", imgMarkPath, ConfigIniPath);
+            WriteString("SET", "imgMarkPath", imgMarkPath, ConfigIniUTF8);
             WritePrivateProfileString("SET", "imgMarkSize", Convert.ToString(imgMarkSize), ConfigIniPath);
             WritePrivateProfileString("SET", "imgMarkTrans", Convert.ToString(imgMarkTrans), ConfigIniPath);
             WritePrivateProfileString("SET", "imgMarkXPos", Convert.ToString(imgMarkXPos), ConfigIniPath);
@@ -811,7 +848,7 @@ namespace CameraScan
             }
         }
 
-        public static Boolean isWriteLog = false;
+        public static Boolean isWriteLog = true;
         public static void WriteMessage(string msg)
         {
             if (isWriteLog == true)
