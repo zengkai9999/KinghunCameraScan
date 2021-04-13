@@ -4,7 +4,7 @@
         Title="{DynamicResource lanMainFormTitle}" Height="800" Width="1280" MinWidth="960" MinHeight="640"
         xmlns:xi="clr-namespace:CameraScan" 
         xmlns:markctl="clr-namespace:RisCaptureLib;assembly=RisCaptureLib"  
-        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/Images/gpy.ico" PreviewKeyDown="Window_PreviewKeyDown" >
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/zhendi.ico" PreviewKeyDown="Window_PreviewKeyDown" >
 
     <!-- *******************************************************************模板资源文件******************************************************************* -->
     <Window.Resources>
@@ -39,7 +39,7 @@
             </Grid.ColumnDefinitions>
 
             <WrapPanel Name="FunctionBtsA" Grid.Row="0" Grid.Column="1" Background="White" Margin="0,0,20,0">
-                <xi:ImageButton x:Name="WiseCaptureBt" Image="/Images/WisePhoto.png" Content="{DynamicResource lanWisePhoto}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="WiseCaptureBt_Click" Visibility="Collapsed"/>
+                <xi:ImageButton x:Name="WiseCaptureBt" Image="/Images/WisePhoto.png" Content="{DynamicResource lanWisePhoto}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="WiseCaptureBt_Click"/>
                 <xi:ImageButton x:Name="TimeCaptureBt" Image="/Images/TimePhoto.png" Content="{DynamicResource lanTimerPhoto}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="TimeCaptureBt_Click" />
                 <xi:ImageButton x:Name="CaptureBt"  Image="/Images/Shoot.png" Content="{DynamicResource lanCapture}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureBt_Click" />
                 <xi:ImageButton x:Name="CaptureStillBt"  Image="/Images/Photo.png" Content="{DynamicResource lanPhoto}" FontSize="10" ImageHeight="36" ImageWidth="36"  Width="76" Height="54" Margin="2,6,2,6" Background="{x:Null}"  BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="CaptureStillBt_Click" Visibility="Collapsed"/>
@@ -55,7 +55,7 @@
                 <xi:ImageButton x:Name="SinglePdfBt" Image="/Images/Pdf.png" Content="{DynamicResource lanS_PDF}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SinglePdfBt_Click" />
                 <xi:ImageButton x:Name="MorePdfBt" Image="/Images/PdfMore.png" Content="{DynamicResource lanM_PDF}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MorePdfBt_Click" />
                 <xi:ImageButton x:Name="JoinImgBt" Image="/Images/ImgJoin.png" Content="{DynamicResource lanImgJoin}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="JoinImgBt_Click" />
-                <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" Visibility="Collapsed"/>
+                <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" />
                 <xi:ImageButton x:Name="RecordBt" Image="/Images/Record.png" Content="{DynamicResource lanRecord}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="RecordBt_Click" />
                 <xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" Visibility="Collapsed"/>
                 <xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />
