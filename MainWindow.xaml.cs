@@ -25,6 +25,8 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 //using Spire.Pdf;
 using System.Diagnostics;
+using MessageBox = System.Windows.Forms.MessageBox;
+using Button = System.Windows.Controls.Button;
 
 namespace CameraScan
 {
@@ -329,6 +331,13 @@ namespace CameraScan
 
         bool isChangeDevice = false;
 
+        CbResultHandle cbResFun;
+        private delegate void delegateResultCallback(SdkCmdCallBack cb);
+
+        bool m_bSemSdkInit = false;
+        bool m_bRegMouseWheel = false;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -488,6 +497,13 @@ namespace CameraScan
             SetJpgQuality(global.JpgQuality);  //设置JPEG图片质量
 
             InitBtnSize();
+
+            // 语言SDK初始化
+            //第一步：创建对象
+            SemAiChipSdk.MscRecog();
+            SemAiInit();
+            SemAI.AddHandler(Button.MouseDownEvent, new RoutedEventHandler(SemAI_KeyDown), true);
+            SemAI.AddHandler(Button.MouseUpEvent, new RoutedEventHandler(SemAI_KeyUp), true);
         }
 
         //############获取视频参数#################
@@ -4735,10 +4751,384 @@ namespace CameraScan
            
         }
 
-       
+        public static void DoWork(Action action, int millisecond = 300)
+        {
+            new Action<Dispatcher, Action, int>(DoWorkAsync).BeginInvoke(Dispatcher.CurrentDispatcher, action, millisecond, null, null);
+        }
+
+        static void DoWorkAsync(Dispatcher dispatcher, Action action, int millisecond)
+        {
+            System.Threading.Thread.Sleep(millisecond);
+            dispatcher.BeginInvoke(action);
+        }
+
+        private void MessageTips(string val)
+        {
+            PopupTips.IsOpen = true;
+            PopupTipsLabel.Content = val;
+            DoWork((Action)delegate () { PopupTips.IsOpen = false; }, 3000);
+        }
+
+        private void ResultCallbackUiHandler(SdkCmdCallBack cbParam)
+        {
+            int errorCode = cbParam.errorCode;
+
+
+            if (errorCode == 0)//成功
+            {
+                string backType = Marshal.PtrToStringAnsi(cbParam.backType).ToString();
+                if (backType.Equals("cmd"))
+                {
+                    string content = Marshal.PtrToStringAnsi(cbParam.content).ToString();
+                    //如果操作已经在SDK处理了
+                    string operateHandler = Marshal.PtrToStringAnsi(cbParam.operateHandler);
+                    if (operateHandler.Equals("sdk"))
+                    {
+                        //txtInfo.SelectionColor = Color.Green;
+                        //txtInfo.AppendText("SDK处理：" + content);
+                        //txtInfo.AppendText(Environment.NewLine);
+                        //if (content.Equals("处理完成"))
+                        //{
+                        //    btnStartRecord.Enabled = true;
+                        //    btnStopRecord.Enabled = false;
+                        //}
+                        if (content.Trim().Length > 0)
+                            MessageTips(content);
+                        else
+                            MessageTips("无效指令");
+                    }
+                    else
+                    {
+                        //以下用户自行处理
+                        string operation = Marshal.PtrToStringAnsi(cbParam.operateAction).ToString();
+                        string operobject = Marshal.PtrToStringAnsi(cbParam.operateObject).ToString();
+
+                        if (operation.Equals("关闭"))
+                        {
+                            MessageTips(operation);
+                        }
+                        else if (operation.Equals("我想买") || operation.Equals("我想坐动车") || operation.Equals("买"))
+                        {
+                            SemAiChipSdk.OpenBrowser(System.Text.Encoding.Default.GetBytes(operobject));
+                        }
+                        else//打开
+                        {
+                            if (operobject.Equals("金翔打印机"))//自定义项：semprint 声讯打印机
+                            {
+                                //MessageBox.Show("金翔打印机");
+                                MessageTips("金翔打印机");
+                            }
+                            else if (operobject.Equals("高拍仪"))//自定义项：semscanner 高拍仪
+                            {
+                                //MessageBox.Show("高拍仪");
+                                MessageTips("高拍仪");
+                            }
+                            else if (operobject.Equals("去黑边"))//
+                            {
+                                CkBox_DelBlackEdge.IsChecked = true;
+                                MessageTips("去黑边");
+                            }
+                            else if (operobject.Equals("去底色"))//
+                            {
+                                CkBox_DelBgColor.IsChecked = true;
+                                MessageTips("去底色");
+                            }
+                            else if (operobject.Equals("不裁剪"))//
+                            {
+                                RdBtNoCut.IsChecked = true;
+                                MessageTips("不裁切");
+                            }
+                            else if (operobject.Equals("自动裁切"))//
+                            {
+                                RdBtAutoCut.IsChecked = true;
+                                MessageTips("自动裁切");
+                            }
+                            else if (operobject.Equals("拍照"))//
+                            {
+                                CaptureBt_Click(null, null);        // 拍照方法
+                                MessageTips("拍照");
+                            }
+                            else if (operobject.Equals("测试一下"))//自定义项：https://www.qq.com 测试一下
+                            {
+                                //MessageBox.Show("测试一下");
+                                SemAiChipSdk.OpenBrowser(System.Text.Encoding.Default.GetBytes(operobject));
+                                MessageTips("测试一下");
+                            }
+                            else if (operobject.Equals("金翔网站"))//自定义项：声讯网站 http://www.sinsunvoice.com
+                            {
+                                SemAiChipSdk.OpenBrowser(System.Text.Encoding.Default.GetBytes(operobject));
+                                MessageTips("金翔网站");
+                            }
+                            else
+                            {
+                                //MessageBox.Show("其它操作：" + operobject);
+                                if(operobject.Trim().Length > 0)
+                                    MessageTips(operobject);
+                                else
+                                    MessageTips("无效指令");
+                            }
+                        }
+
+                        //if (content.Equals("处理完成"))
+                        //{
+                        //    btnStartRecord.Enabled = true;
+                        //    btnStopRecord.Enabled = false;
+                        //}
+
+                    }
+                }
+                //else if (backType.Equals("tts")) {//用于文字合成语音 此功能未开放
+                //}
+                //else if (backType.Equals("binary")) {//用于接收音频 此功能未开放
+                //}
+                //else {
+                //}
+
+
+                //txtInfo.SelectionColor = Color.Blue;
+                //txtInfo.AppendText("结果回调：");
+                //txtInfo.AppendText(Environment.NewLine);
+
+                //txtInfo.AppendText("errorCode：" + errorCode);
+                //txtInfo.AppendText(Environment.NewLine);
+
+                //txtInfo.AppendText("backType：" + backType);
+                //txtInfo.AppendText(Environment.NewLine);
+
+                //txtInfo.AppendText("operateAction：" + Marshal.PtrToStringAnsi(cbParam.operateAction).ToString());
+                //txtInfo.AppendText(Environment.NewLine);
+
+                //txtInfo.AppendText("operateObject：" + Marshal.PtrToStringAnsi(cbParam.operateObject).ToString());
+                //txtInfo.AppendText(Environment.NewLine);
+
+                //txtInfo.AppendText("content：" + Marshal.PtrToStringAnsi(cbParam.content).ToString());
+                //txtInfo.AppendText(Environment.NewLine);
+                //txtInfo.AppendText(Environment.NewLine);
+
+                ////移动到最底下
+                //ScrollToCaret();
+            }
+            else
+            {
+                string str_operateHandler = Marshal.PtrToStringAnsi(cbParam.operateHandler);
+
+                //txtInfo.SelectionColor = Color.Red;
+                //txtInfo.AppendText("结果回调：");
+                //txtInfo.AppendText(Environment.NewLine);
+
+                //txtInfo.AppendText("errorCode：" + errorCode);
+                //txtInfo.AppendText(Environment.NewLine);
+
+                //txtInfo.AppendText("content：" + Marshal.PtrToStringAnsi(cbParam.content).ToString());
+                //txtInfo.AppendText(Environment.NewLine);
+                //txtInfo.AppendText(Environment.NewLine);
+
+                ////移动到最底下
+                //ScrollToCaret();
+            }
+
+
+        }
+
+
+        private void CbResultEvent(SdkCmdCallBack eve)
+        {
+            Thread newThread = new Thread(() =>
+            {
+
+                //this.Invoke(new delegateResultCallback(ResultCallbackUiHandler), eve);
+                this.Dispatcher.BeginInvoke(new delegateResultCallback(ResultCallbackUiHandler), eve);
+
+            });
+            newThread.Start();
+
+        }
+
+        private void SemAiInit()
+        {
+
+            //txtInfo.SelectionColor = Color.Black;
+            //txtInfo.AppendText("开始初始化");
+            //txtInfo.AppendText(Environment.NewLine);
 
 
 
+            //第二步：创建结果回调
+            cbResFun = new CbResultHandle(CbResultEvent);
+            SemAiChipSdk.SetResultCallBack(cbResFun);
+
+
+            //第三步：非必填项，设置自定义参数
+            //https://blog.csdn.net/xuedingkai/article/details/53396840?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control
+            StringBuilder json = new StringBuilder();
+            json.Append("{");
+            json.Append("\"reshandler\":\"sdk\",");
+            json.Append("\"syshandler\":\"true\",");
+            json.Append("\"operate\":[{\"object\":\"金翔打印机\",\"value\":\"semprint\"},{\"object\":\"高拍仪\",\"value\":\"semscanner\"}],");
+            json.Append("\"define\":[{\"title\":\"测试一下\",\"value\":\"https://www.qq.com\"},{\"title\":\"金翔网站\",\"value\":\"http://www.kinghun.com\"}]");
+            json.Append("}");
+
+            //txtInfo.AppendText(json.ToString());
+            //txtInfo.AppendText(Environment.NewLine);
+
+
+            //设置参数SetParams必须在InitRecog之前，否则无效
+            if (SemAiChipSdk.SetParams(System.Text.Encoding.Default.GetBytes(json.ToString())) == 0)
+            {
+                //txtInfo.SelectionColor = Color.Red;
+                //txtInfo.AppendText("参数设置失败！");
+                //txtInfo.AppendText(Environment.NewLine);
+                MessageBox.Show("参数设置失败！");
+                return;
+            }
+
+            //txtInfo.AppendText("参数设置成功！");
+            //txtInfo.AppendText(Environment.NewLine);
+
+
+
+            SemAiChipSdk.SetSystemHandler(true);//设置为系统级处理，只对user有效
+            SemAiChipSdk.SetDefaultUrl(System.Text.Encoding.Default.GetBytes("http://www.kinghun.com"));//
+
+
+            //第四步：初始化语音命令
+            int ret = SemAiChipSdk.InitRecog();
+            if (ret == 1)
+            {
+                m_bSemSdkInit = true;
+                //    txtInfo.SelectionColor = Color.Green;
+                //    txtInfo.AppendText("初始化成功");
+
+                //    btnSetParam.Enabled = false;
+                //    btnInit.Enabled = false;
+                //    btnMouseWheel.Enabled = true;
+                //    btnStartRecord.Enabled = true;
+                //    btnStopRecord.Enabled = false;
+            }
+            else
+            {
+                m_bSemSdkInit = false;
+                //    txtInfo.SelectionColor = Color.Red;
+                //    txtInfo.AppendText("初始化失败");
+
+                //    btnSetParam.Enabled = true;
+                //    btnInit.Enabled = true;
+                //    btnMouseWheel.Enabled = false;
+                //    btnStartRecord.Enabled = false;
+                //    btnStopRecord.Enabled = false;
+
+            }
+
+            //txtInfo.AppendText(Environment.NewLine);
+
+            if (m_bRegMouseWheel == false)
+                SetMouseWheel(m_bRegMouseWheel);
+        }
+
+        private void SetMouseWheel(bool valueMouse)
+        {
+
+
+            int ret = 0;
+            if (valueMouse)
+            {
+                ret = SemAiChipSdk.UnRegisterMouseWheel();
+                if (ret == 1)
+                {
+                    m_bRegMouseWheel = false;
+                    //txtInfo.SelectionColor = Color.Green;
+                    //txtInfo.AppendText("已注销鼠标滚轮键");
+                    //txtInfo.AppendText(Environment.NewLine);
+
+                    //btnMouseWheel.Text = "注册滚轮键";
+                    //btnMouseWheel.ForeColor = Color.Black;
+                }
+                else
+                {
+                    m_bRegMouseWheel = true;
+                    //txtInfo.SelectionColor = Color.Red;
+                    //txtInfo.AppendText("注销鼠标滚轮键失败");
+                    //txtInfo.AppendText(Environment.NewLine);
+
+                    //btnMouseWheel.Text = "注销滚轮键";
+                    //btnMouseWheel.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                ret = SemAiChipSdk.RegisterMouseWheel();
+                if (ret == 1)
+                {
+                    m_bRegMouseWheel = true;
+                    //txtInfo.SelectionColor = Color.Blue;
+                    //txtInfo.AppendText("已注册鼠标滚轮键，请使用滚轮键下命令");
+                    //txtInfo.AppendText(Environment.NewLine);
+
+                    //btnMouseWheel.Text = "注销滚轮键";
+                    //btnMouseWheel.ForeColor = Color.Red;
+                }
+                else
+                {
+                    m_bRegMouseWheel = false;
+                    //txtInfo.SelectionColor = Color.Red;
+                    //txtInfo.AppendText("注册鼠标滚轮键失败");
+                    //txtInfo.AppendText(Environment.NewLine);
+
+                    //btnMouseWheel.Text = "注册滚轮键";
+                    //btnMouseWheel.ForeColor = Color.Black;
+                }
+            }
+            ////移动到最底下
+            //ScrollToCaret();
+        }
+
+        private void SemAI_KeyDown(object sender, RoutedEventArgs e)
+        {
+            if (SemAiChipSdk.StartRecord() == 1)
+            {
+                //btnStartRecord.Enabled = false;
+                //btnStopRecord.Enabled = true;
+
+                //txtInfo.AppendText("开始录音");
+                //txtInfo.AppendText(Environment.NewLine);
+            }
+            else
+            {
+                //btnStartRecord.Enabled = true;
+                //btnStopRecord.Enabled = false;
+
+                //txtInfo.AppendText("录音失败");
+                //txtInfo.AppendText(Environment.NewLine);
+            }
+            ////移动到最底下
+            //ScrollToCaret();
+        }
+
+        private void SemAI_KeyUp(object sender, RoutedEventArgs e)
+        {
+            if (SemAiChipSdk.StopRecord() == 1)
+            {
+                //btnStartRecord.Enabled = true;
+                //btnStopRecord.Enabled = false;
+
+                //txtInfo.AppendText("结束录音");
+                //txtInfo.AppendText(Environment.NewLine);
+                //MessageBox.Show("结束录音！");
+            }
+            else
+            {
+                //MessageBox.Show("结束录音失败！");
+                //txtInfo.AppendText("停止录音失败");
+                //txtInfo.AppendText(Environment.NewLine);
+            }
+            ////移动到最底下
+            //ScrollToCaret();
+        }
+
+        private void SemAI_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("点击按键！");
+        }
     }
 }
 

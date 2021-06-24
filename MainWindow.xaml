@@ -247,6 +247,16 @@
                        
                     </Grid>
                 </GroupBox>
+                
+                <xi:ImageButton x:Name="SemAI" Image="/Images/MIC.jpg" Width="66" Height="66" Margin="5,5,5,5" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,2" Click="SemAI_Click"/>
+
+                <Popup Name="PopupTips" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False" PlacementTarget="{Binding ElementName=SemAI}" Placement="Right" >
+                    <Label Style="{StaticResource tipLable}">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Name="PopupTipsLabel" Content="请输入用户名" Foreground="White"/>
+                        </StackPanel>
+                    </Label>
+                </Popup>
 
 
             </StackPanel>
