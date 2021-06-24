@@ -444,10 +444,6 @@
     <Resource Include="Images\MIC_1.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MIC_2.jpeg" />
-    <Resource Include="Images\MIC_3.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\MIC.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
