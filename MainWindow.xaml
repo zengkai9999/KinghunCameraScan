@@ -247,9 +247,13 @@
                        
                     </Grid>
                 </GroupBox>
-                
-                <xi:ImageButton x:Name="SemAI" Image="/Images/MIC.jpg" Width="66" Height="66" Margin="5,5,5,5" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,2" Click="SemAI_Click"/>
 
+                <WrapPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                    <xi:ImageButton x:Name="SemAI" Image="/Images/MIC.jpg" Width="66" Height="66" Margin="5,5,5,5" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,2" Click="SemAI_Click"/>
+                    <Button Name="SemAuto" Background="#FF708090" Foreground="White"  Content="开启语控" Margin="2,4,0,2"  Width="90" Height="30" Click="SemAuto_Click"></Button>
+
+                </WrapPanel>   
+                
                 <Popup Name="PopupTips" AllowsTransparency="True" StaysOpen="True" PopupAnimation="Fade" IsOpen="False" PlacementTarget="{Binding ElementName=SemAI}" Placement="Right" >
                     <Label Style="{StaticResource tipLable}">
                         <StackPanel Orientation="Horizontal">

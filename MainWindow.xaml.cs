@@ -336,6 +336,7 @@ namespace CameraScan
 
         bool m_bSemSdkInit = false;
         bool m_bRegMouseWheel = false;
+        bool m_bSemAiAuto = false;
 
 
         public MainWindow()
@@ -4978,7 +4979,8 @@ namespace CameraScan
                 //txtInfo.SelectionColor = Color.Red;
                 //txtInfo.AppendText("参数设置失败！");
                 //txtInfo.AppendText(Environment.NewLine);
-                MessageBox.Show("参数设置失败！");
+                //MessageBox.Show("参数设置失败！");
+                MessageTips("参数设置失败！");
                 return;
             }
 
@@ -5004,6 +5006,7 @@ namespace CameraScan
                 //    btnMouseWheel.Enabled = true;
                 //    btnStartRecord.Enabled = true;
                 //    btnStopRecord.Enabled = false;
+                MessageTips("初始化成功！");
             }
             else
             {
@@ -5016,7 +5019,7 @@ namespace CameraScan
                 //    btnMouseWheel.Enabled = false;
                 //    btnStartRecord.Enabled = false;
                 //    btnStopRecord.Enabled = false;
-
+                MessageTips("初始化失败！");
             }
 
             //txtInfo.AppendText(Environment.NewLine);
@@ -5084,6 +5087,10 @@ namespace CameraScan
 
         private void SemAI_KeyDown(object sender, RoutedEventArgs e)
         {
+            if(m_bSemSdkInit == false)
+            {
+                SemAiInit();
+            }
             if (SemAiChipSdk.StartRecord() == 1)
             {
                 //btnStartRecord.Enabled = false;
@@ -5128,6 +5135,24 @@ namespace CameraScan
         private void SemAI_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("点击按键！");
+        }
+
+        private void SemAuto_Click(object sender, RoutedEventArgs e)
+        {
+            if(m_bSemAiAuto)
+            {
+                m_bSemAiAuto = false;
+                SemAuto.Content = "打开语控";
+                SolidColorBrush myBrush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0x70, 0x80, 0x90));
+                SemAuto.Background = (System.Windows.Media.Brush)myBrush;
+            }
+            else
+            {
+                m_bSemAiAuto = true;
+                SemAuto.Content = "关闭语控";
+                SolidColorBrush myBrush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0x00, 0x00, 0xFF));
+                SemAuto.Background = (System.Windows.Media.Brush)myBrush;
+            }
         }
     }
 }
