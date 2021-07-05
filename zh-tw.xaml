@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:String x:Key="lanMainFormTitle">高拍儀</sys:String>
+    <sys:String x:Key="lanMainFormTitle">先尚高拍儀</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">科密高拍儀</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">維融高拍儀</sys:String>-->
@@ -28,6 +28,7 @@
     <sys:String x:Key="lanIdCard">身份證</sys:String>
     <sys:String x:Key="lanRecord">錄像</sys:String>
     <sys:String x:Key="lanEdit">編輯</sys:String>
+    <sys:String x:Key="lanShow">展臺</sys:String>
 
     <sys:String x:Key="lanSavePath">存儲路徑:</sys:String>
     <sys:String x:Key="lanSeletePath">選擇路徑</sys:String>

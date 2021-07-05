@@ -1489,8 +1489,17 @@ namespace CameraScan
          * *************/
         private void CheckCameraTimer_Tick(object sender, EventArgs e)
         {
-            int devCount = GetDeviceCount();
+            Process[] myProgress;
+            myProgress = Process.GetProcesses();　　　　　　　　　　//获取当前启动的所有进程
+            foreach (Process p in myProgress)　　　　　　　　　　　　//关闭当前启动的Excel进程
+            {
+                if (p.ProcessName == "whvideobooth")　　　　　　　　　　//通过进程名来寻找
+                {
+                    return;
+                }
+            }
 
+            int devCount = GetDeviceCount();
 
             if (devCount == 0)
             {
@@ -4735,10 +4744,41 @@ namespace CameraScan
            
         }
 
-       
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Process proc = new System.Diagnostics.Process();
+            proc.StartInfo.FileName = "https://www.cimfax.com/";
+            proc.Start();
+        }
 
+        private void ShowBt_Click(object sender, RoutedEventArgs e)
+        {
+            if (global.isOpenCameraA == true)
+            {
+                CloseDevice();
+                global.isOpenCameraA = false;
+            }
+            if (global.isOpenCameraB)
+            {
+                global.isOpenCameraB = false;
+                CloseDeviceB();
+                this.CamVideoPreivew2.Source = null; //切断与显示控件的连接  
+                GC.Collect();
+            }
+            TmpCameraCount = 0;
 
-
+            string exePath = System.Windows.Forms.Application.StartupPath + "\\ShowPiece\\whvideobooth.exe";
+            if (File.Exists(exePath))
+            {
+                //global.OpenFileAndPreview(exePath);
+                StartProcess(exePath);
+            }
+            else
+            {
+                string TipStr = "This version has no ShowPiece function module!";
+                System.Windows.MessageBox.Show(TipStr);
+            }
+        }
     }
 }
 

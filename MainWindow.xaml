@@ -4,11 +4,11 @@
         Title="{DynamicResource lanMainFormTitle}" Height="800" Width="1280" MinWidth="960" MinHeight="640"
         xmlns:xi="clr-namespace:CameraScan" 
         xmlns:markctl="clr-namespace:RisCaptureLib;assembly=RisCaptureLib"  
-        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/kinghun.ico" PreviewKeyDown="Window_PreviewKeyDown" >
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/cimsun.ico" PreviewKeyDown="Window_PreviewKeyDown" >
 
     <!-- *******************************************************************模板资源文件******************************************************************* -->
     <Window.Resources>
-
+        
         <!--<ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="en-us.xaml"/>
@@ -22,7 +22,7 @@
 
 
     <!-- *******************************************************************整体布局******************************************************************* -->
-
+    
     <DockPanel LastChildFill="True" Background="#FF708090">
 
 
@@ -57,8 +57,9 @@
                 <xi:ImageButton x:Name="JoinImgBt" Image="/Images/ImgJoin.png" Content="{DynamicResource lanImgJoin}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="JoinImgBt_Click" />
                 <xi:ImageButton x:Name="IdCardBt" Image="/Images/IdCard.png" Content="{DynamicResource lanIdCard}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="IdCardBt_Click" />
                 <xi:ImageButton x:Name="RecordBt" Image="/Images/Record.png" Content="{DynamicResource lanRecord}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="RecordBt_Click" />
-                <!--<xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" />-->
-                <xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />
+                <xi:ImageButton x:Name="ShowBt" Image="/Images/Show.png" Content="{DynamicResource lanShow}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="ShowBt_Click" />
+                <xi:ImageButton x:Name="EditBt" Image="/Images/Edit.png" Content="{DynamicResource lanEdit}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="EditBt_Click" />
+                <!--<xi:ImageButton x:Name="OcrBt" Image="/Images/OCR.png" Content="OCR" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="OcrBt_Click" />-->
             </WrapPanel>
 
             <WrapPanel Name="PanelToolBtB" Grid.Row="1" Grid.ColumnSpan="2"  Background="White" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
@@ -79,14 +80,14 @@
         </Grid>
 
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>文件保存路径设置<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-        <Grid Name="PanelTop" DockPanel.Dock="Top" HorizontalAlignment="Center">
+        <!--<Grid Name="PanelTop" DockPanel.Dock="Top" HorizontalAlignment="Center">
             <StackPanel  Background="{x:Null}" Orientation="Horizontal" >
                 <Label Content="{DynamicResource lanSavePath}" Foreground="White" Margin="5,4,0,4"/>
                 <TextBox Name="ImgFolderTexBox" Width="792" IsReadOnly="True" Background="#FFB0C0D0" Margin="0,4,0,4"/>
                 <Button Name="SelectFolderBt" Content="{DynamicResource lanSeletePath}" Margin="2,4,0,4" Click="SelectFolderBt_Click" />
                 <Button Name="OpenFolderBt" Content="{DynamicResource lanOpenPath}" Margin="2,4,0,4" Click="OpenFolderBt_Click" />
             </StackPanel>
-        </Grid>
+        </Grid>-->
         
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>拍照缩略图预览<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
         <ListBox Name="PreviewImgList" DockPanel.Dock="Left" Width="155" Background="#FFFFFFFF" Margin="1,1,2,1"  HorizontalAlignment="Center" SelectionMode="Extended" MouseDoubleClick="PreviewImgList_MouseDoubleClick" >
@@ -143,6 +144,9 @@
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>右侧参数面板<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
         <ScrollViewer  Name="PanelRight" DockPanel.Dock="Right"  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="1,2,2,2">
             <StackPanel  Width="210" Background="White">
+                <Image Height="54" Source="/Images/cimsun_main.png" MouseDown="Image_MouseDown">
+                    <!--Hyperlink.Click="https://www.cimfax.com/"-->
+                </Image>
 
                 <GroupBox Header="{DynamicResource lanGBoxDevice}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,3,3,2" FontSize="13">
                     <ComboBox Name="DevNameCbBox"   Margin="2,2,2,2" Height="24"  IsReadOnly="True" SelectionChanged="DevNameCbBox_SelectionChanged" >               
@@ -167,6 +171,16 @@
                         <ComboBoxItem>TIF</ComboBoxItem>
                         <ComboBoxItem>PDF</ComboBoxItem>
                     </ComboBox>
+                </GroupBox>
+
+                <GroupBox Name="PanelTop" Header="{DynamicResource lanSavePath}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">
+                    <StackPanel  Background="{x:Null}" Orientation="Vertical" >
+                        <TextBox Name="ImgFolderTexBox" Width="Auto" Height="30" IsReadOnly="True" Margin="0,4,0,4"/>
+                        <WrapPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Name="SelectFolderBt" Content="{DynamicResource lanSeletePath}"  Margin="2,4,0,2"  Width="90" Click="SelectFolderBt_Click" />
+                            <Button Name="OpenFolderBt" Content="{DynamicResource lanOpenPath}" Margin="5,4,0,2"  Width="90" Click="OpenFolderBt_Click" />
+                        </WrapPanel>
+                    </StackPanel>
                 </GroupBox>
 
                 <GroupBox Header="{DynamicResource lanGBoxColorMod}" BorderThickness="2" BorderBrush="SlateGray" Margin="3,1,3,2" FontSize="13">

@@ -4,7 +4,7 @@
 
 
     <!--<sys:String x:Key="lanMainFormTitle">高拍仪</sys:String>-->
-    <sys:String x:Key="lanMainFormTitle">金翔影像</sys:String>
+    <sys:String x:Key="lanMainFormTitle">先尚高拍仪</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">维融高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">讯派高拍仪</sys:String>-->
@@ -29,6 +29,7 @@
     <sys:String x:Key="lanIdCard">身份证</sys:String>
     <sys:String x:Key="lanRecord">录像</sys:String>
     <sys:String x:Key="lanEdit">编辑</sys:String>
+    <sys:String x:Key="lanShow">展台</sys:String>
 
     <sys:String x:Key="lanSavePath">存储路径:</sys:String>
     <sys:String x:Key="lanSeletePath">选择路径</sys:String>

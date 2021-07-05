@@ -3,7 +3,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
 
-    <sys:String x:Key="lanMainFormTitle">Höhenmeter</sys:String>
+    <sys:String x:Key="lanMainFormTitle">Cimsun Scanner</sys:String>
     <!--<sys:String x:Key="lanMainFormTitle">Jinxiang Bild</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">科密高拍仪</sys:String>-->
     <!--<sys:String x:Key="lanMainFormTitle">维融高拍仪</sys:String>-->
@@ -29,6 +29,7 @@
     <sys:String x:Key="lanIdCard">ID</sys:String>
     <sys:String x:Key="lanRecord">Videoband</sys:String>
     <sys:String x:Key="lanEdit">edit</sys:String>
+    <sys:String x:Key="lanShow">Show</sys:String>
 
     <sys:String x:Key="lanSavePath">Pfad zum Speichern:</sys:String>
     <sys:String x:Key="lanSeletePath">Wählen Sie einen Pfad</sys:String>
