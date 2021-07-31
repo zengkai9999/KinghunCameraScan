@@ -6,7 +6,7 @@
 
     <StackPanel Orientation="Vertical">
 
-        <GroupBox Header="{DynamicResource lanGBoxIDCardInfo}" BorderThickness="1" BorderBrush="SlateGray" Margin="5,2,5,2" FontSize="12" Width="330">
+        <GroupBox Header="{DynamicResource lanGBoxIDCardInfo}" BorderThickness="1" BorderBrush="SlateGray" Margin="5,2,5,2" FontSize="12" Width="420">
             <StackPanel  Orientation="Vertical" >
                 
                 <StackPanel Orientation="Horizontal">

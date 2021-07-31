@@ -94,6 +94,12 @@ namespace CameraScan
         public extern static int Is1300InSert1600ValDevice();
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static int Is1300InSert1800ValDevice();
+
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
+        public extern static int Is1300InSert2000ValDevice();
+
+        [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
         public extern static void StillCaptureSuccess(byte[] path, int formattype);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -1751,12 +1757,22 @@ namespace CameraScan
                 global.pHostCamera.PreWidth = 2592;
                 global.pHostCamera.PreHeight = 1944;
             }
-            if (openWidth == 4208 && openHeight == 3120 && 0 != Is1300InSert1500ValDevice() && 0 != Is1300InSert1600ValDevice())
+            if (openWidth == 4208 && openHeight == 3120 && 0 != Is1300InSert1500ValDevice() && 0 != Is1300InSert1600ValDevice() && 0 != Is1300InSert1800ValDevice() && 0 != Is1300InSert2000ValDevice())
             {
                 global.pHostCamera.PreWidth = 3264;
                 global.pHostCamera.PreHeight = 2448;
             }
 
+            if (openWidth == 5152 && openHeight == 3864 && 0 == Is1300InSert2000ValDevice())
+            {
+                global.pHostCamera.PreWidth = 4208;
+                global.pHostCamera.PreHeight = 3120;
+            }
+            if (openWidth == 4896 && openHeight == 3672 && 0 == Is1300InSert1800ValDevice())
+            {
+                global.pHostCamera.PreWidth = 4208;
+                global.pHostCamera.PreHeight = 3120;
+            }
             if (openWidth == 4608 && openHeight == 3456)
             {
                 global.pHostCamera.PreWidth = 4208;

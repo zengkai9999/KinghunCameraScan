@@ -40,7 +40,7 @@ namespace CameraScan
         public extern static int ReadIdCard(byte[] folderPath);
 
         [DllImport("DevCapture.dll", CallingConvention = CallingConvention.Cdecl)]
-        public extern static IntPtr GetIdCardInfo(int index);
+        public extern static IntPtr GetIdCardInfo(int index, ref int cutIndex);
 
 
         [DllImport("CmRecongize.dll")]
@@ -600,28 +600,33 @@ namespace CameraScan
 
             if (iRest == 0)
             {
-                IntPtr info = GetIdCardInfo(0);
+                int curIndex = 1;
+                IntPtr info = GetIdCardInfo(0, ref curIndex);
                 string infoStr = Marshal.PtrToStringAnsi(info);
                 NameTextBox.Text = infoStr;
-                info = GetIdCardInfo(1);
+                info = GetIdCardInfo(1, ref curIndex);
                 infoStr = Marshal.PtrToStringAnsi(info);
                 SexTextBox.Text = infoStr;
-                info = GetIdCardInfo(2);
+                info = GetIdCardInfo(2, ref curIndex);
                 infoStr = Marshal.PtrToStringAnsi(info);
                 NationTextBox.Text = infoStr;
-                info = GetIdCardInfo(3);
+                info = GetIdCardInfo(3, ref curIndex);
                 infoStr = Marshal.PtrToStringAnsi(info);
                 infoStr = infoStr.Substring(0, 4) + "-" + infoStr.Substring(4, 2) + "-" + infoStr.Substring(6, 2);
                 BornTextBox.Text = infoStr;
-                info = GetIdCardInfo(4);
+                info = GetIdCardInfo(4, ref curIndex);
                 infoStr = Marshal.PtrToStringAnsi(info);
                 AddressTextBox.Text = infoStr;
-                info = GetIdCardInfo(5);
+                info = GetIdCardInfo(5, ref curIndex);
                 infoStr = Marshal.PtrToStringAnsi(info);
                 NumTextBox.Text = infoStr;
 
-                info = GetIdCardInfo(9);
-                string headImgPath= Marshal.PtrToStringAnsi(info);
+                info = GetIdCardInfo(9, ref curIndex);
+                //string headImgPath = Marshal.PtrToStringAnsi(info);
+                byte[] bPtr = new byte[curIndex];       // cutIndex作为返回的字节数据大小
+                Marshal.Copy(info, bPtr, 0, curIndex);
+                string headImgPath = Encoding.GetEncoding(global.pEncodType).GetString(bPtr);
+                //System.Windows.MessageBox.Show(headImgPath);
                 if (File.Exists(headImgPath))
                 {
                     MainWindow mMainWindow = (MainWindow)this.Owner;
@@ -653,9 +658,9 @@ namespace CameraScan
                     CardInfo[4] = BornTextBox.Text + "'";
                     CardInfo[5] = AddressTextBox.Text;
                     CardInfo[6] = NumTextBox.Text + "'";
-                    infoStr = Marshal.PtrToStringAnsi(GetIdCardInfo(6));
+                    infoStr = Marshal.PtrToStringAnsi(GetIdCardInfo(6, ref curIndex));
                     CardInfo[7] = infoStr;
-                    infoStr = Marshal.PtrToStringAnsi(GetIdCardInfo(7)) + "-" + Marshal.PtrToStringAnsi(GetIdCardInfo(8));
+                    infoStr = Marshal.PtrToStringAnsi(GetIdCardInfo(7, ref curIndex)) + "-" + Marshal.PtrToStringAnsi(GetIdCardInfo(8, ref curIndex));
                     CardInfo[8] = infoStr;
                     CardInfo[9] = headImgPath;
                     string timeStr = DateTime.Now.ToString("yyyy-M-dd H:mm");
