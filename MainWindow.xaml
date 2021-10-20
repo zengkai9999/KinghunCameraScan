@@ -4,7 +4,7 @@
         Title="{DynamicResource lanMainFormTitle}" Height="800" Width="1280" MinWidth="960" MinHeight="640"
         xmlns:xi="clr-namespace:CameraScan" 
         xmlns:markctl="clr-namespace:RisCaptureLib;assembly=RisCaptureLib"  
-        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/zhendi.ico" PreviewKeyDown="Window_PreviewKeyDown" >
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"  SizeChanged="Window_SizeChanged" Icon="/CameraScan;component/gpy.ico" PreviewKeyDown="Window_PreviewKeyDown" >
 
     <!-- *******************************************************************模板资源文件******************************************************************* -->
     <Window.Resources>
