@@ -116,6 +116,7 @@
     <sys:String x:Key="lanChBSaveJoinSource">Speichern Sie das Quellbild</sys:String>
     <sys:String x:Key="lanLabelJoinPhotoPages">Anzahl der Seiten, die zusammengenommen wurden：</sys:String>
     <sys:String x:Key="lanBtJoinPhoto">Schießen zusammenführen</sys:String>
+    <sys:String x:Key="lanBtPrintPhoto">Bilder drucken</sys:String>
 
     <sys:String x:Key="lanMarkDlgTitle">Wasserzeichen</sys:String>
     <sys:String x:Key="lanChBAddTheMark">Wasserzeichen hinzufügen</sys:String>

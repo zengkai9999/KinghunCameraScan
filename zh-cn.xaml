@@ -116,6 +116,7 @@
     <sys:String x:Key="lanChBSaveJoinSource">保存合并源图像</sys:String>
     <sys:String x:Key="lanLabelJoinPhotoPages">合并拍摄页数：</sys:String>
     <sys:String x:Key="lanBtJoinPhoto">合并拍摄</sys:String>
+    <sys:String x:Key="lanBtPrintPhoto">打印图片</sys:String>
 
     <sys:String x:Key="lanMarkDlgTitle">浮水印</sys:String>
     <sys:String x:Key="lanChBAddTheMark">添加水印</sys:String>

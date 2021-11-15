@@ -3530,7 +3530,7 @@ namespace CameraScan
         *打印 默认打印JPG图片
         ****************/
 
-        void PrintImage(string imgpath)
+        public void PrintImage(string imgpath)
         {
             //global.WriteMessage("打印的图片路径" + imgpath);
             printDocument.DocumentName = imgpath;

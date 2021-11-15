@@ -47,8 +47,9 @@
 
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-            <xi:ImageButton x:Name="ScanBt"  Content="{DynamicResource lanBtJoinPhoto}" FontSize="14" ImageHeight="0" ImageWidth="0"  Width="150" Height="34" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ScanBt_Click" />
-            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}"  FontSize="14" ImageHeight="0" ImageWidth="0"  Width="120" Height="34" Margin="20,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ExitBt_Click" />
+            <xi:ImageButton x:Name="ScanBt"  Content="{DynamicResource lanBtJoinPhoto}" FontSize="14" ImageHeight="0" ImageWidth="0"  Width="140" Height="34" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ScanBt_Click" />
+            <xi:ImageButton x:Name="PrintBt"  Content="{DynamicResource lanBtPrintPhoto}" FontSize="14" ImageHeight="0" ImageWidth="0"  Width="130" Height="34" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="PrintBt_Click" />
+            <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtExit}"  FontSize="14" ImageHeight="0" ImageWidth="0"  Width="110" Height="34" Margin="20,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,8" Click="ExitBt_Click" />
         </StackPanel>
 
     </StackPanel>

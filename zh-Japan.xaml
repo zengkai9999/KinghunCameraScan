@@ -116,6 +116,7 @@
     <sys:String x:Key="lanChBSaveJoinSource">統合画像の保存</sys:String>
     <sys:String x:Key="lanLabelJoinPhotoPages">キャプチャーページ統合：</sys:String>
     <sys:String x:Key="lanBtJoinPhoto">キャプチャー統合</sys:String>
+    <sys:String x:Key="lanBtPrintPhoto">印刷</sys:String>
 
     <sys:String x:Key="lanMarkDlgTitle">電子透かし</sys:String>
     <sys:String x:Key="lanChBAddTheMark">電子透かし追加</sys:String>

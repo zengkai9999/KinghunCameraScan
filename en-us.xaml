@@ -114,6 +114,7 @@
     <sys:String x:Key="lanChBSaveJoinSource">Save source image</sys:String>
     <sys:String x:Key="lanLabelJoinPhotoPages">Merge Pages：</sys:String>
     <sys:String x:Key="lanBtJoinPhoto">MergeSnap</sys:String>
+    <sys:String x:Key="lanBtPrintPhoto">PrintImage</sys:String>
 
     <sys:String x:Key="lanMarkDlgTitle">WaterMark</sys:String>
     <sys:String x:Key="lanChBAddTheMark">Add WaterMark</sys:String>

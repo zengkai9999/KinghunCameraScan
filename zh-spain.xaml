@@ -116,6 +116,7 @@
     <sys:String x:Key="lanChBSaveJoinSource">Guardar la imagen combinada</sys:String>
     <sys:String x:Key="lanLabelJoinPhotoPages">Combinar páginas capturadas：</sys:String>
     <sys:String x:Key="lanBtJoinPhoto">Combinar capturas</sys:String>
+    <sys:String x:Key="lanBtPrintPhoto">Imprimir imagen</sys:String>
 
     <sys:String x:Key="lanMarkDlgTitle">Marca de agua</sys:String>
     <sys:String x:Key="lanChBAddTheMark">Añadir marca de agua</sys:String>

@@ -353,7 +353,7 @@ namespace CameraScan
                     mMainWindow.AddPreviewImageToList(imgpath, 210, 297);
                     CombinePath = imgpath;
                     if (global.FileFormat == 4)
-                         File.Delete(prePath);
+                        File.Delete(prePath);
                 }
                 else
                 {
@@ -416,5 +416,32 @@ namespace CameraScan
             pImgPathList.Clear();
         }
 
+        private void PrintBt_Click(object sender, RoutedEventArgs e)
+        {
+            if (!global.isOpenCameraA)
+                return;
+
+            if(CombinePath.Length <= 0)
+            {
+                string TipStr = "请先合并图像！";
+                if (global.pLangusge == 1) TipStr = "請先合並圖像！";
+                if (global.pLangusge == 2) TipStr = "Please merge the images first !";
+                if (global.pLangusge == 3) TipStr = "Por favor, fusiona la imagen primero !";
+                if (global.pLangusge == 4) TipStr = "画像を先にマージしてください！";
+                if (global.pLangusge == 5) TipStr = "Bitte verschmelzen Sie zuerst die Bilder !";
+                System.Windows.MessageBox.Show(TipStr);
+            }
+            else
+            {
+                MainWindow mMainWindow = (MainWindow)this.Owner;
+
+                string prePath = CombinePath;
+                //if (global.FileFormat == 4)
+                //    prePath = System.Windows.Forms.Application.StartupPath + "\\tpdf.jpg";
+
+                mMainWindow.PrintImage(prePath);
+            }
+
+        }
     }
 }
