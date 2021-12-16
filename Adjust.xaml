@@ -1,0 +1,35 @@
+﻿<Window x:Class="CameraScan.Adjust"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xi="clr-namespace:CameraScan" 
+        Title="{DynamicResource lanAdjustDlgTitle}"  Width="470" Height="232" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Loaded="Window_Loaded" Closed="Window_Closed" SizeChanged="Window_SizeChanged">
+
+    <StackPanel Orientation="Vertical">
+
+        <GroupBox Header="{DynamicResource lanAdjustName}" BorderThickness="1" BorderBrush="SlateGray" Margin="8,2,8,7" FontSize="13">
+            <StackPanel  Orientation="Vertical" Margin="0,5,0,0">
+                <StackPanel  Orientation="Horizontal" >
+                    <Label Content="{DynamicResource lanAdjustX}" Width="102" Margin="15,2,2,2"></Label>
+                    <TextBox Name="AdjustX" Width="60" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center" PreviewKeyDown="DpiTextBox_PreviewKeyDown"/>
+                    <Label Content="{DynamicResource lanAdjustY}"  Width="102" Margin="15,2,2,2"></Label>
+                    <TextBox Name="AdjustY" Width="60" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center" PreviewKeyDown="DpiTextBox_PreviewKeyDown"/>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" >
+                    <Label Content="{DynamicResource lanAdjustThickness}"  Width="62" Margin="55,2,2,2"></Label>
+                    <TextBox Name="AdjustThick" Width="60" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center" PreviewKeyDown="DpiTextBox_PreviewKeyDown"/>
+                    <Label Content="{DynamicResource lanAdjustAngleSnap}"  Width="62" Margin="55,2,2,2"></Label>
+                    <TextBox Name="AdjustAngle" Width="60" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center" PreviewKeyDown="DpiTextBox_PreviewKeyDown"/>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" >
+                    <CheckBox Name="AdjustCheck" Margin="62,2,70,2" VerticalAlignment="Center" Checked="AdjustCheck_Checked" Unchecked="AdjustCheck_Unchecked" Content="{DynamicResource lanAdjustCheck}"></CheckBox>
+                    <xi:ImageButton x:Name="AdjustUpdate"  Content="{DynamicResource lanAdjustUpdate}" FontSize="13" ImageHeight="0" ImageWidth="0"  Width="102" Height="32" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="AdjustUpdate_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+        </GroupBox>
+
+        <xi:ImageButton x:Name="ExitBt"  Content="{DynamicResource lanBtOK}" FontSize="13" ImageHeight="0" ImageWidth="0"  Width="102" Height="32" Margin="5,5,5,5"   BorderBrush="SlateGray" BorderThickness="0.4" Padding="2,2,2,7" Click="ExitBt_Click"  />
+        
+    </StackPanel>
+    
+</Window>

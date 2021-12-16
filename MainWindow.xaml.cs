@@ -243,6 +243,9 @@ namespace CameraScan
         [DllImport("DevCapture.dll", EntryPoint = "SetJpgQuality", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetJpgQuality(int quality);
 
+        [DllImport("DevCapture.dll", EntryPoint = "SetAdjustParms", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SetAdjustParms(bool isOpen, int X, int Y, int Thickness, int AngleSnap);
+
         #endregion
 
 
@@ -299,6 +302,7 @@ namespace CameraScan
         byte[] CamSlaveBuf = null;
         WaitDialog mWaitDialog = new WaitDialog();
 
+        Adjust mAdjustDlg;
         public Setting mSettingDlg;
         MarkDlg mMarkDlg;
         MorePdfDlg mMorePdfDlg;
@@ -492,6 +496,7 @@ namespace CameraScan
             global.SetWaterMarkParameters();
 
             SetJpgQuality(global.JpgQuality);  //设置JPEG图片质量
+            SetAdjustParms(global.AdjustIsOpen, global.AdjustX, global.AdjustY, global.AdjustThickness, global.AdjustAngleSnap);
 
             InitBtnSize();
         }
@@ -4751,10 +4756,15 @@ namespace CameraScan
            
         }
 
-       
-
-
-
+        private void AdjustBt_Click(object sender, RoutedEventArgs e)
+        {
+            if (global.pAdjustDlgHaveRun)
+                return;
+            mAdjustDlg = new Adjust();
+            mAdjustDlg.Owner = this;
+            mAdjustDlg.Show();
+            global.pAdjustDlgHaveRun = true;
+        }
     }
 }
 

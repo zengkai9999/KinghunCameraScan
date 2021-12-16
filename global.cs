@@ -63,6 +63,12 @@ namespace CameraScan
         public static double RotateAngle = 0;
         public static int RotateCount = 0;
 
+        public static bool AdjustIsOpen = false;    // 是否显示校准线
+        public static int AdjustX = 100;            // 距离左边框
+        public static int AdjustY = 100;            // 距离上边框
+        public static int AdjustThickness = 5;      // 线条粗细
+        public static int AdjustAngleSnap = 1;      // 角度间隔
+
         public static int JpgQuality = 75;   //JPG图像质量
         public static int FileFormat = 0;   //文件格式
         public static int CutType = 0;   //裁切方式
@@ -96,6 +102,7 @@ namespace CameraScan
         public static bool pIdCardFormScanDo = false;
         public static bool pJoinImgFormScanDo = false;
 
+        public static bool pAdjustDlgHaveRun = false;  //子窗体是否运行    
         public static bool pMorePdfDlgHaveRun = false;  //子窗体是否运行     
         public static bool pIdCardDlgHaveRun = false;  //子窗体是否运行    
         public static bool pJoinImgDlgHaveRun = false;  //子窗体是否运行
@@ -233,6 +240,26 @@ namespace CameraScan
                 //iRest = GetPrivateProfileString("SET", "ImagesFolder", "", Str, 256, ConfigIniPath);
                 //if (iRest == 0) WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);
                 //else ImagesFolder = Str.ToString();
+
+                iRest = GetPrivateProfileString("SET", "AdjustIsOpen", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "AdjustIsOpen", Convert.ToString(AdjustIsOpen), ConfigIniPath);
+                else AdjustIsOpen = Convert.ToBoolean(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "AdjustX", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "AdjustX", Convert.ToString(AdjustX), ConfigIniPath);
+                else AdjustX = Convert.ToInt32(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "AdjustY", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "AdjustY", Convert.ToString(AdjustY), ConfigIniPath);
+                else AdjustY = Convert.ToInt32(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "AdjustThickness", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "AdjustThickness", Convert.ToString(AdjustThickness), ConfigIniPath);
+                else AdjustThickness = Convert.ToInt32(Str.ToString());
+
+                iRest = GetPrivateProfileString("SET", "AdjustAngleSnap", "", Str, 256, ConfigIniPath);
+                if (iRest == 0) WritePrivateProfileString("SET", "AdjustAngleSnap", Convert.ToString(AdjustAngleSnap), ConfigIniPath);
+                else AdjustAngleSnap = Convert.ToInt32(Str.ToString());
 
                 iRest = GetPrivateProfileString("SET", "JpgQuality", "", Str, 256, ConfigIniPath);
                 if (iRest == 0) WritePrivateProfileString("SET", "JpgQuality", Convert.ToString(JpgQuality), ConfigIniPath);
@@ -589,6 +616,12 @@ namespace CameraScan
                 //}   
 
                 //WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);  //图片保存路径
+                WritePrivateProfileString("SET", "AdjustIsOpen", Convert.ToString(AdjustIsOpen), ConfigIniPath);
+                WritePrivateProfileString("SET", "AdjustX", Convert.ToString(AdjustX), ConfigIniPath);
+                WritePrivateProfileString("SET", "AdjustY", Convert.ToString(AdjustY), ConfigIniPath);
+                WritePrivateProfileString("SET", "AdjustThickness", Convert.ToString(AdjustThickness), ConfigIniPath);
+                WritePrivateProfileString("SET", "AdjustAngleSnap", Convert.ToString(AdjustAngleSnap), ConfigIniPath);
+
                 WritePrivateProfileString("SET", "JpgQuality", Convert.ToString(JpgQuality), ConfigIniPath);  //图片质量
                 WritePrivateProfileString("SET", "FileFormat", Convert.ToString(FileFormat), ConfigIniPath);  //文件格式
                 WritePrivateProfileString("SET", "CutType", Convert.ToString(CutType), ConfigIniPath);       //裁切方式
@@ -667,6 +700,12 @@ namespace CameraScan
         public static int WriteConfigPramas()
         {
             //WritePrivateProfileString("SET", "ImagesFolder", ImagesFolder, ConfigIniPath);  //图片保存路径
+            WritePrivateProfileString("SET", "AdjustIsOpen", Convert.ToString(AdjustIsOpen), ConfigIniPath);
+            WritePrivateProfileString("SET", "AdjustX", Convert.ToString(AdjustX), ConfigIniPath);
+            WritePrivateProfileString("SET", "AdjustY", Convert.ToString(AdjustY), ConfigIniPath);
+            WritePrivateProfileString("SET", "AdjustThickness", Convert.ToString(AdjustThickness), ConfigIniPath);
+            WritePrivateProfileString("SET", "AdjustAngleSnap", Convert.ToString(AdjustAngleSnap), ConfigIniPath);
+
             WriteString("SET", "ImagesFolder", ImagesFolder, ConfigIniUTF8);  //图片保存路径
             WritePrivateProfileString("SET", "JpgQuality", Convert.ToString(JpgQuality), ConfigIniPath);  //图片质量
             WritePrivateProfileString("SET", "FileFormat", Convert.ToString(FileFormat), ConfigIniPath);  //文件格式

@@ -99,6 +99,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adjust.xaml.cs">
+      <DependentUpon>Adjust.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -146,6 +149,10 @@
     <Compile Include="WiseDlg.xaml.cs">
       <DependentUpon>WiseDlg.xaml</DependentUpon>
     </Compile>
+    <Page Include="Adjust.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
     <Page Include="AssistSetDlg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

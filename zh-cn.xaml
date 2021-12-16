@@ -167,6 +167,16 @@
     <sys:String x:Key="lanLabelInFileName">文件名:</sys:String>
     <sys:String x:Key="lanBtOK">确 定</sys:String>
 
+    <sys:String x:Key="lanAdjustName">校准参数设置</sys:String>
+    <sys:String x:Key="lanAdjustCheck">开启校准</sys:String>
+    <sys:String x:Key="lanAdjustX">原点距离左边框</sys:String>
+    <sys:String x:Key="lanAdjustY">原点距离上边框</sys:String>
+    <sys:String x:Key="lanAdjustThickness">线条粗细</sys:String>
+    <sys:String x:Key="lanAdjustAngleSnap">角度间隔</sys:String>
+    <sys:String x:Key="lanAdjustUpdate">设定</sys:String>
+    
+    
+    <sys:String x:Key="lanAdjustDlgTitle">校准</sys:String>
     <sys:String x:Key="lanSetDlgTitle">设置</sys:String>
     <sys:String x:Key="lanGBoxNameType">命名方式</sys:String>
     <sys:String x:Key="lanRaBNameTime">以时间命名</sys:String>

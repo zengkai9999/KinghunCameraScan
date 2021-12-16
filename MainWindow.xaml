@@ -47,6 +47,7 @@
 
 
             <WrapPanel Name="FunctionBtsB"  Grid.Row="0" Grid.Column="0"  Background="White" HorizontalAlignment="Center">
+                <xi:ImageButton x:Name="AdjustBt" Image="/Images/Edit.png" Content="{DynamicResource lanAdjustDlgTitle}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="AdjustBt_Click" />
                 <xi:ImageButton x:Name="SetBt" Image="/Images/Set.png" Content="{DynamicResource lanSet}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="SetBt_Click" />
                 <xi:ImageButton x:Name="MarkBt" Image="/Images/Mark.png" Content="{DynamicResource lanWaterMark}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="MarkBt_Click" />
                 <xi:ImageButton x:Name="PrintBt" Image="/Images/Print.png" Content="{DynamicResource lanPrint}" FontSize="10" ImageHeight="36" ImageWidth="36" Width="66" Height="54" Margin="2,6,2,6" Background="{x:Null}" BorderBrush="#FF3B3A38" BorderThickness="0.4" Padding="2,2,2,3" Click="PrintBt_Click" />
