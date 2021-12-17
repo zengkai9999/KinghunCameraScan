@@ -8,6 +8,11 @@
 
         <GroupBox Header="{DynamicResource lanAdjustName}" BorderThickness="1" BorderBrush="SlateGray" Margin="8,2,8,7" FontSize="13">
             <StackPanel  Orientation="Vertical" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="自动裁切对比度" Width="102" Margin="15,2,2,2"></Label>
+                    <Slider Name="AutoCutOffset" Width="270" Margin="5,5,5,5" VerticalAlignment="Center" Minimum="-50" Maximum="50" Value="0" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="1" ValueChanged="AutoCutOffset_ValueChanged" />
+                    <Label  Name="LabelAutoCutOffset" Content="0" Foreground="Black" Margin="5,5,10,5" VerticalAlignment="Center"/>
+                </StackPanel>
                 <StackPanel  Orientation="Horizontal" >
                     <Label Content="{DynamicResource lanAdjustX}" Width="102" Margin="15,2,2,2"></Label>
                     <TextBox Name="AdjustX" Width="60" IsReadOnly="False" Margin="0,2,0,0" VerticalAlignment="Center" PreviewKeyDown="DpiTextBox_PreviewKeyDown"/>

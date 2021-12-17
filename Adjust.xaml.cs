@@ -24,6 +24,9 @@ namespace CameraScan
         [DllImport("DevCapture.dll", EntryPoint = "SetAdjustParms", CallingConvention = CallingConvention.Cdecl)]
         public extern static void SetAdjustParms(bool isOpen, int X, int Y, int Thickness, int AngleSnap);
 
+        [DllImport("DevCapture.dll", EntryPoint = "SetAutoOffset", CallingConvention = CallingConvention.Cdecl)]
+        public extern static void SetAutoOffset(double val);
+
         int countFlag = 0;
 
         public Adjust()
@@ -43,6 +46,9 @@ namespace CameraScan
             else
                 AdjustCheck.IsChecked = false;
 
+            AutoCutOffset.Value = 0;
+            LabelAutoCutOffset.Content = Convert.ToString(AutoCutOffset.Value);
+            SetAutoOffset(AutoCutOffset.Value);
         }
 
 
@@ -177,6 +183,12 @@ namespace CameraScan
         private void AdjustCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             global.AdjustIsOpen = false;
+        }
+
+        private void AutoCutOffset_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            SetAutoOffset(AutoCutOffset.Value);
+            LabelAutoCutOffset.Content = Convert.ToString(AutoCutOffset.Value);
         }
     }
 }
